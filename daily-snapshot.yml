@@ -1,0 +1,47 @@
+name: Daily portfolio snapshot
+
+on:
+  schedule:
+    # 22:30 UTC on weekdays = after the US close year-round
+    # (17:30 ET during EST, 18:30 ET during EDT).
+    - cron: '30 22 * * 1-5'
+  workflow_dispatch:        # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write           # required so the job can commit the updated CSVs
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch closing prices
+        run: python scripts/fetch_prices.py
+
+      - name: Recompute look-through concentration
+        run: python scripts/concentration.py
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "portfolio-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No change (market closed or no new bar) — nothing to commit."
+          else
+            git commit -m "snapshot $(date -u +%Y-%m-%d)"
+            git push
+          fi
