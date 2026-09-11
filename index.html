@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Portfolio Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400&display=swap">
+<style>
+  :root{
+    --ground:#F5F6F8; --surface:#FFF; --surface-2:#EDEFF3;
+    --ink:#14161C; --ink-2:#3D4552; --muted:#6B7585; --line:#DCE0E7;
+    --direct:#1F6270; --hidden:#C4823A; --opt:#8E6BA8;
+    --crit:#A8352E; --ok:#3F6B4A; --grid:#E4E7EC;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --serif:'IBM Plex Serif',Georgia,serif;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --ground:#0F1116; --surface:#171A21; --surface-2:#1E222B;
+    --ink:#E9ECF2; --ink-2:#BCC4D0; --muted:#8B95A5; --line:#2B303A;
+    --direct:#5AA8B8; --hidden:#D9A063; --opt:#B195C9;
+    --crit:#E0736A; --ok:#7FB08C; --grid:#252A33;
+  }}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+       line-height:1.55;-webkit-font-smoothing:antialiased;padding:0 20px 64px}
+  .wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px;padding-top:44px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:clamp(26px,5vw,36px);letter-spacing:-.02em;margin:8px 0 0;font-weight:600;line-height:1.1}
+  h2{font-size:18px;letter-spacing:-.01em;font-weight:600}
+  .sub{font-family:var(--serif);font-size:15.5px;color:var(--ink-2);max-width:60ch;margin-top:10px}
+  section{display:flex;flex-direction:column;gap:16px}
+  .shead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;
+         border-bottom:1px solid var(--line);padding-bottom:9px}
+  .note{font-family:var(--serif);font-size:14px;color:var(--muted);max-width:66ch;line-height:1.6}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .freshness{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);
+             font-family:var(--mono)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+  .dot.stale{background:var(--hidden)} .dot.bad{background:var(--crit)}
+
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+         background:var(--line);border:1px solid var(--line)}
+  .tile{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:3px}
+  .tile .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .tile .v{font-family:var(--mono);font-size:22px;font-weight:500;letter-spacing:-.02em}
+  .tile .d{font-size:11.5px;color:var(--muted)}
+
+  .rows{display:flex;flex-direction:column;gap:1px}
+  .row{display:grid;grid-template-columns:70px 1fr 58px;gap:10px;align-items:center;padding:5px 0}
+  .row:hover{background:var(--surface-2)}
+  .tick{font-family:var(--mono);font-size:12.5px;font-weight:500}
+  .track{height:17px;display:flex;background:transparent}
+  .seg{height:100%}
+  .val{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+  .key{display:flex;align-items:center;gap:6px}
+  .sw{width:12px;height:12px;flex:none}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  .scroll{overflow-x:auto}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+     text-align:right;padding:0 0 8px;font-weight:400;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child{text-align:left}
+  td{padding:7px 0;border-bottom:1px solid var(--line);text-align:right;
+     font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  td:first-child{text-align:left;font-weight:500}
+  .pos{color:var(--ok)} .neg{color:var(--crit)}
+  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:1px 6px;text-transform:uppercase}
+  .chip.hot{background:var(--crit);color:#fff} .chip.ok{color:var(--ok);border:1px solid var(--line)}
+  .err{background:var(--surface);border-left:3px solid var(--crit);padding:12px 14px;font-size:13.5px;color:var(--ink-2)}
+  footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;line-height:1.7}
+  .skel{color:var(--muted);font-family:var(--mono);font-size:13px}
+  @media (max-width:700px){ .tiles{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .row{grid-template-columns:58px 1fr 50px;gap:8px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Fidelity taxable · automated monitor</div>
+    <h1>Portfolio Monitor</h1>
+    <p class="sub">Look-through concentration and risk for a book where the index funds
+    hold the same names as the direct positions. Regenerated by GitHub Actions —
+    weekdays after the close, and Sunday evenings.</p>
+    <div style="margin-top:14px"><span class="freshness" id="fresh"><span class="dot"></span><span id="freshText">loading…</span></span></div>
+  </header>
+
+  <div id="error"></div>
+
+  <section>
+    <div class="shead"><h2>Risk</h2><span class="eyebrow" id="riskWindow"></span></div>
+    <div class="tiles" id="tiles"><div class="tile"><span class="skel">loading…</span></div></div>
+    <p class="note"><strong>These are a backtest of the current book.</strong> They assume
+    today's weights were held for the whole window, and exclude options and cash. Not
+    realised past performance.</p>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Where the risk actually sits</h2><span class="eyebrow">share of variance</span></div>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--direct)"></span>capital weight</span>
+      <span class="key"><span class="sw" style="background:var(--hidden)"></span>share of portfolio risk</span>
+    </div>
+    <div class="rows" id="risk"><span class="skel">loading…</span></div>
+    <p class="note">Component contribution to variance from the daily covariance matrix.
+    A name whose risk bar runs well past its weight bar is doing more work than its size suggests.</p>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Look-through concentration</h2><span class="eyebrow" id="concDate"></span></div>
+    <div class="scroll"><table id="conc"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
+    <p class="note">Alerting is baseline-relative: acknowledged levels as of 10 Sep 2026 are
+    NVDA 15.05, ASTS 13.88, AAPL 8.89, MSFT 8.68. A flag fires on movement beyond 2 points,
+    or a new name crossing 8%.</p>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Factor exposure</h2><span class="eyebrow" id="ffMeta"></span></div>
+    <div class="scroll"><table id="ff"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Stress replays</h2><span class="eyebrow">portfolio vs SPY</span></div>
+    <div class="scroll"><table id="stress"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Last session</h2><span class="eyebrow" id="pxDate"></span></div>
+    <div class="scroll"><table id="movers"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
+  </section>
+
+  <footer>
+    Derived metrics only — no cost basis, share counts, account value or dollar amounts are
+    published here or stored in the repository.<br>
+    Not investment or tax advice. Source:
+    <a href="https://github.com/dmartindem/portfolio-automation" style="color:var(--direct)">dmartindem/portfolio-automation</a>
+  </footer>
+</div>
+
+<script>
+const CORE = ['ASTS','NVDA','VUG','VOOG','MSFT','AAPL','QQQ','AMZN','GOOGL','GS','SPY','RSP'];
+const pct = v => (v===null||v===undefined||!isFinite(v)) ? '—' : (v*100).toFixed(1)+'%';
+const fx  = (v,d=2) => (v===null||v===undefined||!isFinite(v)) ? '—' : v.toFixed(d);
+const sgn = v => (v>=0?'+':'') + v.toFixed(2) + '%';
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+async function getJSON(p){ const r = await fetch(p, {cache:'no-store'}); if(!r.ok) throw new Error(p+' → '+r.status); return r.json(); }
+async function getText(p){ const r = await fetch(p, {cache:'no-store'}); if(!r.ok) throw new Error(p+' → '+r.status); return r.text(); }
+function parseCSV(t){
+  const [h, ...ls] = t.trim().split('\n');
+  // Python's csv writer emits CRLF, so trim or the last column key keeps a \r
+  const cols = h.split(',').map(c => c.trim());
+  return ls.filter(l => l.trim()).map(l => {
+    const parts = l.split(',').map(x => x.trim()); const o = {};
+    cols.forEach((c,i) => o[c] = parts[i]);
+    return o;
+  });
+}
+
+function freshness(iso){
+  const el = document.getElementById('fresh'), txt = document.getElementById('freshText');
+  const hasTZ = /[zZ]$|[+-]\d{2}:?\d{2}$/.test(iso);
+  const d = new Date(hasTZ ? iso : iso + 'Z');
+  if (isNaN(d.getTime())) { txt.textContent = 'data built ' + iso; return; }
+  const hrs = (Date.now() - d.getTime()) / 36e5;
+  const dot = el.querySelector('.dot');
+  dot.className = 'dot' + (hrs > 200 ? ' bad' : hrs > 60 ? ' stale' : '');
+  txt.textContent = 'data built ' + d.toISOString().slice(0,16).replace('T',' ') + ' UTC · ' +
+    (hrs < 1 ? 'just now' : hrs < 48 ? Math.round(hrs)+'h ago' : Math.round(hrs/24)+'d ago');
+}
+
+function tiles(a){
+  const m = a.risk_metrics, r = a.risk_decomposition;
+  const items = [
+    ['Volatility', pct(m.annualised_volatility), 'annualised'],
+    ['Beta', fx(m.beta), 'vs SPY'],
+    ['Sharpe', fx(m.sharpe), ''],
+    ['Max drawdown', pct(m.max_drawdown), (m.max_drawdown_days??'—') + ' days'],
+    ['VaR 95%', pct(m.var_95_1d), '1-day'],
+    ['CVaR 95%', pct(m.cvar_95_1d), '1-day'],
+    ['Effective N', fx(r.effective_n,1), 'of ' + a.coverage.tickers_used + ' names'],
+    ['Coverage', fx(a.coverage.book_pct_covered,0)+'%', 'of the book'],
+  ];
+  document.getElementById('tiles').innerHTML = items.map(([k,v,d]) =>
+    `<div class="tile"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span><span class="d">${esc(d)}</span></div>`).join('');
+  document.getElementById('riskWindow').textContent =
+    a.window.start + ' → ' + a.window.end + ' · ' + a.window.observations + ' days';
+}
+
+function riskBars(a){
+  const c = a.risk_decomposition.contributions.filter(x => x.risk_share_pct > 0.8).slice(0, 12);
+  const max = Math.max(...c.map(x => Math.max(x.weight_pct, x.risk_share_pct))) * 1.05;
+  document.getElementById('risk').innerHTML = c.map(x => `
+    <div class="row"><span class="tick">${esc(x.ticker)}</span>
+      <span style="display:flex;flex-direction:column;gap:2px">
+        <span class="track" style="height:7px"><span class="seg" style="width:${(x.weight_pct/max*100).toFixed(1)}%;background:var(--direct)"></span></span>
+        <span class="track" style="height:7px"><span class="seg" style="width:${(x.risk_share_pct/max*100).toFixed(1)}%;background:var(--hidden)"></span></span>
+      </span>
+      <span class="val">${fx(x.risk_share_pct,1)}</span></div>`).join('');
+}
+
+function conc(rows){
+  const r = rows[rows.length-1];
+  document.getElementById('concDate').textContent = r.date;
+  const defs = [['nvda_allin','NVDA',15],['asts_allin','ASTS',15],['top2','NVDA + ASTS',32],
+                ['mega8','Mega-cap 8',55],['semis','Semiconductors',27],
+                ['options_pct','Option premium',5],['cash_pct','Cash',10]];
+  document.getElementById('conc').innerHTML =
+    '<thead><tr><th>Exposure</th><th>All-in</th><th>Limit</th><th>Status</th></tr></thead><tbody>' +
+    defs.map(([k,label,lim]) => {
+      const v = parseFloat(r[k]); const hot = v > lim;
+      return `<tr><td>${esc(label)}</td><td>${v.toFixed(2)}%</td><td style="color:var(--muted)">${lim}%</td>
+        <td><span class="chip ${hot?'hot':'ok'}">${hot?'over':'clear'}</span></td></tr>`;
+    }).join('') + '</tbody>';
+}
+
+function factors(a){
+  const f = a.factor_analysis;
+  const el = document.getElementById('ff');
+  if(!f.available){
+    document.getElementById('ffMeta').textContent = 'unavailable';
+    el.innerHTML = `<tbody><tr><td class="skel">Not available this run — ${esc((f.reason||'').slice(0,90))}</td></tr></tbody>`;
+    return;
+  }
+  document.getElementById('ffMeta').textContent =
+    'FF5 + momentum · R² ' + fx(f.r_squared) + ' · through ' + f.data_through;
+  el.innerHTML = '<thead><tr><th>Factor</th><th>Beta</th><th>t-stat</th><th>Significant</th></tr></thead><tbody>' +
+    f.loadings.map(l => `<tr><td>${esc(l.factor)}</td>
+      <td class="${l.beta>=0?'pos':'neg'}">${(l.beta>=0?'+':'')+fx(l.beta)}</td>
+      <td style="color:var(--muted)">${fx(l.t_stat,1)}</td>
+      <td>${l.significant_95 ? '<span class="chip ok">yes</span>' : '<span style="color:var(--muted)">no</span>'}</td></tr>`).join('') +
+    '</tbody>';
+}
+
+function stress(a){
+  const rows = Object.values(a.stress_tests);
+  document.getElementById('stress').innerHTML =
+    '<thead><tr><th>Scenario</th><th>Portfolio</th><th>SPY</th><th>Coverage</th></tr></thead><tbody>' +
+    rows.map(s => s.available
+      ? `<tr><td>${esc(s.label)}</td><td class="neg">${pct(s.portfolio_return)}</td>
+         <td>${pct(s.benchmark_return)}</td>
+         <td style="color:var(--muted)">${s.tickers_with_history}/${s.of_total} names</td></tr>`
+      : `<tr><td>${esc(s.label)}</td><td colspan="3" style="text-align:left;color:var(--muted);font-family:var(--sans)">${esc(s.reason)}</td></tr>`
+    ).join('') + '</tbody>';
+}
+
+function movers(rows){
+  // Sources disagree on the latest bar date, so take each symbol's own most
+  // recent row rather than filtering everything to one global date.
+  const newest = {};
+  for (const r of rows) if (!newest[r.symbol] || r.date > newest[r.symbol].date) newest[r.symbol] = r;
+  const all = Object.values(newest);
+  const latest = all.reduce((m,r) => r.date > m ? r.date : m, '');
+  document.getElementById('pxDate').textContent =
+    latest + (all.some(r => r.date !== latest) ? ' (some symbols lag a session)' : '');
+  const pick = all.filter(r => CORE.includes(r.symbol));
+  const show = (pick.length ? pick : all).slice().sort((a,b) => Math.abs(+b.pct_change) - Math.abs(+a.pct_change)).slice(0,12);
+  document.getElementById('movers').innerHTML =
+    '<thead><tr><th>Ticker</th><th>Close</th><th>Change</th></tr></thead><tbody>' +
+    show.map(r => { const c = parseFloat(r.pct_change);
+      return `<tr><td>${esc(r.symbol)}</td><td>${fx(+r.close)}</td>
+        <td class="${c>=0?'pos':'neg'}">${sgn(c)}</td></tr>`; }).join('') + '</tbody>';
+}
+
+(async () => {
+  try {
+    const a = await getJSON('data/analytics.json');
+    try { freshness(a.generated_utc); } catch (e) { document.getElementById('freshText').textContent = 'data built ' + a.generated_utc; }
+    tiles(a); riskBars(a); factors(a); stress(a);
+  } catch (e) {
+    document.getElementById('error').innerHTML =
+      `<div class="err"><strong>Analytics unavailable.</strong> ${esc(e.message)} — the weekly
+       job may not have run yet. Everything below that depends on it is blank rather than guessed.</div>`;
+    document.getElementById('freshText').textContent = 'analytics unavailable';
+    document.querySelector('#fresh .dot').className = 'dot bad';
+  }
+  try { conc(parseCSV(await getText('data/concentration.csv'))); }
+  catch (e) { document.getElementById('conc').innerHTML = `<tbody><tr><td class="skel">unavailable — ${esc(e.message)}</td></tr></tbody>`; }
+  try { movers(parseCSV(await getText('data/prices.csv'))); }
+  catch (e) { document.getElementById('movers').innerHTML = `<tbody><tr><td class="skel">unavailable — ${esc(e.message)}</td></tr></tbody>`; }
+})();
+</script>
+</body>
+</html>
