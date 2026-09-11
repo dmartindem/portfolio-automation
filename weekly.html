@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Weekly Updates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400&display=swap">
+<style>
+  :root{
+    --ground:#F5F6F8; --surface:#FFF; --surface-2:#EDEFF3;
+    --ink:#14161C; --ink-2:#3D4552; --muted:#6B7585; --line:#DCE0E7;
+    --direct:#1F6270; --hidden:#C4823A; --opt:#8E6BA8;
+    --crit:#A8352E; --ok:#3F6B4A; --grid:#E4E7EC;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --serif:'IBM Plex Serif',Georgia,serif;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --ground:#0F1116; --surface:#171A21; --surface-2:#1E222B;
+    --ink:#E9ECF2; --ink-2:#BCC4D0; --muted:#8B95A5; --line:#2B303A;
+    --direct:#5AA8B8; --hidden:#D9A063; --opt:#B195C9;
+    --crit:#E0736A; --ok:#7FB08C; --grid:#252A33;
+  }}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+       line-height:1.55;-webkit-font-smoothing:antialiased;padding:0 20px 64px}
+  .wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:36px;padding-top:44px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:clamp(26px,5vw,36px);letter-spacing:-.02em;margin:8px 0 0;font-weight:600;line-height:1.1}
+  h2{font-size:18px;letter-spacing:-.01em;font-weight:600}
+  .sub{font-family:var(--serif);font-size:15.5px;color:var(--ink-2);max-width:60ch;margin-top:10px}
+  .note{font-family:var(--serif);font-size:14px;color:var(--muted);max-width:66ch;line-height:1.6}
+  .shead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;
+         border-bottom:1px solid var(--line);padding-bottom:9px}
+  section{display:flex;flex-direction:column;gap:16px}
+  nav.pages{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:22px;border-bottom:1px solid var(--line)}
+  nav.pages a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+              color:var(--muted);text-decoration:none;padding:8px 12px 10px;border-bottom:2px solid transparent;margin-bottom:-1px}
+  nav.pages a:hover{color:var(--ink)}
+  nav.pages a[aria-current]{color:var(--ink);border-bottom-color:var(--direct)}
+  .freshness{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+  .dot.stale{background:var(--hidden)} .dot.bad{background:var(--crit)}
+  .err{background:var(--surface);border-left:3px solid var(--crit);padding:12px 14px;font-size:13.5px;color:var(--ink-2)}
+  .empty{background:var(--surface);border-left:3px solid var(--hidden);padding:12px 14px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+  .skel{color:var(--muted);font-family:var(--mono);font-size:13px}
+  footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;line-height:1.7}
+  footer a,.report a{color:var(--direct)}
+
+  /* one mirrored report */
+  .card{background:var(--surface);border:1px solid var(--line)}
+  .card .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;
+              padding:14px 20px;border-bottom:1px solid var(--line)}
+  .card .meta .when{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  .card .meta .subj{font-weight:600;font-size:15px}
+  .redact{font-family:var(--mono);font-size:11px;color:var(--hidden);letter-spacing:.04em}
+  .report{padding:22px 24px 26px;max-width:720px;font-size:15px;line-height:1.6;color:var(--ink)}
+  .report h2{font-size:17px;margin:22px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  .report h2:first-child{margin-top:0}
+  .report h3,.report h4{font-size:15px;margin:16px 0 6px}
+  .report p{margin:0 0 10px}
+  .report ul,.report ol{margin:0 0 12px 22px}
+  .report li{margin:3px 0}
+  .report table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0 14px}
+  .report th,.report td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  .report th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--surface-2)}
+  .report td{font-variant-numeric:tabular-nums}
+  .report blockquote{border-left:3px solid var(--line);padding:2px 12px;color:var(--ink-2);margin:8px 0 12px}
+  .report code,.report pre{font-family:var(--mono);font-size:13px}
+  .report pre{white-space:pre-wrap;background:var(--surface-2);padding:10px 12px;margin:8px 0 12px}
+  .report hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+  .report .tables{overflow-x:auto}
+  .report strong{font-weight:600}
+  .report .disclaimer{font-family:var(--serif);color:var(--muted)}
+
+  /* archive */
+  details.old{background:var(--surface);border:1px solid var(--line);border-top:0}
+  details.old:first-of-type{border-top:1px solid var(--line)}
+  details.old summary{cursor:pointer;list-style:none;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;padding:12px 20px}
+  details.old summary::-webkit-details-marker{display:none}
+  details.old summary::before{content:'+';font-family:var(--mono);color:var(--muted);width:12px}
+  details.old[open] summary::before{content:'–'}
+  details.old summary .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);min-width:96px}
+  details.old summary .subj{font-weight:500;font-size:14px}
+  details.old .report{border-top:1px solid var(--line)}
+  @media (max-width:560px){ .report{padding:18px 16px 22px} .card .meta{padding:12px 16px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <nav class="pages" aria-label="Pages">
+      <a href="./">Portfolio Overview</a>
+      <a href="daily.html">Daily Updates</a>
+      <a href="weekly.html" aria-current="page">Weekly Updates</a>
+    </nav>
+    <div class="eyebrow">Fidelity taxable · automated monitor</div>
+    <h1>Weekly Updates</h1>
+    <p class="sub">The Sunday-evening review, as emailed: look-through concentration against the acknowledged baseline, a weight-derived performance estimate, risk and factor exposure, tax position, the options ladder and the week ahead.</p>
+    <div style="margin-top:14px"><span class="freshness" id="fresh"><span class="dot"></span><span id="freshText">loading…</span></span></div>
+  </header>
+
+  <div id="error"></div>
+
+  <section>
+    <div class="shead"><h2>Latest</h2><span class="eyebrow" id="latestMeta"></span></div>
+    <div id="latest"><span class="skel">loading…</span></div>
+  </section>
+
+  <section id="archiveSection" hidden>
+    <div class="shead"><h2>Earlier</h2><span class="eyebrow" id="archiveMeta"></span></div>
+    <div id="archive"></div>
+    <p class="note">Each entry is the report as it was emailed that day, so a later correction
+    appears in a later report rather than by editing an earlier one.</p>
+  </section>
+
+  <footer>
+    Mirrored from the emailed Weekly Review by a scheduled GitHub Action. Ratios and
+    percentages only — no cost basis, share counts, account value or dollar amounts are
+    published; amount-shaped text is redacted automatically before it reaches this repository.<br>
+    Recommendations, where present, are interpretation and sit under their own disclaimer.
+    Not investment or tax advice. Source:
+    <a href="https://github.com/dmartindem/portfolio-automation">dmartindem/portfolio-automation</a>
+  </footer>
+</div>
+
+<script>
+const KIND = 'weekly';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+async function getJSON(p){ const r = await fetch(p, {cache:'no-store'}); if(!r.ok) throw new Error(p+' → '+r.status); return r.json(); }
+async function getText(p){ const r = await fetch(p, {cache:'no-store'}); if(!r.ok) throw new Error(p+' → '+r.status); return r.text(); }
+
+// The fragments are sanitised server-side before they are committed. This is a
+// second, client-side pass so a bad commit still cannot run anything here.
+function scrub(htmlText){
+  const doc = new DOMParser().parseFromString('<div>' + htmlText + '</div>', 'text/html');
+  doc.querySelectorAll('script,style,iframe,object,embed,link,meta,form,input,button,svg').forEach(n => n.remove());
+  doc.querySelectorAll('*').forEach(el => {
+    for (const a of Array.from(el.attributes)) {
+      const n = a.name.toLowerCase();
+      const ok = (n === 'href' && /^https?:\/\//i.test(a.value)) || n === 'colspan' || n === 'rowspan' || n === 'rel' || n === 'target';
+      if (!ok) el.removeAttribute(a.name);
+    }
+    if (el.tagName === 'A') { el.setAttribute('rel','noopener noreferrer'); el.setAttribute('target','_blank'); }
+  });
+  doc.querySelectorAll('table').forEach(t => { const w = doc.createElement('div'); w.className='tables'; t.replaceWith(w); w.appendChild(t); });
+  return doc.body.firstChild.innerHTML;
+}
+
+function fmtDate(iso){
+  const d = new Date(iso + 'T12:00:00Z');
+  return isNaN(d) ? iso : d.toLocaleDateString('en-US', {weekday:'short', day:'numeric', month:'short', year:'numeric', timeZone:'UTC'});
+}
+function fmtSent(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  return isNaN(d) ? '' : 'sent ' + d.toLocaleString('en-US', {timeZone:'America/Chicago', hour:'numeric', minute:'2-digit', timeZoneName:'short'});
+}
+
+function freshness(latest){
+  const el = document.getElementById('fresh'), txt = document.getElementById('freshText');
+  const dot = el.querySelector('.dot');
+  if(!latest){ dot.className = 'dot bad'; txt.textContent = 'no reports mirrored yet'; return; }
+  const d = new Date(latest.sent_utc || (latest.date + 'T12:00:00Z'));
+  const hrs = (Date.now() - d.getTime()) / 36e5;
+  const staleAt = KIND === 'daily' ? 4*24 : 9*24, badAt = staleAt * 2;   // tolerate weekends / one missed run
+  dot.className = 'dot' + (hrs > badAt ? ' bad' : hrs > staleAt ? ' stale' : '');
+  txt.textContent = 'latest ' + fmtDate(latest.date) + ' · ' + (hrs < 1 ? 'just now' : hrs < 48 ? Math.round(hrs)+'h ago' : Math.round(hrs/24)+'d ago');
+}
+
+function meta(e, tag){
+  const red = e.redactions > 0 ? `<span class="redact">${e.redactions} figure${e.redactions===1?'':'s'} redacted</span>` : '';
+  return `<div class="meta"><span class="${tag}">${esc(e.subject || (KIND==='daily'?'Daily Brief':'Weekly Review'))}</span>
+          <span class="when">${esc(fmtDate(e.date))}${e.sent_utc ? ' · ' + esc(fmtSent(e.sent_utc)) : ''}</span>${red}</div>`;
+}
+
+async function loadInto(el, e){
+  try { el.innerHTML = scrub(await getText('data/reports/' + e.file)); }
+  catch (err) { el.innerHTML = `<p class="skel">unavailable — ${esc(err.message)}</p>`; }
+}
+
+(async () => {
+  let idx;
+  try { idx = await getJSON('data/reports/index.json'); }
+  catch (e) {
+    freshness(null);
+    document.getElementById('latest').innerHTML = `<div class="empty"><strong>No reports mirrored yet.</strong>
+      The mirror job (<code>mirror-reports.yml</code>) has not committed anything — it runs weekday mornings after
+      the brief and Sunday nights after the review, and needs the mailbox secrets to be set. Until then the
+      reports exist only as email.</div>`;
+    return;
+  }
+  const list = (idx.reports || []).filter(r => r.kind === KIND).sort((a,b) => (b.date+b.sent_utc).localeCompare(a.date+a.sent_utc));
+  freshness(list[0]);
+  if(!list.length){
+    document.getElementById('latest').innerHTML = `<div class="empty"><strong>Nothing for this page yet.</strong>
+      The mirror has run but found no ${KIND} report in the mailbox window. The first one appears after the
+      next scheduled send.</div>`;
+    return;
+  }
+  const [latest, ...older] = list;
+  document.getElementById('latestMeta').textContent = fmtDate(latest.date);
+  document.getElementById('latest').innerHTML = `<div class="card">${meta(latest,'subj')}<div class="report" id="latestBody"><span class="skel">loading…</span></div></div>`;
+  await loadInto(document.getElementById('latestBody'), latest);
+
+  if(older.length){
+    const sec = document.getElementById('archiveSection'); sec.hidden = false;
+    document.getElementById('archiveMeta').textContent = older.length + (older.length===1 ? ' report' : ' reports');
+    document.getElementById('archive').innerHTML = older.map((e,i) => `
+      <details class="old" data-i="${i}">
+        <summary><span class="when">${esc(fmtDate(e.date))}</span><span class="subj">${esc(e.subject||'')}</span>
+          ${e.redactions>0 ? `<span class="redact">${e.redactions} redacted</span>` : ''}</summary>
+        <div class="report"><span class="skel">loading…</span></div>
+      </details>`).join('');
+    document.querySelectorAll('details.old').forEach(d => d.addEventListener('toggle', () => {
+      if (d.open && !d.dataset.loaded) { d.dataset.loaded = '1'; loadInto(d.querySelector('.report'), older[+d.dataset.i]); }
+    }));
+  }
+})();
+</script>
+</body>
+</html>
