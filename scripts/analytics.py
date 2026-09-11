@@ -129,8 +129,12 @@ def factors(rp):
         X = ff.join(mom, how='inner')
         X.columns = [c.strip() for c in X.columns]
         def _flat(ix):
+            if hasattr(ix, 'to_timestamp'):      # Ken French returns a PeriodIndex
+                ix = ix.to_timestamp()
             ix = pd.to_datetime(ix)
-            return (ix.tz_localize(None) if ix.tz is not None else ix).normalize()
+            if getattr(ix, 'tz', None) is not None:
+                ix = ix.tz_localize(None)
+            return ix.normalize()
         X.index = _flat(X.index)
         rp2 = rp.copy(); rp2.index = _flat(rp2.index)
         d = X.join(rp2.rename('rp'), how='inner').dropna()
