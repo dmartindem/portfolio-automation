@@ -10,7 +10,7 @@ Publishes DERIVED METRICS ONLY. No cost basis, no share counts, no dollar
 amounts ever enter this repo — that is what lets it stay public, which is what
 makes scheduled workflows work on the free plan.
 """
-import json, os, sys, csv, warnings
+import json, math, os, sys, csv, warnings
 import numpy as np
 import pandas as pd
 
@@ -220,8 +220,18 @@ def main():
     out['shocks'] = {'market_minus_10pct': round(-10 * shock_beta, 2),
                      'method': 'beta-implied, first order only'}
 
+    def _finite(o):
+        """NaN and Infinity are not valid JSON — every consumer rejects the file."""
+        if isinstance(o, float):
+            return o if math.isfinite(o) else None
+        if isinstance(o, dict):
+            return {k: _finite(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [_finite(v) for v in o]
+        return o
+
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    json.dump(_finite(out), open(OUT, 'w'), indent=1, default=str, allow_nan=False)
 
     m = out['risk_metrics']
     print(f'\nvol {m["annualised_volatility"]:.1%}  beta {m["beta"]:.2f}  '
