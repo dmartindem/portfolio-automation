@@ -15,7 +15,7 @@ import sys
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HOLDINGS = os.path.join(ROOT, 'data', 'holdings.csv')
+PORTFOLIO = os.path.join(ROOT, 'data', 'portfolio.csv')
 PRICES = os.path.join(ROOT, 'data', 'prices.csv')
 ETFW = os.path.join(ROOT, 'data', 'etf_weights.json')
 OUT = os.path.join(ROOT, 'data', 'concentration.csv')
@@ -42,7 +42,7 @@ def load_prices():
 
 
 def main():
-    holdings = list(csv.DictReader(open(HOLDINGS)))
+    holdings = list(csv.DictReader(open(PORTFOLIO)))
     etf = json.load(open(ETFW))
     by_date, dates = load_prices()
     if not dates:
