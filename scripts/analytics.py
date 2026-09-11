@@ -128,7 +128,12 @@ def factors(rp):
                                start=rp.index[0]).read()[0] / 100
         X = ff.join(mom, how='inner')
         X.columns = [c.strip() for c in X.columns]
-        d = X.join(rp.rename('rp'), how='inner').dropna()
+        def _flat(ix):
+            ix = pd.to_datetime(ix)
+            return (ix.tz_localize(None) if ix.tz is not None else ix).normalize()
+        X.index = _flat(X.index)
+        rp2 = rp.copy(); rp2.index = _flat(rp2.index)
+        d = X.join(rp2.rename('rp'), how='inner').dropna()
         if len(d) < MIN_OBS:
             return {'available': False, 'reason': f'only {len(d)} overlapping days'}
         y = (d['rp'] - d['RF']).values
