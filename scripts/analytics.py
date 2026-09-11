@@ -24,7 +24,7 @@ EXTRA = ['SPY', 'QQQ', 'RSP']
 YEARS = 5
 TRADING_DAYS = 252
 MIN_OBS = 250                      # ~1y; below this a ticker is dropped
-RF_ANNUAL = 0.043                  # 3M T-bill approximation; refreshed manually
+RF_ANNUAL = 0.035                  # 3M T-bill approximation; refreshed manually (0.043 -> 0.035 on 2026-09-11)
 
 SCENARIOS = {
     'gfc_2008':   ('2007-10-09', '2009-03-09', '2008 GFC'),
