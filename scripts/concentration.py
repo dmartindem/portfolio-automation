@@ -82,18 +82,29 @@ def main():
         else:
             direct[norm(h['symbol'])] += w
 
+    # explicit = what Daniel chose to hold in the name himself: shares plus any
+    # option premium on it. all-in = explicit plus what the ETFs carry.
+    def explicit(t):
+        return direct[t] + optprem.get(t, 0.0)
+
     def allin(t):
-        return direct[t] + viaetf[t] + optprem.get(t, 0.0)
+        return explicit(t) + viaetf[t]
 
     row = {
         'date': latest,
         'nvda_allin': round(allin('NVDA'), 3),
         'asts_allin': round(allin('ASTS'), 3),
         'top2': round(allin('NVDA') + allin('ASTS'), 3),
-        'mega8': round(sum(direct[t] + viaetf[t] for t in MEGA8), 3),
-        'semis': round(sum(direct[t] + viaetf[t] for t in SEMIS), 3),
+        'mega8': round(sum(allin(t) for t in MEGA8), 3),
+        'semis': round(sum(allin(t) for t in SEMIS), 3),
         'options_pct': round(options_total, 3),
         'cash_pct': round(cash, 3),
+        # explicit counterparts (added 2026-09-11; older rows leave these blank)
+        'nvda_explicit': round(explicit('NVDA'), 3),
+        'asts_explicit': round(explicit('ASTS'), 3),
+        'top2_explicit': round(explicit('NVDA') + explicit('ASTS'), 3),
+        'mega8_explicit': round(sum(explicit(t) for t in MEGA8), 3),
+        'semis_explicit': round(sum(explicit(t) for t in SEMIS), 3),
     }
 
     # Threshold checks — mirrors claude/portfolio-policy.md
@@ -118,7 +129,8 @@ def main():
     rows.append(row)
     rows.sort(key=lambda r: r['date'])
     with open(OUT, 'w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=list(row.keys()))
+        # restval='' so rows written before a column existed stay readable
+        w = csv.DictWriter(f, fieldnames=list(row.keys()), restval='')
         w.writeheader()
         w.writerows(rows)
 
