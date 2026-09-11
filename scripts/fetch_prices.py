@@ -104,11 +104,11 @@ def main():
     rows = []
     if os.path.exists(PRICES):
         with open(PRICES) as f:
-            rows = [r for r in csv.DictReader(f) if r['date'] != bar_date]
+            keys = {(d, sym) for sym, (d, _c, _p) in quotes.items()}
+            rows = [r for r in csv.DictReader(f)
+                    if (r['date'], r['symbol']) not in keys]
 
     for s, (d, close, prev) in sorted(quotes.items()):
-        if d != bar_date:
-            continue                                # stale symbol, skip
         pct = round((close / prev - 1) * 100, 3) if prev else 0.0
         rows.append({'date': d, 'symbol': s, 'close': close, 'pct_change': pct})
 
@@ -119,9 +119,9 @@ def main():
         w.writeheader()
         w.writerows(rows)
 
-    got = sum(1 for r in rows if r['date'] == bar_date)
-    missing = sorted(set(symbols) - {r['symbol'] for r in rows if r['date'] == bar_date})
-    print(f'{bar_date}: wrote {got}/{len(symbols)} symbols, {len(rows)} total rows')
+    got = len(quotes)
+    missing = sorted(set(symbols) - set(quotes))
+    print(f'wrote {got}/{len(symbols)} symbols, {len(rows)} total rows; latest bar {bar_date}')
     if missing:
         print(f'missing: {", ".join(missing)}')
     return 0
