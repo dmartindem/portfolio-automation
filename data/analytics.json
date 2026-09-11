@@ -1,9 +1,9 @@
 {
- "generated_utc": "2026-09-11T02:20:23.292843+00:00",
+ "generated_utc": "2026-09-11T19:30:15.426727+00:00",
  "window": {
   "start": "2021-09-14",
-  "end": "2026-09-10",
-  "observations": 1253
+  "end": "2026-09-11",
+  "observations": 1254
  },
  "coverage": {
   "tickers_used": 54,
@@ -18,97 +18,97 @@
  },
  "caveat": "BACKTEST OF THE CURRENT BOOK. This series assumes today's weights were held for the whole window. It is not realised past performance. Options and cash are excluded and weights renormalised over priceable holdings.",
  "risk_metrics": {
-  "annualised_volatility": 0.29965037884472,
-  "annualised_return": 0.37167286095955143,
-  "beta": 1.4977305160208907,
-  "sharpe": 0.9118270138465145,
-  "sortino": 1.4554572189925996,
-  "tracking_error": 0.17525582718915103,
-  "information_ratio": 1.0354538121549979,
-  "max_drawdown": -0.41083558315396906,
+  "annualised_volatility": 0.29955842557641443,
+  "annualised_return": 0.3741748144360464,
+  "beta": 1.4974591703458813,
+  "sharpe": 0.9449040122883217,
+  "sortino": 1.5077927497029315,
+  "tracking_error": 0.17518576201683256,
+  "information_ratio": 1.0359378338075809,
+  "max_drawdown": -0.41083559518605584,
   "max_drawdown_days": 514,
-  "var_95_1d": -0.030332876454993128,
-  "var_99_1d": -0.04414838038191111,
-  "var_95_cornish_fisher": -0.026290018222184852,
-  "cvar_95_1d": -0.03899026297813966,
-  "downside_deviation": 0.18772747599484554,
-  "skew": 0.40287549843620846,
-  "excess_kurtosis": 3.3823038899989077,
-  "up_capture": 1.6248882253984802,
-  "down_capture": 1.5194956403938638
+  "var_95_1d": -0.030322442858737142,
+  "var_99_1d": -0.04414544417590421,
+  "var_95_cornish_fisher": -0.026279250028780208,
+  "cvar_95_1d": -0.038990248664494125,
+  "downside_deviation": 0.18772736392166264,
+  "skew": 0.40186003211517085,
+  "excess_kurtosis": 3.3844440657507575,
+  "up_capture": 1.623883545735306,
+  "down_capture": 1.5194959634865275
  },
  "benchmarks": {
   "SPY": {
-   "annualised_volatility": 0.17216437183206593,
-   "annualised_return": 0.14422090873891347,
-   "beta": 1.0007987220447285,
-   "sharpe": 0.5329790060401074,
-   "sortino": 0.7409586492454056,
+   "annualised_volatility": 0.17214319370330894,
+   "annualised_return": 0.14629546143401306,
+   "beta": 1.0007980845969668,
+   "sharpe": 0.5900459799725809,
+   "sortino": 0.8201925534745125,
    "tracking_error": 0.0,
    "information_ratio": null,
-   "max_drawdown": -0.24496392197775174,
+   "max_drawdown": -0.2449639898720678,
    "max_drawdown_days": 488,
-   "var_95_1d": -0.016625933439304963,
-   "var_99_1d": -0.02929442789279415,
-   "var_95_cornish_fisher": -0.014358754670155533,
-   "cvar_95_1d": -0.024668586450932832,
-   "downside_deviation": 0.12383956360860704,
-   "skew": 0.3174049372452638,
-   "excess_kurtosis": 8.912777762201385,
+   "var_95_1d": -0.016622090530934264,
+   "var_99_1d": -0.029290722075392742,
+   "var_95_cornish_fisher": -0.014356017446694408,
+   "cvar_95_1d": -0.024668605793027522,
+   "downside_deviation": 0.12383969958517198,
+   "skew": 0.3157320006797513,
+   "excess_kurtosis": 8.908602045623848,
    "up_capture": 1.0,
    "down_capture": 1.0
   },
   "QQQ": {
-   "annualised_volatility": 0.23005349191853391,
-   "annualised_return": 0.17316250983426884,
-   "beta": 1.2706561854410152,
-   "sharpe": 0.5075068288286058,
-   "sortino": 0.7303527212968015,
-   "tracking_error": 0.08543621581145641,
-   "information_ratio": 0.29254247900100666,
-   "max_drawdown": -0.3511870167676946,
+   "annualised_volatility": 0.22999737416709093,
+   "annualised_return": 0.17529566500748306,
+   "beta": 1.2705076045395929,
+   "sharpe": 0.5503172390855491,
+   "sortino": 0.7917679288829605,
+   "tracking_error": 0.085402019984599,
+   "information_ratio": 0.2927228246918387,
+   "max_drawdown": -0.35118738978419617,
    "max_drawdown_days": 493,
-   "var_95_1d": -0.0230615951104574,
-   "var_99_1d": -0.038934241582520464,
-   "var_95_cornish_fisher": -0.021012956286695906,
-   "cvar_95_1d": -0.03253947536096941,
-   "downside_deviation": 0.15985935937531193,
-   "skew": 0.18642716120246056,
-   "excess_kurtosis": 4.844996952284804,
-   "up_capture": 1.3036082714218682,
-   "down_capture": 1.3193279326672227
+   "var_95_1d": -0.023060465681224874,
+   "var_99_1d": -0.03893042548140184,
+   "var_95_cornish_fisher": -0.02100568413070193,
+   "cvar_95_1d": -0.03253946641153417,
+   "downside_deviation": 0.1598593670333789,
+   "skew": 0.18511306164875163,
+   "excess_kurtosis": 4.846110306489733,
+   "up_capture": 1.3030700883377615,
+   "down_capture": 1.3193269518126316
   },
   "RSP": {
-   "annualised_volatility": 0.16188030823841876,
-   "annualised_return": 0.09925653117397704,
-   "beta": 0.8607725139519148,
-   "sharpe": 0.3190742740221878,
-   "sortino": 0.46215929420770474,
-   "tracking_error": 0.06970618294976641,
-   "information_ratio": -0.5753887567450986,
-   "max_drawdown": -0.21384397968638635,
+   "annualised_volatility": 0.16185565728442208,
+   "annualised_return": 0.10102921566120493,
+   "beta": 0.860787776476485,
+   "sharpe": 0.37850870116006363,
+   "sortino": 0.5481634830707636,
+   "tracking_error": 0.06967988643673168,
+   "information_ratio": -0.5784829291698605,
+   "max_drawdown": -0.2138440872756805,
    "max_drawdown_days": 517,
-   "var_95_1d": -0.015033984789929478,
-   "var_99_1d": -0.027456491218178232,
-   "var_95_cornish_fisher": -0.015096701896111796,
-   "cvar_95_1d": -0.022650525363917998,
-   "downside_deviation": 0.1117619887277393,
-   "skew": 0.0884654065689522,
-   "excess_kurtosis": 5.083703885072694,
-   "up_capture": 0.8406926568733486,
-   "down_capture": 0.8626723424528189
+   "var_95_1d": -0.015028418524633963,
+   "var_99_1d": -0.027452217328904488,
+   "var_95_cornish_fisher": -0.015092735001305334,
+   "cvar_95_1d": -0.022650512671189706,
+   "downside_deviation": 0.11176186759274936,
+   "skew": 0.08693906500909153,
+   "excess_kurtosis": 5.082198018726098,
+   "up_capture": 0.8407633989141862,
+   "down_capture": 0.862672351581913
   }
  },
  "risk_decomposition": {
-  "portfolio_volatility": 0.29965037884472007,
-  "diversification_ratio": 1.3963461243194617,
+  "portfolio_volatility": 0.29955842557641443,
+  "diversification_ratio": 1.396440050804524,
   "hhi": 0.13592921506422317,
   "effective_n": 7.356770209608912,
   "contributions": [
    {
     "ticker": "ASTS",
     "weight_pct": 11.57,
-    "risk_share_pct": 29.93,
+    "risk_share_pct": 29.92,
     "flag": true
    },
    {
@@ -162,7 +162,7 @@
    {
     "ticker": "RKLB",
     "weight_pct": 1.12,
-    "risk_share_pct": 1.71,
+    "risk_share_pct": 1.72,
     "flag": false
    },
    {
@@ -436,43 +436,43 @@
   "observations": 1225,
   "data_through": "2026-07-31",
   "note": "Ken French updates monthly; loadings run through prior month-end.",
-  "r_squared": 0.8060745809507637,
-  "annualised_alpha": 0.20394227972273704,
+  "r_squared": 0.8060745595839383,
+  "annualised_alpha": 0.2039423067721673,
   "loadings": [
    {
     "factor": "Mkt-RF",
-    "beta": 1.2901533491426362,
-    "t_stat": 52.25876159371601,
+    "beta": 1.2901531265454482,
+    "t_stat": 52.25876246736643,
     "significant_95": true
    },
    {
     "factor": "SMB",
-    "beta": 0.02491874758037227,
-    "t_stat": 0.5739055214130933,
+    "beta": 0.024919037384704152,
+    "t_stat": 0.5739123045328829,
     "significant_95": false
    },
    {
     "factor": "HML",
-    "beta": -0.3629486818870936,
-    "t_stat": -9.670267933431042,
+    "beta": -0.3629487359453023,
+    "t_stat": -9.670271203867589,
     "significant_95": true
    },
    {
     "factor": "RMW",
-    "beta": -0.22460819031026724,
-    "t_stat": -5.2187016724356265,
+    "beta": -0.22460760769323146,
+    "t_stat": -5.218689123163158,
     "significant_95": true
    },
    {
     "factor": "CMA",
-    "beta": -0.14082127226283198,
-    "t_stat": -2.7504663933114797,
+    "beta": -0.14082108531722418,
+    "t_stat": -2.75046326249652,
     "significant_95": true
    },
    {
     "factor": "Mom",
-    "beta": 0.08857641389863324,
-    "t_stat": 3.68991848804985,
+    "beta": 0.08857638718708429,
+    "t_stat": 3.6899180736283634,
     "significant_95": true
    }
   ]
@@ -491,8 +491,8 @@
   "rates_2022": {
    "label": "2022",
    "available": true,
-   "portfolio_return": -0.3278589494656695,
-   "benchmark_return": -0.2405922459352603,
+   "portfolio_return": -0.3278588521805488,
+   "benchmark_return": -0.24059231422268645,
    "tickers_with_history": 49,
    "of_total": 54,
    "note": "Names without history in this window contribute zero, so the drawdown is understated for a book this young."
@@ -504,7 +504,7 @@
   }
  },
  "shocks": {
-  "market_minus_10pct": -14.98,
+  "market_minus_10pct": -14.97,
   "method": "beta-implied, first order only"
  }
 }
