@@ -40,6 +40,7 @@ log — Actions logs on a public repo are world-readable.
 |---|---|---|
 | `daily-snapshot.yml` | weekdays 22:30 UTC | `data/prices.csv`, `data/concentration.csv` |
 | `weekly-analytics.yml` | Sundays 20:00 UTC | `data/analytics.json` |
+| `mirror-reports.yml` | weekdays 13:00 UTC, Mondays 00:30 UTC | `data/reports/*.html`, `data/reports/index.json` |
 
 Sunday 20:00 UTC is three hours before the Claude weekly review at 23:00 UTC, so
 the analytics are fresh when it reads them.
@@ -54,6 +55,46 @@ the analytics are fresh when it reads them.
   component contribution to variance (sums to portfolio vol), diversification
   ratio, HHI and effective N; Fama-French 5 + momentum with t-stats and
   significance flags; and replays of 2008, Mar 2020, 2022 and Q4 2018.
+
+## The pages
+
+GitHub Pages serves three pages from the repo root:
+
+| Page | Reads | What it shows |
+|---|---|---|
+| `index.html` — Portfolio Overview | `data/analytics.json`, `concentration.csv`, `prices.csv` | Tier 2 risk tiles (Sharpe carries SPY over the same window as a reference), risk decomposition, look-through table, factors, stress replays, last session |
+| `daily.html` — Daily Updates | `data/reports/index.json` | the latest Daily Brief in full, earlier ones collapsed by date |
+| `weekly.html` — Weekly Updates | `data/reports/index.json` | the latest Weekly Review in full, earlier ones collapsed by date |
+
+### How the reports get here — `scripts/mirror_reports.py`
+
+The Claude scheduled tasks email each report and cannot push to this repo. So
+a workflow logs into that mailbox over IMAP, takes every message from the last
+three weeks whose subject starts with `Daily Brief` or `Weekly Review`, and
+mirrors the HTML body into `data/reports/<kind>-<date>.html`.
+
+Safeguards, because the repo is public:
+
+- **Sender check** — only messages *from* the mailbox's own address are
+  accepted. Nobody can publish to the site by emailing it a report.
+- **Sanitiser** — the body is reduced to a tag allow-list (headings, paragraphs,
+  lists, tables, links with `https` hrefs). Scripts, styles, images, iframes and
+  all other attributes are dropped. The pages run a second pass client-side.
+- **Privacy guard** — anything shaped like a dollar amount, a share or contract
+  count, a cost basis or an account value is replaced with `[redacted]` before
+  it is written. A report that needs more than 25 redactions is skipped, not
+  published. Option strikes like `$150` survive; `$6k`, `$12,345` and
+  `150 shares` do not. The index records how many redactions each report had.
+- **No body text in logs** — the job prints counts only.
+
+Two secrets are required (Settings → Secrets and variables → Actions):
+`GMAIL_USER` (the mailbox address) and `GMAIL_APP_PASSWORD` (a Google app
+password; the account needs 2-Step Verification on). Without them the job
+fails with a clear message and the pages say "no reports mirrored yet".
+
+The job is idempotent: re-running it rewrites nothing unless an email changed,
+so it never produces churn commits. If the same report was sent twice on one
+day, the later send wins.
 
 ## Setup — about 5 minutes
 
