@@ -14,7 +14,7 @@ import urllib.request
 import yfinance as yf
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HOLDINGS = os.path.join(ROOT, 'data', 'holdings.csv')
+PORTFOLIO = os.path.join(ROOT, 'data', 'portfolio.csv')
 PRICES = os.path.join(ROOT, 'data', 'prices.csv')
 
 # Symbols that aren't fetchable equity tickers, or need remapping for Yahoo.
@@ -30,7 +30,7 @@ BENCHMARKS = ['SPY', 'QQQ', 'RSP', 'IWM', 'TLT']
 def watchlist():
     """Unique fetchable tickers: every non-option holding, plus benchmarks."""
     syms = set()
-    with open(HOLDINGS) as f:
+    with open(PORTFOLIO) as f:
         for row in csv.DictReader(f):
             if row['kind'] == 'option' or row['symbol'] in SKIP:
                 continue
