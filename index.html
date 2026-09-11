@@ -81,6 +81,17 @@
   nav.pages a:hover{color:var(--ink)}
   nav.pages a[aria-current]{color:var(--ink);border-bottom-color:var(--direct)}
   .tile .d .ref{color:var(--ink-2)}
+  .seg-ctl{display:inline-flex;border:1px solid var(--line);background:var(--surface)}
+  .seg-ctl button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+                  color:var(--muted);background:transparent;border:0;padding:5px 10px;cursor:pointer}
+  .seg-ctl button+button{border-left:1px solid var(--line)}
+  .seg-ctl button[aria-pressed="true"]{color:var(--ink);background:var(--surface-2)}
+  .seg-ctl button:disabled{opacity:.4;cursor:default}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .two h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:6px}
+  td.muted{color:var(--muted);font-weight:400}
+  .chip.warn{background:var(--hidden);color:#fff}
+  @media (max-width:700px){ .two{grid-template-columns:1fr} }
   @media (max-width:700px){ .tiles{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:560px){ .row{grid-template-columns:58px 1fr 50px;gap:8px} }
 </style>
@@ -105,7 +116,15 @@
   <div id="error"></div>
 
   <section>
-    <div class="shead"><h2>Risk</h2><span class="eyebrow" id="riskWindow"></span></div>
+    <div class="shead"><h2>Risk</h2>
+      <span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <span class="eyebrow" id="riskWindow"></span>
+        <span class="seg-ctl" id="winCtl" role="group" aria-label="Window">
+          <button data-win="full" aria-pressed="true">Full history</button>
+          <button data-win="past_year" aria-pressed="false">Past year</button>
+          <button data-win="ytd" aria-pressed="false">YTD</button>
+        </span>
+      </span></div>
     <div class="tiles" id="tiles"><div class="tile"><span class="skel">loading…</span></div></div>
     <p class="note"><strong>These are a backtest of the current book.</strong> They assume
     today's weights were held for the whole window, and exclude options and cash. Not
@@ -127,9 +146,37 @@
   <section>
     <div class="shead"><h2>Look-through concentration</h2><span class="eyebrow" id="concDate"></span></div>
     <div class="scroll"><table id="conc"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
-    <p class="note">Alerting is baseline-relative: acknowledged levels as of 10 Sep 2026 are
-    NVDA 15.05, ASTS 13.88, AAPL 8.89, MSFT 8.68. A flag fires on movement beyond 2 points,
-    or a new name crossing 8%.</p>
+    <p class="note"><strong>Explicit</strong> is what is held in the name directly — shares plus any
+    option premium on it. <strong>All-in</strong> adds what the index funds carry. Alerting is
+    baseline-relative: acknowledged levels as of 10 Sep 2026 are NVDA 15.05, ASTS 13.88,
+    AAPL 8.89, MSFT 8.68. A flag fires on movement beyond 2 points, or a new name crossing 8%.</p>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Biggest movers · last week</h2><span class="eyebrow" id="mvMeta"></span></div>
+    <div class="scroll"><table id="movers1w"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
+    <p class="note">Top seven holdings by absolute one-week move, up or down. Contribution is
+    weight × move — the share of the book's week that name explains. Options and cash have no
+    price series and are not shown.</p>
+  </section>
+
+  <section>
+    <div class="shead"><h2>What moved the book · last week</h2><span class="eyebrow" id="ctMeta"></span></div>
+    <div class="two">
+      <div><h3>Contributors</h3><div class="scroll"><table id="ctUp"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div></div>
+      <div><h3>Detractors</h3><div class="scroll"><table id="ctDn"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div></div>
+    </div>
+    <p class="note">Weight-derived estimate: each holding's baseline weight times its one-week
+    return, summed. It is not the account's realised return — options, cash and any buys since
+    the last export are outside it.</p>
+  </section>
+
+  <section>
+    <div class="shead"><h2>Options ladder</h2><span class="eyebrow" id="optMeta"></span></div>
+    <div class="scroll"><table id="ladder"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
+    <p class="note"><strong>Long positions only.</strong> The export carries no quantity column, so
+    written (short) calls and puts are invisible here — this ladder is not the complete options
+    picture. Escalate under 90 days to expiry.</p>
   </section>
 
   <section>
@@ -187,12 +234,21 @@ function freshness(iso){
     (hrs < 1 ? 'just now' : hrs < 48 ? Math.round(hrs)+'h ago' : Math.round(hrs/24)+'d ago');
 }
 
-function tiles(a){
-  const m = a.risk_metrics, r = a.risk_decomposition;
+// A window is the full-history top-level blocks, or one entry of a.windows when
+// analytics.json carries them (added 2026-09-11). Older files just show 'full'.
+function pickWindow(a, key){
+  const w = a.windows && a.windows[key];
+  if (key === 'full' || !w || !w.available) return {key:'full', window:a.window, risk_metrics:a.risk_metrics,
+    benchmarks:a.benchmarks, risk_decomposition:a.risk_decomposition, unavailable: w && !w.available ? w.reason : null};
+  return {key, ...w};
+}
+
+function tiles(a, key='full'){
+  const W = pickWindow(a, key), m = W.risk_metrics, r = W.risk_decomposition;
   // SPY's Sharpe over the same window, from the benchmarks block — a reference,
   // not a target. Same risk-free assumption as the portfolio figure.
-  const spy = a.benchmarks && a.benchmarks.SPY && isFinite(a.benchmarks.SPY.sharpe)
-    ? `<span class="ref">SPY ${fx(a.benchmarks.SPY.sharpe)}</span> same window` : '';
+  const spy = W.benchmarks && W.benchmarks.SPY && isFinite(W.benchmarks.SPY.sharpe)
+    ? `<span class="ref">SPY ${fx(W.benchmarks.SPY.sharpe)}</span> same window` : '';
   const items = [
     ['Volatility', pct(m.annualised_volatility), 'annualised'],
     ['Beta', fx(m.beta), 'vs SPY'],
@@ -208,11 +264,25 @@ function tiles(a){
   document.getElementById('tiles').innerHTML = items.map(([k,v,d]) =>
     `<div class="tile"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span><span class="d">${k==='Sharpe' ? d : esc(d)}</span></div>`).join('');
   document.getElementById('riskWindow').textContent =
-    a.window.start + ' → ' + a.window.end + ' · ' + a.window.observations + ' days';
+    W.window.start + ' → ' + W.window.end + ' · ' + W.window.observations + ' days';
 }
 
-function riskBars(a){
-  const c = a.risk_decomposition.contributions.filter(x => x.risk_share_pct > 0.8).slice(0, 12);
+function windowToggle(a){
+  const ctl = document.getElementById('winCtl');
+  ctl.querySelectorAll('button').forEach(b => {
+    const k = b.dataset.win, w = a.windows && a.windows[k];
+    const ok = k === 'full' || (w && w.available);
+    b.disabled = !ok;
+    b.title = ok ? '' : (w && w.reason) || 'not in this analytics build yet — runs Sunday';
+    b.addEventListener('click', () => {
+      ctl.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      tiles(a, k); riskBars(a, k);
+    });
+  });
+}
+
+function riskBars(a, key='full'){
+  const c = pickWindow(a, key).risk_decomposition.contributions.filter(x => x.risk_share_pct > 0.8).slice(0, 12);
   const max = Math.max(...c.map(x => Math.max(x.weight_pct, x.risk_share_pct))) * 1.05;
   document.getElementById('risk').innerHTML = c.map(x => `
     <div class="row"><span class="tick">${esc(x.ticker)}</span>
@@ -226,15 +296,73 @@ function riskBars(a){
 function conc(rows){
   const r = rows[rows.length-1];
   document.getElementById('concDate').textContent = r.date;
-  const defs = [['nvda_allin','NVDA',15],['asts_allin','ASTS',15],['top2','NVDA + ASTS',32],
-                ['mega8','Mega-cap 8',55],['semis','Semiconductors',27],
-                ['options_pct','Option premium',5],['cash_pct','Cash',10]];
+  // [all-in column, explicit column (null = same as all-in), label, limit]
+  const defs = [['nvda_allin','nvda_explicit','NVDA',15],['asts_allin','asts_explicit','ASTS',15],
+                ['top2','top2_explicit','NVDA + ASTS',32],['mega8','mega8_explicit','Mega-cap 8',55],
+                ['semis','semis_explicit','Semiconductors',27],
+                ['options_pct',null,'Option premium',5],['cash_pct',null,'Cash',10]];
   document.getElementById('conc').innerHTML =
-    '<thead><tr><th>Exposure</th><th>All-in</th><th>Limit</th><th>Status</th></tr></thead><tbody>' +
-    defs.map(([k,label,lim]) => {
+    '<thead><tr><th>Exposure</th><th>Explicit</th><th>All-in</th><th>Limit</th><th>Status</th></tr></thead><tbody>' +
+    defs.map(([k,ek,label,lim]) => {
       const v = parseFloat(r[k]); const hot = v > lim;
-      return `<tr><td>${esc(label)}</td><td>${v.toFixed(2)}%</td><td style="color:var(--muted)">${lim}%</td>
-        <td><span class="chip ${hot?'hot':'ok'}">${hot?'over':'clear'}</span></td></tr>`;
+      const e = ek === null ? v : parseFloat(r[ek]);           // blank before 2026-09-11 → NaN → '—'
+      const eCell = isFinite(e) ? `<td class="${ek===null?'muted':''}">${e.toFixed(2)}%</td>` : '<td class="muted">—</td>';
+      return `<tr><td>${esc(label)}</td>${eCell}<td>${v.toFixed(2)}%</td><td style="color:var(--muted)">${lim}%</td>
+        <td><span class="chip ${hot?'hot':'ok'}">${hot?'over':'under'}</span></td></tr>`;
+    }).join('') + '</tbody>';
+}
+
+const BENCH_SYMS = new Set(['SPY','QQQ','RSP','IWM','TLT']);
+
+// data/movers.csv: one row per symbol, close and % change over 1 / 5 / 21 bars,
+// rewritten by the daily snapshot. Joined to portfolio.csv for weights.
+function weekly(mv, port){
+  const wt = {}; port.forEach(p => { if (p.kind === 'equity' || p.kind === 'etf') wt[p.symbol] = +p.weight_pct; });
+  const rows = mv.filter(r => r.symbol in wt && r.chg_1w !== '' && isFinite(+r.chg_1w))
+    .map(r => ({ ...r, w: wt[r.symbol], c1w: +r.chg_1w, c1m: r.chg_1m === '' ? null : +r.chg_1m,
+                 contrib: wt[r.symbol] * (+r.chg_1w) / 100 }));
+  const spy = mv.find(r => r.symbol === 'SPY');
+  const asOf = rows.reduce((m, r) => r.date > m ? r.date : m, '');
+  document.getElementById('mvMeta').textContent = asOf + (spy && spy.chg_1w !== '' ? ' · SPY ' + sgn(+spy.chg_1w) : '');
+
+  const top = rows.slice().sort((a,b) => Math.abs(b.c1w) - Math.abs(a.c1w)).slice(0, 7);
+  document.getElementById('movers1w').innerHTML =
+    '<thead><tr><th>Ticker</th><th>Weight</th><th>1 week</th><th>1 month</th><th>Contribution</th></tr></thead><tbody>' +
+    top.map(r => `<tr><td>${esc(r.symbol)}</td><td class="muted">${r.w.toFixed(2)}%</td>
+      <td class="${r.c1w>=0?'pos':'neg'}">${sgn(r.c1w)}</td>
+      <td class="${r.c1m===null?'muted':r.c1m>=0?'pos':'neg'}">${r.c1m===null?'—':sgn(r.c1m)}</td>
+      <td class="${r.contrib>=0?'pos':'neg'}">${(r.contrib>=0?'+':'')+r.contrib.toFixed(2)} pp</td></tr>`).join('') + '</tbody>';
+
+  const covered = rows.reduce((s, r) => s + r.w, 0);
+  const total = rows.reduce((s, r) => s + r.contrib, 0);
+  document.getElementById('ctMeta').textContent =
+    'est. ' + sgn(total) + ' on ' + covered.toFixed(0) + '% of the book priced';
+  const byC = rows.slice().sort((a,b) => b.contrib - a.contrib);
+  const tbl = list => '<thead><tr><th>Ticker</th><th>Weight</th><th>1 week</th><th>Contrib</th></tr></thead><tbody>' +
+    list.map(r => `<tr><td>${esc(r.symbol)}</td><td class="muted">${r.w.toFixed(2)}%</td>
+      <td class="${r.c1w>=0?'pos':'neg'}">${sgn(r.c1w)}</td>
+      <td class="${r.contrib>=0?'pos':'neg'}">${(r.contrib>=0?'+':'')+r.contrib.toFixed(2)} pp</td></tr>`).join('') + '</tbody>';
+  document.getElementById('ctUp').innerHTML = tbl(byC.filter(r => r.contrib > 0).slice(0, 5));
+  document.getElementById('ctDn').innerHTML = tbl(byC.filter(r => r.contrib < 0).reverse().slice(0, 5));
+}
+
+function ladder(port){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const opts = port.filter(p => p.kind === 'option' && p.expiry).map(p => {
+    const exp = new Date(p.expiry + 'T00:00:00');
+    return { ...p, dte: Math.round((exp - today) / 864e5), w: +p.weight_pct };
+  }).sort((a,b) => a.dte - b.dte || a.underlying.localeCompare(b.underlying) || (+a.strike) - (+b.strike));
+  const total = opts.reduce((s, o) => s + o.w, 0);
+  document.getElementById('optMeta').textContent = opts.length + ' long contracts · ' + total.toFixed(2) + '% of the book';
+  if (!opts.length) { document.getElementById('ladder').innerHTML = '<tbody><tr><td class="skel">no option positions in the export</td></tr></tbody>'; return; }
+  document.getElementById('ladder').innerHTML =
+    '<thead><tr><th>Expiry</th><th>DTE</th><th>Contract</th><th>Weight</th><th>Status</th></tr></thead><tbody>' +
+    opts.map(o => {
+      const chip = o.dte < 30 ? '<span class="chip hot">&lt;30d</span>' : o.dte < 90 ? '<span class="chip warn">&lt;90d</span>' : '<span class="chip ok">ok</span>';
+      const right = (o.right || '').toUpperCase().startsWith('C') ? 'C' : (o.right || '').toUpperCase().startsWith('P') ? 'P' : '';
+      return `<tr><td>${esc(o.expiry)}</td><td class="muted">${o.dte}</td>
+        <td style="text-align:left;padding-left:18px">${esc(o.underlying)} ${esc((+o.strike).toFixed(0))} ${right}</td>
+        <td>${o.w.toFixed(2)}%</td><td>${chip}</td></tr>`;
     }).join('') + '</tbody>';
 }
 
@@ -290,7 +418,7 @@ function movers(rows){
   try {
     const a = await getJSON('data/analytics.json');
     try { freshness(a.generated_utc); } catch (e) { document.getElementById('freshText').textContent = 'data built ' + a.generated_utc; }
-    tiles(a); riskBars(a); factors(a); stress(a);
+    tiles(a); riskBars(a); windowToggle(a); factors(a); stress(a);
   } catch (e) {
     document.getElementById('error').innerHTML =
       `<div class="err"><strong>Analytics unavailable.</strong> ${esc(e.message)} — the weekly
@@ -302,6 +430,17 @@ function movers(rows){
   catch (e) { document.getElementById('conc').innerHTML = `<tbody><tr><td class="skel">unavailable — ${esc(e.message)}</td></tr></tbody>`; }
   try { movers(parseCSV(await getText('data/prices.csv'))); }
   catch (e) { document.getElementById('movers').innerHTML = `<tbody><tr><td class="skel">unavailable — ${esc(e.message)}</td></tr></tbody>`; }
+
+  let port = null;
+  try { port = parseCSV(await getText('data/portfolio.csv')); ladder(port); }
+  catch (e) { document.getElementById('ladder').innerHTML = `<tbody><tr><td class="skel">unavailable — ${esc(e.message)}</td></tr></tbody>`; }
+  try {
+    if (!port) throw new Error('portfolio.csv unavailable');
+    weekly(parseCSV(await getText('data/movers.csv')), port);
+  } catch (e) {
+    const msg = `<tbody><tr><td class="skel">not yet — movers.csv is written by the daily snapshot (weekdays after the close). ${esc(e.message)}</td></tr></tbody>`;
+    ['movers1w','ctUp','ctDn'].forEach(id => document.getElementById(id).innerHTML = msg);
+  }
 })();
 </script>
 </body>
