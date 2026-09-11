@@ -1,0 +1,51 @@
+name: Mirror emailed reports
+
+# Copies the Daily Brief / Weekly Review emails into data/reports/ so the
+# Daily Updates and Weekly Updates pages can show them. Reads the mailbox over
+# IMAP with an app password stored as a repo secret. Nothing from a message
+# body is ever printed to this log.
+#
+# Daily brief is sent 11:30 UTC weekdays; weekly review 23:00 UTC Sundays.
+
+on:
+  schedule:
+    - cron: '0 13 * * 1-5'     # weekdays 13:00 UTC — ~90 min after the daily brief
+    - cron: '30 0 * * 1'       # Monday 00:30 UTC — ~90 min after the Sunday weekly review
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-reports
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install python-dateutil
+
+      - name: Mirror reports from Gmail
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python scripts/mirror_reports.py
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "portfolio-bot"
+          git config user.email "actions@github.com"
+          git add data/reports/
+          if git diff --staged --quiet; then
+            echo "No change."
+          else
+            git commit -m "reports $(date -u +%Y-%m-%d)"
+            git push
+          fi
