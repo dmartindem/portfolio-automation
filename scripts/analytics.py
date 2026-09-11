@@ -24,6 +24,7 @@ EXTRA = ['SPY', 'QQQ', 'RSP']
 YEARS = 5
 TRADING_DAYS = 252
 MIN_OBS = 250                      # ~1y; below this a ticker is dropped
+MIN_WINDOW_OBS = 40                # a sub-window (e.g. YTD in January) below this is 'unavailable'
 RF_ANNUAL = 0.035                  # 3M T-bill approximation; refreshed manually (0.043 -> 0.035 on 2026-09-11)
 
 SCENARIOS = {
@@ -163,12 +164,33 @@ def factors(rp):
         return {'available': False, 'reason': str(e)[:200]}
 
 
-def main():
-    w0 = load_weights()
-    tickers = sorted(set(w0) | set(EXTRA))
-    print(f'Fetching {len(tickers)} tickers, {YEARS}y daily...')
-    px = fetch(tickers)
+def window_block(px, rets, w, rp, rm, rf_daily, start=None, label=''):
+    """Risk metrics, benchmarks and risk decomposition over one sub-window.
 
+    The sub-window uses the same weights and the same set of tickers as the full
+    run, so the three views on the dashboard differ only in the dates they cover.
+    A window with too few observations is marked unavailable rather than guessed.
+    """
+    mask = rp.index >= start if start is not None else np.ones(len(rp), dtype=bool)
+    rpw, rmw, retw = rp[mask], rm[mask], rets[mask]
+    if len(rpw) < MIN_WINDOW_OBS:
+        return {'label': label, 'available': False,
+                'reason': f'only {len(rpw)} observations (need {MIN_WINDOW_OBS})'}
+    return {
+        'label': label, 'available': True,
+        'window': {'start': str(rpw.index[0].date()), 'end': str(rpw.index[-1].date()),
+                   'observations': int(len(rpw))},
+        'risk_metrics': metrics(rpw, rmw, rf_daily),
+        'benchmarks': {b: metrics(px[b].pct_change().reindex(rpw.index).fillna(0.0),
+                                  rmw, rf_daily) for b in EXTRA if b in px.columns},
+        'risk_decomposition': decompose(retw, w),
+    }
+
+
+def build(px, w0, now=None):
+    """Everything derived from a close-price frame and baseline weights. Pure, so it
+    can be tested with synthetic prices where Yahoo is unreachable."""
+    now = now or pd.Timestamp.utcnow()
     ok = [t for t in w0 if t in px.columns and px[t].notna().sum() >= MIN_OBS]
     dropped = sorted(set(w0) - set(ok))
     w = pd.Series({t: w0[t] for t in ok})
@@ -182,8 +204,12 @@ def main():
     rm = px[BENCH].pct_change().reindex(rp.index).fillna(0.0)
     rf_daily = RF_ANNUAL / TRADING_DAYS
 
+    last = rp.index[-1]
+    year_ago = last - pd.DateOffset(years=1)
+    jan1 = pd.Timestamp(year=last.year, month=1, day=1)
+
     out = {
-        'generated_utc': pd.Timestamp.utcnow().isoformat(),
+        'generated_utc': now.isoformat(),
         'window': {'start': str(rp.index[0].date()), 'end': str(rp.index[-1].date()),
                    'observations': int(len(rp))},
         'coverage': {'tickers_used': len(ok), 'tickers_requested': len(w0),
@@ -192,10 +218,18 @@ def main():
         'caveat': ('BACKTEST OF THE CURRENT BOOK. This series assumes today\'s weights were '
                    'held for the whole window. It is not realised past performance. Options '
                    'and cash are excluded and weights renormalised over priceable holdings.'),
+        'risk_free_rate_annual': RF_ANNUAL,
+        # Top-level blocks are the FULL window — the weekly review reads these.
         'risk_metrics': metrics(rp, rm, rf_daily),
         'benchmarks': {b: metrics(px[b].pct_change().reindex(rp.index).fillna(0.0),
                                   rm, rf_daily) for b in EXTRA if b in px.columns},
         'risk_decomposition': decompose(rets, w),
+        # The same three blocks over shorter windows, for the dashboard toggle.
+        'windows': {
+            'full':      window_block(px, rets, w, rp, rm, rf_daily, None, f'{YEARS}y'),
+            'past_year': window_block(px, rets, w, rp, rm, rf_daily, year_ago, 'past year'),
+            'ytd':       window_block(px, rets, w, rp, rm, rf_daily, jan1, 'year to date'),
+        },
         'factor_analysis': factors(rp),
         'stress_tests': {},
     }
@@ -219,23 +253,36 @@ def main():
     shock_beta = out['risk_metrics']['beta']
     out['shocks'] = {'market_minus_10pct': round(-10 * shock_beta, 2),
                      'method': 'beta-implied, first order only'}
+    return _finite(out)
 
-    def _finite(o):
-        """NaN and Infinity are not valid JSON — every consumer rejects the file."""
-        if isinstance(o, float):
-            return o if math.isfinite(o) else None
-        if isinstance(o, dict):
-            return {k: _finite(v) for k, v in o.items()}
-        if isinstance(o, list):
-            return [_finite(v) for v in o]
-        return o
+
+def _finite(o):
+    """NaN and Infinity are not valid JSON — every consumer rejects the file."""
+    if isinstance(o, float):
+        return o if math.isfinite(o) else None
+    if isinstance(o, dict):
+        return {k: _finite(v) for k, v in o.items()}
+    if isinstance(o, list):
+        return [_finite(v) for v in o]
+    return o
+
+
+def main():
+    w0 = load_weights()
+    tickers = sorted(set(w0) | set(EXTRA))
+    print(f'Fetching {len(tickers)} tickers, {YEARS}y daily...')
+    px = fetch(tickers)
+    out = build(px, w0)
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    json.dump(_finite(out), open(OUT, 'w'), indent=1, default=str, allow_nan=False)
+    json.dump(out, open(OUT, 'w'), indent=1, default=str, allow_nan=False)
 
     m = out['risk_metrics']
     print(f'\nvol {m["annualised_volatility"]:.1%}  beta {m["beta"]:.2f}  '
           f'sharpe {m["sharpe"]:.2f}  maxDD {m["max_drawdown"]:.1%}')
+    for k, wb in out['windows'].items():
+        print(f'  {k:10s} ' + (f'{wb["window"]["observations"]} obs  sharpe {wb["risk_metrics"]["sharpe"]:.2f}  '
+                                f'maxDD {wb["risk_metrics"]["max_drawdown"]:.1%}' if wb['available'] else wb['reason']))
     print(f'VaR95 {m["var_95_1d"]:.2%}  CVaR95 {m["cvar_95_1d"]:.2%}')
     top = out['risk_decomposition']['contributions'][:5]
     print('top risk: ' + ', '.join(f'{c["ticker"]} {c["risk_share_pct"]}%' for c in top))
