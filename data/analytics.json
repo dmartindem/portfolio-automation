@@ -1,0 +1,468 @@
+{
+ "generated_utc": "2026-09-11T00:21:23.263149+00:00",
+ "window": {
+  "start": "2021-09-14",
+  "end": "2026-09-10",
+  "observations": 1253
+ },
+ "coverage": {
+  "tickers_used": 54,
+  "tickers_requested": 58,
+  "book_pct_covered": 91.84,
+  "dropped": [
+   "ELMT",
+   "HQ",
+   "NKLR",
+   "SPCX"
+  ]
+ },
+ "caveat": "BACKTEST OF THE CURRENT BOOK. This series assumes today's weights were held for the whole window. It is not realised past performance. Options and cash are excluded and weights renormalised over priceable holdings.",
+ "risk_metrics": {
+  "annualised_volatility": 0.29959697272668556,
+  "annualised_return": 0.37481107447041406,
+  "beta": 1.4976025239586586,
+  "sharpe": 0.919626943105584,
+  "sortino": 1.4658958545316767,
+  "tracking_error": 0.17523448117187165,
+  "information_ratio": 1.041758002423287,
+  "max_drawdown": -0.4108355730365735,
+  "max_drawdown_days": 514,
+  "var_95_1d": -0.030332826118281652,
+  "var_99_1d": -0.04414833614499804,
+  "var_95_cornish_fisher": -0.026280244382562372,
+  "cvar_95_1d": -0.03899025986693999,
+  "downside_deviation": 0.18795158424153605,
+  "skew": 0.4018865971178151,
+  "excess_kurtosis": 3.3859174040114004,
+  "up_capture": 1.6248876232897942,
+  "down_capture": 1.5189807179371595
+ },
+ "benchmarks": {
+  "SPY": {
+   "annualised_volatility": 0.17213968213774855,
+   "annualised_return": 0.14560039097671584,
+   "beta": 1.0007987220447288,
+   "sharpe": 0.5400586545561675,
+   "sortino": 0.7500738617301583,
+   "tracking_error": 0.0,
+   "information_ratio": NaN,
+   "max_drawdown": -0.24496380282076324,
+   "max_drawdown_days": 488,
+   "var_95_1d": -0.016626104467905932,
+   "var_99_1d": -0.029294382200454227,
+   "var_95_cornish_fisher": -0.014353741351400025,
+   "cvar_95_1d": -0.024668592932943167,
+   "downside_deviation": 0.12394182743096772,
+   "skew": 0.3163910307589638,
+   "excess_kurtosis": 8.918960913251613,
+   "up_capture": 1.0,
+   "down_capture": 1.0
+  },
+  "QQQ": {
+   "annualised_volatility": 0.22999799659717196,
+   "annualised_return": 0.17567345034337412,
+   "beta": 1.2705225800881632,
+   "sharpe": 0.5169310814575246,
+   "sortino": 0.7430855433331672,
+   "tracking_error": 0.08540967768598642,
+   "information_ratio": 0.3035673320103794,
+   "max_drawdown": -0.3511871449632863,
+   "max_drawdown_days": 493,
+   "var_95_1d": -0.023061689545335006,
+   "var_99_1d": -0.03893418978819522,
+   "var_95_cornish_fisher": -0.02100252899907632,
+   "cvar_95_1d": -0.032539459360571114,
+   "downside_deviation": 0.15999922778841316,
+   "skew": 0.18517557101717821,
+   "excess_kurtosis": 4.851843466707946,
+   "up_capture": 1.3036072015492226,
+   "down_capture": 1.3187171733595384
+  },
+  "RSP": {
+   "annualised_volatility": 0.1618478976462911,
+   "annualised_return": 0.10077112370488472,
+   "beta": 0.8607001026165116,
+   "sharpe": 0.32764866727161596,
+   "sortino": 0.4740847457128364,
+   "tracking_error": 0.06970559297609749,
+   "information_ratio": -0.5729278736673692,
+   "max_drawdown": -0.21384392951940379,
+   "max_drawdown_days": 517,
+   "var_95_1d": -0.015034157506804013,
+   "var_99_1d": -0.02745637945399399,
+   "var_95_cornish_fisher": -0.015090627421848014,
+   "cvar_95_1d": -0.02265050928584151,
+   "downside_deviation": 0.1118560519908421,
+   "skew": 0.08719181466138995,
+   "excess_kurtosis": 5.089768331029463,
+   "up_capture": 0.8406926065939414,
+   "down_capture": 0.8622976211531191
+  }
+ },
+ "risk_decomposition": {
+  "portfolio_volatility": 0.29959697272668556,
+  "diversification_ratio": 1.3963095767747564,
+  "hhi": 0.13592921506422317,
+  "effective_n": 7.356770209608912,
+  "contributions": [
+   {
+    "ticker": "ASTS",
+    "weight_pct": 11.57,
+    "risk_share_pct": 29.93,
+    "flag": true
+   },
+   {
+    "ticker": "VUG",
+    "weight_pct": 30.34,
+    "risk_share_pct": 20.57,
+    "flag": true
+   },
+   {
+    "ticker": "NVDA",
+    "weight_pct": 10.35,
+    "risk_share_pct": 13.72,
+    "flag": false
+   },
+   {
+    "ticker": "VOOG",
+    "weight_pct": 9.36,
+    "risk_share_pct": 6.03,
+    "flag": false
+   },
+   {
+    "ticker": "MSFT",
+    "weight_pct": 5.6,
+    "risk_share_pct": 3.49,
+    "flag": false
+   },
+   {
+    "ticker": "QQQ",
+    "weight_pct": 4.46,
+    "risk_share_pct": 3.07,
+    "flag": false
+   },
+   {
+    "ticker": "AAPL",
+    "weight_pct": 4.87,
+    "risk_share_pct": 2.85,
+    "flag": false
+   },
+   {
+    "ticker": "AMZN",
+    "weight_pct": 2.94,
+    "risk_share_pct": 2.41,
+    "flag": false
+   },
+   {
+    "ticker": "PLTR",
+    "weight_pct": 1.32,
+    "risk_share_pct": 1.73,
+    "flag": false
+   },
+   {
+    "ticker": "RKLB",
+    "weight_pct": 1.12,
+    "risk_share_pct": 1.71,
+    "flag": false
+   },
+   {
+    "ticker": "AMD",
+    "weight_pct": 1.27,
+    "risk_share_pct": 1.64,
+    "flag": false
+   },
+   {
+    "ticker": "GOOGL",
+    "weight_pct": 2.44,
+    "risk_share_pct": 1.62,
+    "flag": false
+   },
+   {
+    "ticker": "GS",
+    "weight_pct": 2.33,
+    "risk_share_pct": 1.28,
+    "flag": false
+   },
+   {
+    "ticker": "QQQM",
+    "weight_pct": 1.82,
+    "risk_share_pct": 1.24,
+    "flag": false
+   },
+   {
+    "ticker": "TQQQ",
+    "weight_pct": 0.51,
+    "risk_share_pct": 1.05,
+    "flag": false
+   },
+   {
+    "ticker": "IUSG",
+    "weight_pct": 1.63,
+    "risk_share_pct": 1.04,
+    "flag": false
+   },
+   {
+    "ticker": "DELL",
+    "weight_pct": 1.1,
+    "risk_share_pct": 0.93,
+    "flag": false
+   },
+   {
+    "ticker": "META",
+    "weight_pct": 1.07,
+    "risk_share_pct": 0.93,
+    "flag": false
+   },
+   {
+    "ticker": "TSLA",
+    "weight_pct": 0.68,
+    "risk_share_pct": 0.8,
+    "flag": false
+   },
+   {
+    "ticker": "VELO",
+    "weight_pct": 0.28,
+    "risk_share_pct": 0.41,
+    "flag": false
+   },
+   {
+    "ticker": "SCHA",
+    "weight_pct": 0.7,
+    "risk_share_pct": 0.39,
+    "flag": false
+   },
+   {
+    "ticker": "QBTS",
+    "weight_pct": 0.21,
+    "risk_share_pct": 0.26,
+    "flag": false
+   },
+   {
+    "ticker": "ONDS",
+    "weight_pct": 0.17,
+    "risk_share_pct": 0.26,
+    "flag": false
+   },
+   {
+    "ticker": "NBIS",
+    "weight_pct": 0.29,
+    "risk_share_pct": 0.22,
+    "flag": false
+   },
+   {
+    "ticker": "AVGO",
+    "weight_pct": 0.23,
+    "risk_share_pct": 0.21,
+    "flag": false
+   },
+   {
+    "ticker": "JPM",
+    "weight_pct": 0.45,
+    "risk_share_pct": 0.17,
+    "flag": false
+   },
+   {
+    "ticker": "IWM",
+    "weight_pct": 0.29,
+    "risk_share_pct": 0.17,
+    "flag": false
+   },
+   {
+    "ticker": "IREN",
+    "weight_pct": 0.1,
+    "risk_share_pct": 0.17,
+    "flag": false
+   },
+   {
+    "ticker": "SMR",
+    "weight_pct": 0.14,
+    "risk_share_pct": 0.16,
+    "flag": false
+   },
+   {
+    "ticker": "HOOD",
+    "weight_pct": 0.12,
+    "risk_share_pct": 0.16,
+    "flag": false
+   },
+   {
+    "ticker": "IBM",
+    "weight_pct": 0.49,
+    "risk_share_pct": 0.13,
+    "flag": false
+   },
+   {
+    "ticker": "TE",
+    "weight_pct": 0.1,
+    "risk_share_pct": 0.13,
+    "flag": false
+   },
+   {
+    "ticker": "LTRX",
+    "weight_pct": 0.11,
+    "risk_share_pct": 0.1,
+    "flag": false
+   },
+   {
+    "ticker": "RDW",
+    "weight_pct": 0.07,
+    "risk_share_pct": 0.1,
+    "flag": false
+   },
+   {
+    "ticker": "KRKNF",
+    "weight_pct": 0.15,
+    "risk_share_pct": 0.09,
+    "flag": false
+   },
+   {
+    "ticker": "ISRG",
+    "weight_pct": 0.14,
+    "risk_share_pct": 0.09,
+    "flag": false
+   },
+   {
+    "ticker": "NNE",
+    "weight_pct": 0.1,
+    "risk_share_pct": 0.09,
+    "flag": false
+   },
+   {
+    "ticker": "MSTR",
+    "weight_pct": 0.05,
+    "risk_share_pct": 0.09,
+    "flag": false
+   },
+   {
+    "ticker": "NCLH",
+    "weight_pct": 0.08,
+    "risk_share_pct": 0.07,
+    "flag": false
+   },
+   {
+    "ticker": "SERV",
+    "weight_pct": 0.08,
+    "risk_share_pct": 0.07,
+    "flag": false
+   },
+   {
+    "ticker": "HIMS",
+    "weight_pct": 0.05,
+    "risk_share_pct": 0.07,
+    "flag": false
+   },
+   {
+    "ticker": "ACHR",
+    "weight_pct": 0.04,
+    "risk_share_pct": 0.06,
+    "flag": false
+   },
+   {
+    "ticker": "QS",
+    "weight_pct": 0.04,
+    "risk_share_pct": 0.06,
+    "flag": false
+   },
+   {
+    "ticker": "DE",
+    "weight_pct": 0.15,
+    "risk_share_pct": 0.05,
+    "flag": false
+   },
+   {
+    "ticker": "ORLY",
+    "weight_pct": 0.26,
+    "risk_share_pct": 0.03,
+    "flag": false
+   },
+   {
+    "ticker": "BULL",
+    "weight_pct": 0.1,
+    "risk_share_pct": 0.03,
+    "flag": false
+   },
+   {
+    "ticker": "DIS",
+    "weight_pct": 0.07,
+    "risk_share_pct": 0.03,
+    "flag": false
+   },
+   {
+    "ticker": "LUNR",
+    "weight_pct": 0.03,
+    "risk_share_pct": 0.03,
+    "flag": false
+   },
+   {
+    "ticker": "OKLO",
+    "weight_pct": 0.03,
+    "risk_share_pct": 0.03,
+    "flag": false
+   },
+   {
+    "ticker": "FLY",
+    "weight_pct": 0.04,
+    "risk_share_pct": 0.02,
+    "flag": false
+   },
+   {
+    "ticker": "BAER",
+    "weight_pct": 0.02,
+    "risk_share_pct": 0.01,
+    "flag": false
+   },
+   {
+    "ticker": "GME",
+    "weight_pct": 0.01,
+    "risk_share_pct": 0.01,
+    "flag": false
+   },
+   {
+    "ticker": "SRFM",
+    "weight_pct": 0.01,
+    "risk_share_pct": 0.01,
+    "flag": false
+   },
+   {
+    "ticker": "AMC",
+    "weight_pct": 0.0,
+    "risk_share_pct": 0.0,
+    "flag": false
+   }
+  ]
+ },
+ "factor_analysis": {
+  "available": false,
+  "reason": "only 0 overlapping days"
+ },
+ "stress_tests": {
+  "gfc_2008": {
+   "label": "2008 GFC",
+   "available": false,
+   "reason": "window predates the available history"
+  },
+  "covid_2020": {
+   "label": "Mar 2020",
+   "available": false,
+   "reason": "window predates the available history"
+  },
+  "rates_2022": {
+   "label": "2022",
+   "available": true,
+   "portfolio_return": -0.3278589071171578,
+   "benchmark_return": -0.24059217764783036,
+   "tickers_with_history": 49,
+   "of_total": 54,
+   "note": "Names without history in this window contribute zero, so the drawdown is understated for a book this young."
+  },
+  "q4_2018": {
+   "label": "Q4 2018",
+   "available": false,
+   "reason": "window predates the available history"
+  }
+ },
+ "shocks": {
+  "market_minus_10pct": -14.98,
+  "method": "beta-implied, first order only"
+ }
+}
