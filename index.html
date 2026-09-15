@@ -14,6 +14,7 @@
     --ink:#14161C; --ink-2:#3D4552; --muted:#6B7585; --line:#DCE0E7;
     --direct:#1F6270; --hidden:#C4823A; --opt:#8E6BA8;
     --crit:#A8352E; --ok:#3F6B4A; --grid:#E4E7EC;
+    --sd-return:#4257B2;
     --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
     --serif:'IBM Plex Serif',Georgia,serif;
@@ -23,6 +24,7 @@
     --ink:#E9ECF2; --ink-2:#BCC4D0; --muted:#8B95A5; --line:#2B303A;
     --direct:#5AA8B8; --hidden:#D9A063; --opt:#B195C9;
     --crit:#E0736A; --ok:#7FB08C; --grid:#252A33;
+    --sd-return:#8E9BF0;
   }}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--ground);color:var(--ink);font-family:var(--sans);
@@ -97,6 +99,29 @@
   .markets-grid{grid-template-columns:repeat(3,1fr)}
   @media (max-width:700px){ .markets-grid{grid-template-columns:repeat(2,1fr)} }
   .eyebrow.warn{color:var(--hidden)}
+  .sd-row{display:grid;grid-template-columns:5rem 1fr 4.5rem 4.5rem;gap:.75rem;align-items:center;padding:.35rem 0}
+  .sd-head{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+           border-bottom:1px solid var(--line);padding-bottom:8px}
+  .sd-ticker{font-family:var(--mono);font-size:12.5px;font-weight:500}
+  .sd-bars{display:grid;gap:3px}
+  .sd-track{position:relative;height:7px}
+  .sd-track::before{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--line)}
+  .sd-bar{position:absolute;top:0;bottom:0}
+  .sd-bar-return{background:var(--sd-return)}
+  .sd-bar-risk{background:var(--hidden)}
+  .sd-num,.sd-marg{text-align:right;font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+  .sd-head .sd-num,.sd-head .sd-marg{font-size:10.5px;color:var(--muted)}
+  .sd-summary .sd-ticker{grid-column:1 / 3}
+  .sd-total{border-top:1px solid var(--line);font-weight:600}
+  .sd-total .sd-num{color:var(--ink);font-weight:600}
+  .sd-more{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--ink-2);background:var(--surface);border:1px solid var(--line);padding:5px 10px;cursor:pointer}
+  @media (max-width:560px){
+    .sd-row{grid-template-columns:3.75rem 1fr 5.5rem}
+    .sd-marg{grid-column:2 / 4;text-align:left;font-size:.85em}
+    .sd-marg:not(:empty)::before{content:"if +1pp  "}
+    .sd-head .sd-marg{display:none}
+  }
 </style>
 </head>
 <body>
@@ -208,6 +233,44 @@
     <div class="scroll"><table id="movers"><tbody><tr><td class="skel">loading…</td></tr></tbody></table></div>
   </section>
 
+  <!-- What drives the Sharpe ratio. Reads sharpe_decomposition from the analytics.json already loaded. -->
+  <section id="sharpe-decomposition">
+    <div class="shead"><h2>What drives the Sharpe ratio</h2>
+      <span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <span class="eyebrow" id="sd-meta"></span>
+        <span class="seg-ctl" id="sdWinCtl" role="group" aria-label="Window">
+          <button data-win="full" aria-pressed="true">Full history</button>
+          <button data-win="past_year" aria-pressed="false">Past year</button>
+          <button data-win="ytd" aria-pressed="false">YTD</button>
+        </span>
+      </span></div>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--sd-return)"></span>share of excess return</span>
+      <span class="key"><span class="sw" style="background:var(--hidden)"></span>share of portfolio risk</span>
+    </div>
+    <div>
+      <div class="sd-row sd-head">
+        <div>Position</div><div></div><div class="sd-num">Contribution</div><div class="sd-marg">If +1pp</div>
+      </div>
+      <div id="sd-rows"><span class="skel">loading…</span></div>
+    </div>
+    <button type="button" id="sd-more" class="sd-more" hidden></button>
+    <p id="sd-status" class="note"></p>
+    <p class="note">
+      <strong>How to read this.</strong> Each position's contribution is its weight × its excess return over
+      the window ÷ portfolio volatility, so the contributions add up to the Sharpe ratio in the Risk section.
+      When a position's share of excess return is larger than its share of risk, a slightly bigger position
+      would have raised the portfolio Sharpe over this window. "If +1pp" estimates by how much, if that
+      position were one percentage point larger and everything else shrank proportionally.
+    </p>
+    <p class="note">
+      <strong>This is a backtest of the current book.</strong> It assumes today's weights were held for the
+      whole window and excludes options and cash. Sharpe uses a 3.5% annual risk-free rate — an assumption,
+      not data. Average returns over a year or less are noisy: this describes what happened in the window,
+      not what comes next.
+    </p>
+  </section>
+
   <footer>
     Derived metrics only — no cost basis, share counts, account value or dollar amounts are
     published here or stored in the repository.<br>
@@ -277,22 +340,122 @@ function tiles(a, key='full'){
   // every other detail is plain text and escaped.
   document.getElementById('tiles').innerHTML = items.map(([k,v,d]) =>
     `<div class="tile"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span><span class="d">${k==='Sharpe' ? d : esc(d)}</span></div>`).join('');
-  document.getElementById('riskWindow').textContent =
-    W.window.start + ' → ' + W.window.end + ' · ' + W.window.observations + ' days';
+  const rangeEl = document.getElementById('riskWindow');
+  rangeEl.textContent = W.window.start + ' → ' + W.window.end + ' · ' + W.window.observations + ' days';
+  // Daily runs keep the window end within a day or two; over 4 calendar days means the schedule broke.
+  const stale = (Date.now() - Date.parse(W.window.end + 'T23:59:59Z')) / 864e5 > 4;
+  if (stale) rangeEl.textContent += ' · STALE';
+  rangeEl.classList.toggle('warn', stale);
 }
 
 function windowToggle(a){
-  const ctl = document.getElementById('winCtl');
-  ctl.querySelectorAll('button').forEach(b => {
+  // One window state, two controls (Risk and "What drives the Sharpe ratio"): either one
+  // re-renders both sections and keeps the pressed state identical on both.
+  const btns = document.querySelectorAll('#winCtl button, #sdWinCtl button');
+  btns.forEach(b => {
     const k = b.dataset.win, w = a.windows && a.windows[k];
     const ok = k === 'full' || (w && w.available);
     b.disabled = !ok;
     b.title = ok ? '' : (w && w.reason) || 'not in this analytics build yet — runs Sunday';
     b.addEventListener('click', () => {
-      ctl.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-      tiles(a, k); riskBars(a, k);
+      btns.forEach(x => x.setAttribute('aria-pressed', String(x.dataset.win === k)));
+      tiles(a, k); riskBars(a, k); sdRender(a, k);
     });
   });
+}
+
+// What drives the Sharpe ratio. windowKey = 'full' | 'past_year' | 'ytd'.
+const SD_TOP_N = 15;
+let sdShowAll = false;
+let sdLast = null;
+
+function sdRender(analytics, windowKey) {
+  sdLast = [analytics, windowKey];
+  const rows = document.getElementById('sd-rows');
+  const meta = document.getElementById('sd-meta');
+  const status = document.getElementById('sd-status');
+  const more = document.getElementById('sd-more');
+  const win = analytics?.windows?.[windowKey];
+  const block = win ? win.sharpe_decomposition
+                    : (windowKey === 'full' ? analytics?.sharpe_decomposition : undefined);
+
+  if (!block || !block.available) {
+    rows.replaceChildren();
+    more.hidden = true;
+    meta.textContent = 'UNAVAILABLE';
+    status.textContent = 'The Sharpe decomposition was not computed for this window' +
+      (block?.reason ? ` (${block.reason})` : '') +
+      '. Check the latest analytics run on the Actions page.';
+    return;
+  }
+
+  const W = pickWindow(analytics, windowKey).window;
+  meta.textContent = 'SHARPE ' + block.sharpe.toFixed(2) + (W ? ' · ' + W.start + ' → ' + W.end : '');
+  status.textContent = block.return_shares_meaningful ? '' :
+    'The book earned less than the risk-free rate over this window, so shares of excess return are not shown.';
+
+  // Pick the largest contributions in either direction, then show them best to worst.
+  const byMagnitude = [...block.positions]
+    .sort((a, b) => Math.abs(b.sharpe_contribution) - Math.abs(a.sharpe_contribution));
+  const shown = (sdShowAll ? byMagnitude : byMagnitude.slice(0, SD_TOP_N))
+    .sort((a, b) => b.sharpe_contribution - a.sharpe_contribution);
+  const restCount = block.positions.length - shown.length;
+  const restSum = block.positions.filter(p => !shown.includes(p))
+    .reduce((s, p) => s + p.sharpe_contribution, 0);
+  // Scale over ALL positions so bars don't change length when the list expands.
+  const scale = Math.max(1e-9, ...block.positions.map(p =>
+    Math.max(Math.abs(p.return_share ?? 0), Math.abs(p.risk_share))));
+
+  const out = shown.map(p => sdRow(p, scale));
+  if (restCount) out.push(sdSummary(`Other ${restCount} positions`, restSum, false));
+  out.push(sdSummary('Portfolio Sharpe', block.sharpe, true));
+  rows.replaceChildren(...out);
+
+  more.hidden = block.positions.length <= SD_TOP_N;
+  more.textContent = sdShowAll ? `Show top ${SD_TOP_N}` : `Show all ${block.positions.length} positions`;
+}
+
+document.getElementById('sd-more').addEventListener('click', () => {
+  sdShowAll = !sdShowAll;
+  if (sdLast) sdRender(...sdLast);
+});
+
+const sdSigned = (v, dp) => (v < 0 ? '−' : '+') + Math.abs(v).toFixed(dp);
+
+function sdEl(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+function sdRow(p, scale) {
+  const bars = sdEl('div', 'sd-bars');
+  for (const [cls, v] of [['sd-bar-return', p.return_share], ['sd-bar-risk', p.risk_share]]) {
+    const track = sdEl('div', 'sd-track');
+    if (v != null) {
+      const bar = sdEl('div', 'sd-bar ' + cls);
+      bar.style.width = (Math.abs(v) / scale * 50) + '%';
+      bar.style[v < 0 ? 'right' : 'left'] = '50%';
+      track.append(bar);
+    }
+    bars.append(track);
+  }
+  const pctv = v => v == null ? 'n/a' : (v * 100).toFixed(1) + '%';
+  const row = sdEl('div', 'sd-row');
+  row.title = `${p.ticker}: weight ${pctv(p.weight)} · share of excess return ${pctv(p.return_share)} · share of risk ${pctv(p.risk_share)}`;
+  row.append(sdEl('div', 'sd-ticker', p.ticker), bars,
+             sdEl('div', 'sd-num', sdSigned(p.sharpe_contribution, 3)),
+             sdEl('div', 'sd-marg', sdSigned(p.marginal_sharpe_per_pp, 3)));
+  return row;
+}
+
+function sdSummary(label, value, isTotal) {
+  const row = sdEl('div', 'sd-row sd-summary' + (isTotal ? ' sd-total' : ''));
+  row.append(sdEl('div', 'sd-ticker', label),
+             sdEl('div', 'sd-num', isTotal ? value.toFixed(3) : sdSigned(value, 3)),
+             sdEl('div', 'sd-marg', ''));
+  return row;
 }
 
 function riskBars(a, key='full'){
@@ -479,6 +642,8 @@ function marketTile(m) {
     const a = await getJSON('data/analytics.json');
     try { freshness(a.generated_utc); } catch (e) { document.getElementById('freshText').textContent = 'data built ' + a.generated_utc; }
     tiles(a); riskBars(a); windowToggle(a); factors(a); stress(a);
+    try { sdRender(a, 'full'); }
+    catch (e) { document.getElementById('sd-status').textContent = 'The Sharpe decomposition could not be drawn: ' + e.message; }
   } catch (e) {
     document.getElementById('error').innerHTML =
       `<div class="err"><strong>Analytics unavailable.</strong> ${esc(e.message)} — the weekly
