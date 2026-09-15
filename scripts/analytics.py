@@ -14,6 +14,8 @@ import json, math, os, sys, csv, warnings
 import numpy as np
 import pandas as pd
 
+from sharpe_decomposition import DecompositionError, sharpe_decomposition
+
 warnings.filterwarnings('ignore')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORTFOLIO = os.path.join(ROOT, 'data', 'portfolio.csv')
@@ -164,6 +166,25 @@ def factors(rp):
         return {'available': False, 'reason': str(e)[:200]}
 
 
+def _sharpe_decomposition_block(returns, weights, rf_per_period, sharpe_unrounded):
+    """Never raises. A failed check publishes available:false with the reason."""
+    try:
+        return sharpe_decomposition(
+            returns,                           # the window's cleaned T x N matrix - the one its Sharpe uses
+            weights,                           # the same constant weights, summing to 1
+            rf_per_period,                     # the same per-period risk-free rate
+            periods_per_year=TRADING_DAYS,     # analytics.py's annualisation
+            ddof=1,                            # pandas .std() / .cov() default
+            expected_sharpe=sharpe_unrounded,  # this window's Sharpe BEFORE any rounding
+        )
+    except DecompositionError as exc:
+        print(f'sharpe_decomposition: unavailable - {exc}')
+        return {'available': False, 'reason': str(exc)}
+    except Exception as exc:                  # noqa: BLE001
+        print(f'sharpe_decomposition: unavailable - {type(exc).__name__}')
+        return {'available': False, 'reason': type(exc).__name__}
+
+
 def window_block(px, rets, w, rp, rm, rf_daily, start=None, label=''):
     """Risk metrics, benchmarks and risk decomposition over one sub-window.
 
@@ -175,15 +196,18 @@ def window_block(px, rets, w, rp, rm, rf_daily, start=None, label=''):
     rpw, rmw, retw = rp[mask], rm[mask], rets[mask]
     if len(rpw) < MIN_WINDOW_OBS:
         return {'label': label, 'available': False,
-                'reason': f'only {len(rpw)} observations (need {MIN_WINDOW_OBS})'}
+                'reason': f'only {len(rpw)} observations (need {MIN_WINDOW_OBS})',
+                'sharpe_decomposition': {'available': False, 'reason': 'fewer than 40 observations'}}
+    rmetrics = metrics(rpw, rmw, rf_daily)
     return {
         'label': label, 'available': True,
         'window': {'start': str(rpw.index[0].date()), 'end': str(rpw.index[-1].date()),
                    'observations': int(len(rpw))},
-        'risk_metrics': metrics(rpw, rmw, rf_daily),
+        'risk_metrics': rmetrics,
         'benchmarks': {b: metrics(px[b].pct_change().reindex(rpw.index).fillna(0.0),
                                   rmw, rf_daily) for b in EXTRA if b in px.columns},
         'risk_decomposition': decompose(retw, w),
+        'sharpe_decomposition': _sharpe_decomposition_block(retw, w, rf_daily, rmetrics['sharpe']),
     }
 
 
@@ -249,6 +273,9 @@ def build(px, w0, now=None):
             'note': 'Names without history in this window contribute zero, so the '
                     'drawdown is understated for a book this young.',
         })
+
+    # Top-level keys are the full window, by convention; the weekly review ignores this one.
+    out['sharpe_decomposition'] = out['windows']['full']['sharpe_decomposition']
 
     shock_beta = out['risk_metrics']['beta']
     out['shocks'] = {'market_minus_10pct': round(-10 * shock_beta, 2),
