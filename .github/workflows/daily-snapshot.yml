@@ -34,14 +34,22 @@ jobs:
       - name: Recompute look-through concentration
         run: python scripts/concentration.py
 
+      - name: Reference markets (previous close)
+        run: python scripts/fetch_markets.py
+        continue-on-error: true
+
       - name: Commit if anything changed
         run: |
           git config user.name  "portfolio-bot"
           git config user.email "actions@github.com"
           git add data/
-          if git diff --staged --quiet; then
+          if git diff --cached --quiet; then
             echo "No change (market closed or no new bar) — nothing to commit."
-          else
-            git commit -m "snapshot $(date -u +%Y-%m-%d)"
-            git push
+            exit 0
           fi
+          git commit -m "snapshot $(date -u +%Y-%m-%d)"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push; then exit 0; fi
+            sleep 20
+          done
+          echo "push failed after 3 attempts"; exit 1
