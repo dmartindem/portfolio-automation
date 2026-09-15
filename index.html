@@ -94,6 +94,9 @@
   @media (max-width:700px){ .two{grid-template-columns:1fr} }
   @media (max-width:700px){ .tiles{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:560px){ .row{grid-template-columns:58px 1fr 50px;gap:8px} }
+  .markets-grid{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:700px){ .markets-grid{grid-template-columns:repeat(2,1fr)} }
+  .eyebrow.warn{color:var(--hidden)}
 </style>
 </head>
 <body>
@@ -114,6 +117,17 @@
   </header>
 
   <div id="error"></div>
+
+  <!-- Markets · previous close. Reads data/markets.json. Independent of every other loader. -->
+  <section id="markets">
+    <div class="shead"><h2>Markets</h2><span class="eyebrow" id="markets-meta">PREVIOUS CLOSE</span></div>
+    <div class="tiles markets-grid" id="markets-grid"><div class="tile"><span class="skel">loading…</span></div></div>
+    <p class="note" id="markets-note">Last completed daily close for each instrument; the date on each
+    tile is the bar it came from. S&amp;P 500 is the index in points. WTI is the front-month NYMEX
+    future in USD per barrel and can jump on contract-roll days. Bitcoin's day ends at 00:00 UTC, so
+    its date can differ from the stocks' by a day. Public market data from Yahoo Finance, refreshed by
+    the daily snapshot job.</p>
+  </section>
 
   <section>
     <div class="shead"><h2>Risk</h2>
@@ -412,6 +426,52 @@ function movers(rows){
     show.map(r => { const c = parseFloat(r.pct_change);
       return `<tr><td>${esc(r.symbol)}</td><td>${fx(+r.close)}</td>
         <td class="${c>=0?'pos':'neg'}">${sgn(c)}</td></tr>`; }).join('') + '</tbody>';
+}
+
+// Markets strip: its own loader, never inside the analytics chain. textContent only.
+(async function renderMarkets() {
+  const grid = document.getElementById('markets-grid');
+  const meta = document.getElementById('markets-meta');
+  const note = document.getElementById('markets-note');
+  try {
+    const doc = await getJSON('data/markets.json');
+    const ageDays = (Date.now() - Date.parse(doc.generated_utc)) / 864e5;
+    meta.textContent = 'PREVIOUS CLOSE · UPDATED ' + doc.generated_utc.slice(0, 10) + (ageDays > 4 ? ' · STALE' : '');
+    meta.classList.toggle('warn', ageDays > 4);
+    grid.replaceChildren(...doc.instruments.map(marketTile));
+  } catch (e) {
+    grid.replaceChildren();
+    meta.textContent = 'UNAVAILABLE';
+    note.textContent = 'Market closes did not load: data/markets.json is missing or unreadable. ' +
+      'Check the latest daily snapshot run on the Actions page. The rest of this page is unaffected.';
+  }
+})();
+
+function marketTile(m) {
+  const day = iso => new Date(iso + 'T00:00:00Z')
+    .toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const el = document.createElement('div');     el.className = 'tile';
+  const label = document.createElement('span'); label.className = 'k'; label.textContent = m.label;
+  const value = document.createElement('span'); value.className = 'v';
+  const sub = document.createElement('span');   sub.className = 'd';
+  if (m.close == null) {
+    value.textContent = '—';
+    sub.textContent = 'unavailable';
+  } else {
+    value.textContent = m.close.toLocaleString('en-US',
+      { minimumFractionDigits: m.decimals, maximumFractionDigits: m.decimals });
+    if (m.stale) {
+      sub.textContent = 'stale · last good ' + (m.bar_date ? day(m.bar_date) : '—');
+    } else {
+      const chg = document.createElement('span');
+      chg.className = m.change_pct < 0 ? 'neg' : 'pos';
+      chg.textContent = (m.change_pct < 0 ? '−' : '+') + Math.abs(m.change_pct).toFixed(2) + '%';
+      sub.append(chg, ' · ' + day(m.bar_date));
+    }
+  }
+  el.title = m.symbol + ' · ' + m.unit;
+  el.append(label, value, sub);
+  return el;
 }
 
 (async () => {
