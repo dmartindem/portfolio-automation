@@ -2,8 +2,13 @@ name: Daily portfolio snapshot
 
 on:
   schedule:
-    # 22:30 UTC on weekdays = after the US close year-round
-    # (17:30 ET during EST, 18:30 ET during EDT).
+    # 09:17 UTC every day (04:17 CDT / 03:17 CST): the run the page relies on. Yesterday's
+    # closes are final by then and it finishes before the 06:30 CT brief and the US open,
+    # even when GitHub starts it late. Off the top of the hour to dodge the busiest queue.
+    - cron: '17 9 * * *'
+    # 22:30 UTC on weekdays = after the US close. GitHub often starts this one after
+    # 00:00 UTC, when Yahoo can omit the session that just closed; the scripts refuse to
+    # publish an older bar than the one already committed, so a late run can't regress.
     - cron: '30 22 * * 1-5'
   workflow_dispatch:        # lets you run it by hand from the Actions tab
 
