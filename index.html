@@ -149,9 +149,10 @@
     <div class="tiles markets-grid" id="markets-grid"><div class="tile"><span class="skel">loading…</span></div></div>
     <p class="note" id="markets-note">Last completed daily close for each instrument; the date on each
     tile is the bar it came from. S&amp;P 500 is the index in points. WTI is the front-month NYMEX
-    future in USD per barrel and can jump on contract-roll days. Bitcoin's day ends at 00:00 UTC, so
-    its date can differ from the stocks' by a day. Public market data from Yahoo Finance, refreshed by
-    the daily snapshot job.</p>
+    future in USD per barrel and can jump on contract-roll days. Every tile is yesterday's close
+    (Chicago date), refreshed each morning before the open; after a weekend or holiday the stocks and
+    WTI show their last session while Bitcoin, which trades every day, shows yesterday. Public market
+    data from Yahoo Finance, refreshed by the daily snapshot job.</p>
   </section>
 
   <section>
