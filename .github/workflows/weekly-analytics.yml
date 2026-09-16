@@ -1,14 +1,16 @@
 name: Weekly analytics
 
 # Produces data/analytics.json — the Tier 2 metrics the weekly review reads.
-# Runs weekdays 23:00 UTC (after the US close, 30 min clear of the 22:30 daily snapshot)
-# and Sunday 20:00 UTC, three hours before the Claude weekly review at 23:00 UTC,
-# so the file is fresh when the review picks it up. File name kept for history.
+# Runs Tue-Sat 09:47 UTC (04:47 CDT / 03:47 CST), picking up the Mon-Fri closes once they
+# are final and 30 min after the morning daily snapshot, and Sunday 20:00 UTC, three hours
+# before the Claude weekly review at 23:00 UTC. (Was weekdays 23:00 UTC until 2026-09-16:
+# GitHub starts evening runs late, past 00:00 UTC, when Yahoo can omit the latest session.)
+# File name kept for history.
 
 on:
   schedule:
     - cron: '0 20 * * 0'       # Sunday, ahead of the 23:00 UTC weekly review
-    - cron: '0 23 * * 1-5'     # weekdays after the US close: 18:00 CDT / 17:00 CST
+    - cron: '47 9 * * 2-6'     # Tue-Sat morning, Mon-Fri closes: 04:47 CDT / 03:47 CST
   workflow_dispatch:
 
 permissions:
