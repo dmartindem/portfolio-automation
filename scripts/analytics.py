@@ -50,7 +50,11 @@ def load_weights():
 
 def fetch(tickers):
     import yfinance as yf
-    df = yf.download(tickers, period=f'{YEARS}y', interval='1d',
+    # Explicit start/end, not period=: runs started after 00:00 UTC came back without the
+    # session that had just closed (seen in the daily snapshot 2026-09-11/14/15).
+    now = pd.Timestamp.now(tz='UTC')
+    df = yf.download(tickers, start=(now - pd.DateOffset(years=YEARS)).date().isoformat(),
+                     end=(now + pd.Timedelta(days=2)).date().isoformat(), interval='1d',
                      auto_adjust=True, progress=False, threads=True)
     close = df['Close'] if isinstance(df.columns, pd.MultiIndex) else df[['Close']]
     if not isinstance(df.columns, pd.MultiIndex):
