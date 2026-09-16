@@ -10,6 +10,8 @@ import io
 import os
 import sys
 import urllib.request
+from datetime import datetime, time, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import yfinance as yf
 
@@ -52,16 +54,30 @@ def _changes(closes):
     return out
 
 
+NY = ZoneInfo('America/New_York')
+
+
 def fetch(symbols):
-    """Return {symbol: (date, close, prev_close, changes)} for the most recent bar."""
+    """Return {symbol: (date, close, prev_close, changes)} for the most recent COMPLETED bar.
+
+    Explicit start/end rather than period=: runs that GitHub started after 00:00 UTC came
+    back without the session that had just closed (2026-09-11/14/15). A bar dated today
+    (New York) before 16:30 ET is still in progress and is ignored.
+    """
     out = {}
-    data = yf.download(symbols, period='3mo', interval='1d',
+    now_utc = datetime.now(timezone.utc)
+    now_ny = now_utc.astimezone(NY)
+    data = yf.download(symbols, start=(now_utc - timedelta(days=100)).date().isoformat(),
+                       end=(now_utc + timedelta(days=2)).date().isoformat(), interval='1d',
                        group_by='ticker', auto_adjust=True,
                        progress=False, threads=True)
     for s in symbols:
         try:
             df = data[s] if len(symbols) > 1 else data
             df = df.dropna(subset=['Close'])
+            done = [d < now_ny.date() or (d == now_ny.date() and now_ny.time() >= time(16, 30))
+                    for d in df.index.date]
+            df = df[done]
             if len(df) == 0:
                 continue
             closes = [float(c) for c in df['Close'].tolist()]
@@ -127,10 +143,25 @@ def main():
                     if (r['date'], r['symbol']) not in keys]
 
     movers = []
+    # Never let the movers snapshot go backwards: if Yahoo hands back an older bar than the
+    # one already published for a symbol, keep the published row.
+    published = {}
+    if os.path.exists(MOVERS):
+        with open(MOVERS) as f:
+            published = {r['symbol'].strip(): {k.strip(): (v or '').strip() for k, v in r.items()}
+                          for r in csv.DictReader(f)}
+    kept = 0
     for s, (d, close, prev, ch) in sorted(quotes.items()):
         pct = round((close / prev - 1) * 100, 3) if prev else 0.0
         rows.append({'date': d, 'symbol': s, 'close': close, 'pct_change': pct})
-        movers.append({'date': d, 'symbol': s, 'close': close, **ch})
+        old = published.get(s)
+        if old and old.get('date', '') > d:
+            movers.append({k: old.get(k, '') for k in ['date', 'symbol', 'close', *LOOKBACKS]})
+            kept += 1
+        else:
+            movers.append({'date': d, 'symbol': s, 'close': close, **ch})
+    if kept:
+        print(f'movers: kept the newer published row for {kept} symbols (Yahoo returned older bars)')
 
     rows.sort(key=lambda r: (r['date'], r['symbol']))
     os.makedirs(os.path.dirname(PRICES), exist_ok=True)
