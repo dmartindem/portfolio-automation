@@ -9,8 +9,12 @@ name: Mirror emailed reports
 
 on:
   schedule:
-    - cron: '0 13 * * 1-5'     # weekdays 13:00 UTC — ~90 min after the daily brief
-    - cron: '30 0 * * 1'       # Monday 00:30 UTC — ~90 min after the Sunday weekly review
+    - cron: '52 11 * * 1-5'   # ~12 min after the daily brief is emailed
+    - cron: '23 12 * * 1-5'   # catch-up
+    - cron: '41 13 * * 1-5'   # catch-up
+    - cron: '13 15 * * 1-5'   # backstop for GitHub's scheduling delay
+    - cron: '37 0 * * 1'      # Monday — after the Sunday weekly review
+    - cron: '43 2 * * 1'      # Monday backstop
   workflow_dispatch:
 
 permissions:
