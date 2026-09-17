@@ -59,7 +59,13 @@ def fetch(tickers):
     close = df['Close'] if isinstance(df.columns, pd.MultiIndex) else df[['Close']]
     if not isinstance(df.columns, pd.MultiIndex):
         close.columns = tickers[:1]
-    return close.dropna(how='all')
+    close = close.dropna(how='all')
+    # Completed sessions only. Before the close Yahoo can return a row for today (seen
+    # 2026-09-17 13:15 UTC, pre-open); it is not a finished day and must not enter the returns.
+    now_ny = now.tz_convert('America/New_York')
+    idx = close.index.tz_convert('America/New_York') if close.index.tz is not None else close.index
+    done = (idx.date < now_ny.date()) | ((idx.date == now_ny.date()) & (now_ny.hour * 60 + now_ny.minute >= 16 * 60 + 30))
+    return close[done]
 
 
 def metrics(rp, rm, rf_daily):
