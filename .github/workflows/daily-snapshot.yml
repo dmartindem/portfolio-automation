@@ -6,6 +6,10 @@ on:
     # closes are final by then and it finishes before the 06:30 CT brief and the US open,
     # even when GitHub starts it late. Off the top of the hour to dodge the busiest queue.
     - cron: '17 9 * * *'
+    # Backups, same job: GitHub skipped the 09:17 run entirely on its first morning
+    # (2026-09-17). Re-running is harmless - before the open the result is identical.
+    - cron: '7 11 * * *'
+    - cron: '7 12 * * *'
     # 22:30 UTC on weekdays = after the US close. GitHub often starts this one after
     # 00:00 UTC, when Yahoo can omit the session that just closed; the scripts refuse to
     # publish an older bar than the one already committed, so a late run can't regress.
