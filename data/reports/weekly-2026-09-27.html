@@ -1,0 +1,66 @@
+<div>
+
+<h2>Weekly Review — week of 21–25 Sep 2026</h2>
+<p>Weights carried from the 2026-09-10 Fidelity export (17 days old, no new export). Look-through and tax figures are as-of that date unless stated.</p>
+
+<h2>Headline</h2>
+<p>A narrow market posted a weekly win and your book was on the right side of the narrowness. Mega-cap tech carried the index again: only Technology outperformed the S&amp;P 500 and eight of eleven sectors lagged, while the Nasdaq-100 set a new all-time high at 70,770.63 and semiconductors beat the index (confirmed). Underneath, breadth deteriorated — Russell 2000 declined, NYSE Composite made lower highs and lows, and stocks at 52-week lows expanded while the S&amp;P sat near a record. The 10-year Treasury closed at <strong>5.18%, its highest level since the global financial crisis</strong> (confirmed).</p>
+<p><strong>Degraded for a third consecutive week:</strong> all four Tier 2 fetches (analytics.json, concentration.csv, prices.csv) failed with the same unanswered URL-permission error, not stale data. That removes risk, factor, stress and risk-decomposition figures, and prices.csv is what computes the performance estimate. This is now a standing infrastructure failure, not a bad week — see Recommendations.</p>
+
+<h2>Look-through concentration</h2>
+<table>
+<tr><th>Name</th><th>All-in</th><th>Acknowledged</th><th>Risk share</th></tr>
+<tr><td><strong>NVDA</strong></td><td>15.05%</td><td>15.05</td><td>13.7%</td></tr>
+<tr><td><strong>ASTS</strong></td><td>13.88%</td><td>13.88</td><td><strong>29.9%</strong></td></tr>
+<tr><td>AAPL</td><td>8.89%</td><td>8.89</td><td>—</td></tr>
+<tr><td>MSFT</td><td>8.68%</td><td>8.68</td><td>—</td></tr>
+<tr><td>VUG (fund)</td><td>27.86%</td><td>—</td><td>20.6%</td></tr>
+</table>
+<p>Mega-cap 8 <strong>50.37%</strong> · semiconductor complex <strong>22.77%</strong> · NVDA+ASTS <strong>28.93%</strong> · options premium 3.29% · cash 2.81%.</p>
+<p>The capital-versus-risk gap remains the most useful number here: <strong>ASTS carried 29.9% of portfolio variance on roughly 13.9% of capital</strong> — more than twice its weight in risk terms, and the widest gap in the book. NVDA is the inverse: the largest capital exposure, a smaller risk share. Both risk shares are <strong>as of 2026-09-11 and have not been re-verified for three weeks</strong>; treat them as directionally right and numerically stale. ASTS is deliberately sized and reported, not questioned.</p>
+<p>Because the export has no Quantity column, <strong>written (short) calls and puts on ASTS are invisible</strong> in these figures — reported weights are net and positive. The options picture here is incomplete, and true ASTS economics sit above 13.88% by an amount that needs contract counts.</p>
+
+<h2>Performance estimate</h2>
+<p><strong>Not computed — third consecutive week.</strong> prices.csv was unreachable, so there are no ticker-level closes and no weight-derived return. Directional read only, and an estimate rather than your realised return: with the Nasdaq-100 at a record, semis beating the index, and only Technology outperforming, a book that is 50.4% mega-cap 8 and 22.8% semis most likely finished <strong>positive and ahead of the S&amp;P 500 (+1.21% on the week, confirmed), roughly in line with QQQ, and well ahead of equal-weight</strong>. RSP itself was not retrieved for a third week; the Russell 2000 decline, weak NYSE Composite and 8-of-11 sector underperformance are the proxy for it. ASTS at ~13.9% is the largest single uncertainty in that read — see below.</p>
+
+<h2>Risk and factor exposure</h2>
+<p><strong>Unavailable this week.</strong> No volatility, beta, Sortino, drawdown, VaR/CVaR, up/down capture, diversification ratio, effective N, Fama-French loadings or stress replays. Last good values (2026-09-11, backtest of the then-current book, options and cash excluded, 3.5% assumed risk-free rate — an assumption, not data): Sharpe 0.945 against SPY 0.59 over the same window and rate. Not re-verified.</p>
+
+<h2>Concentration and drift</h2>
+<p><strong>No concentration alerts</strong> — but drift is <em>unmeasured</em>, not measured-as-zero. Without a new export or the concentration series, no ±2pp move from the acknowledged levels can be confirmed or ruled out, and no new name crossing 8% can be detected. Three weeks of unmeasured drift on a book where mega-cap tech has outperformed is itself the risk: NVDA and the growth funds are the most likely to have drifted <em>up</em>.</p>
+
+<h2>Tax position</h2>
+<p>Unchanged — no sales. [redacted]% of value; net unrealised gain +30.29% of account. Tax friction (gain share of proceeds): <strong>NVDA 79.2%</strong>, GS 70.7%, AAPL 59.8%, VOOG 46.7%, QQQ 42.3%, ASTS 26.9%, VUG 17.9%, GOOGL 9.4%. Harvestable losses 2.71% of account across 32 positions, 58% of it in three ASTS Jan-2028 calls whose wash-sale treatment under §1091 is unsettled and belongs with your preparer. Short-term versus long-term still unknown — no acquisition dates.</p>
+
+<h2>Options ladder (DTE from 2026-09-27)</h2>
+<table>
+<tr><th>Expiry</th><th>DTE</th><th>Position</th><th>Weight</th></tr>
+<tr><td>2027-01-15</td><td><strong>110</strong></td><td>ASTS $25/$30/$35 — deep ITM</td><td>1.40%</td></tr>
+<tr><td>2027-01-15</td><td>110</td><td>AUR/ACHR/QS/SIRI — decayed to ~0</td><td>0.04%</td></tr>
+<tr><td>2028-01-21</td><td>846</td><td>ASTS $150/$180/$190 — down 57–75%</td><td>0.66%</td></tr>
+<tr><td>2028-12-15</td><td>1174</td><td>ASTS $60</td><td>0.62%</td></tr>
+</table>
+<p>The Jan-2027 ASTS calls cross the <strong>90-DTE escalation on 2026-10-17 — three weeks out</strong>. That is a decision with a fixed date, and it is the nearest hard deadline in the book.</p>
+
+<h2>Week ahead</h2>
+<p><strong>Wednesday 30 Sep — quarter end</strong> (confirmed): Q3 close brings index rebalancing and window-dressing flows, which matter more than usual for a book this concentrated in the names that just led. <strong>Thursday 1 Oct</strong>: ISM manufacturing (estimated). <strong>Friday 2 Oct</strong>: September jobs report (estimated — first Friday convention, not verified). October FOMC is <strong>estimated 27–28 Oct</strong> and was not confirmed this run; with the 10-year at 5.18% and a 25bp hike already delivered on 09-16, rate path is the dominant macro variable for a 50%-mega-cap-growth book. Q3 earnings begin mid-October; ASTS is flagged by press coverage as having an upcoming report, timing <strong>estimated</strong> early-to-mid November. ASTS daily prints this week conflicted across sources (+2.91% on 09-24 and +1.8% on 09-25 per one outlet, −5.8% on 09-25 per another) — the weekly close was <strong>not retrieved</strong> and I am not going to resolve it from a headline.</p>
+
+<hr>
+<p>Everything above this line is measured or sourced. Everything below it is interpretation. It is not financial advice, it has no view of your tax situation or anything outside this portfolio, and it can be wrong. I am not a financial advisor or a tax professional.</p>
+
+<h2>Recommendations</h2>
+
+<p><strong>1. Fix the Tier 2 data path before next Sunday. Confidence: high.</strong><br>
+Three consecutive weeks with no risk, factor or stress figures and no computed performance estimate means the analytics half of this report has not run since 2026-09-11. The failure is an unanswered URL-permission prompt in an unattended session, so it will recur every week until the path changes: pre-approve <a href="https://www.google.com/url?q=http://raw.githubusercontent.com&amp;source=gmail&amp;ust=1790638273409000&amp;sa=E" rel="noopener noreferrer" target="_blank">raw.githubusercontent.com</a> for the scheduled task, or have the GitHub Action email the three files so the report reads them from the mailbox instead of fetching them. <em>Counterargument:</em> the Tier 1 core — look-through, tax, ladder, calendar — has landed every week, so this is a degradation rather than an outage, and you may reasonably decide the risk figures are not worth an infrastructure session. <em>Tax:</em> none.</p>
+
+<p><strong>2. Redirect October contributions away from growth funds and semis. Confidence: moderate.</strong><br>
+This is the contribution lever, and it is the only way to reduce NVDA's look-through weight at zero tax cost — trimming it realises 79.2% of proceeds as gain. With the 10-year at 5.18%, cash in SPAXX is a real yield rather than a drag, and new money into cash or a genuinely non-overlapping sleeve lowers the mega-cap-8 and semis shares without a sale. <em>Counterargument:</em> momentum is in precisely these names, the Nasdaq-100 just made an all-time high, and redirecting contributions has underperformed simply buying more for most of the past two years. <em>Tax:</em> none — new money realises nothing.</p>
+
+<p><strong>3. Write down exit criteria for the Jan-2027 ASTS calls before 2026-10-17. Confidence: moderate. Third week raised.</strong><br>
+110 days left, deep in the money at +236% to +369%, 1.40% of the account, and a fixed 90-DTE date three weeks away. The decision to make now is the rule, not the trade: roll, exercise, or let them run into a catalyst. <em>Counterargument:</em> pre-committing removes flexibility around exactly the news flow you follow most closely, and ASTS catalysts have repeatedly arrived off-schedule. <em>Tax:</em> closing or rolling realises gain at a high gain share on those contracts, and selling is what triggers it — exercise versus sale differ in treatment, and with the three Jan-2028 ASTS calls sitting in the harvestable inventory the §1091 interaction is a preparer question, not an automated one.</p>
+
+<p>The four decayed Jan-2027 calls (AUR/ACHR/QS/SIRI, 0.04%, near-certain total losses) remain worth closing at near-zero cost — raised three weeks running, not acted on, and held back from the list above only by the three-item cap.</p>
+
+<p>Thin this week: performance estimate, risk and factor exposure, concentration drift, and the RSP comparison — all four because the Tier 2 data layer was unreachable, not because nothing happened. Research also overran its clock (send at roughly T0+11 against a T0+8 target), for the same reason as the past two weeks.</p>
+
+</div>
