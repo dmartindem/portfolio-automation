@@ -1,0 +1,76 @@
+<div>
+
+<h2>Weekly Review — 18 Oct 2026</h2>
+<p>Week of 12–16 Oct 2026 · taxable brokerage · weights carried from the 2026-09-10 export (<strong>38 days stale</strong>)</p>
+
+<h2>Headline</h2>
+<p><strong>The worst week for this book since the review began, and the first one where the damage was concentrated exactly where the concentration is.</strong> Nasdaq Composite <strong>−3.64%</strong>, its worst weekly drop in months, against Dow <strong>+0.93%</strong> and S&amp;P 500 <strong>−1.43%</strong>; Russell 2000 −2.43%. Mega-cap tech led the decline. Separately, <strong>ASTS traded to a 52-week intraday low</strong> and is roughly −42% year to date. Two of the three things this portfolio is built on fell together.</p>
+<p>One threshold did break: <strong>the Jan-2027 ASTS calls crossed 90 DTE on Friday 17 Oct</strong>. That is the escalation date flagged in six consecutive reviews, and it has now passed with no decision recorded.</p>
+
+<h2>Look-through concentration</h2>
+<p>Weights below are the acknowledged 2026-09-10 levels. <strong>No new export in 38 days and no concentration series, so drift is inferred, not measured.</strong></p>
+<table>
+<tr><th>Name</th><th>All-in capital</th><th>Risk share</th><th>Inferred drift</th></tr>
+<tr><td>NVDA</td><td>15.05%</td><td>13.7%</td><td>roughly flat — fell with the book</td></tr>
+<tr><td>ASTS</td><td>13.88%</td><td><strong>29.9%</strong></td><td><strong>down ~1.0–1.5pp</strong></td></tr>
+<tr><td>VUG</td><td>27.86%</td><td>20.6%</td><td>up slightly</td></tr>
+<tr><td>AAPL / MSFT</td><td>8.89% / 8.68%</td><td>—</td><td>no alert</td></tr>
+</table>
+<p><strong>No concentration alert fires</strong> — nothing is confirmed to have moved more than 2pp from its acknowledged level and no new name crossed 8%. But ASTS is the one to watch: a down-move of that size on ~13.9% of capital is the first drift in six weeks large enough to approach the band from below. Risk shares are from 2026-09-11 and are now <strong>37 days unverified</strong>. The capital-versus-risk gap remains the most useful line in this report: <strong>ASTS carries roughly 2.2× as much of the portfolio's variance as it does of its capital</strong>, and this week is what that looks like in practice. VUG is the inverse.</p>
+
+<h2>Performance estimate</h2>
+<p><strong>Estimate, not a computed return — sixth week without prices.csv.</strong> Mapping the book to index proxies (50.4% mega-cap 8 and 22.8% semis to the Nasdaq decline, 13.9% ASTS to its own sharp fall, 2.8% cash flat):</p>
+<table>
+<tr><th>Benchmark</th><th>Week</th><th>Estimated book vs it</th></tr>
+<tr><td>SPY (S&amp;P 500)</td><td>−1.43%</td><td><strong>~1.5–2.5pp behind</strong></td></tr>
+<tr><td>QQQ (Nasdaq proxy)</td><td>−3.64%</td><td>roughly in line</td></tr>
+<tr><td>RSP (equal-weight)</td><td>not retrieved</td><td>well behind (Dow +0.93% as proxy)</td></tr>
+</table>
+<p>Best estimate: <strong>−3% to −4% on the priceable book.</strong> This is the mirror image of the concentration bet paying off — the same structure that beat the index in late September is what made this week worse than the index.</p>
+
+<h2>Risk and factor exposure</h2>
+<p><strong>Not available — sixth consecutive week.</strong> All Tier 2 fetches (analytics.json, concentration.csv, prices.csv) failed with the same <code>PROVENANCE_REQUIRED</code> permission prompt that goes unanswered in an unattended run. This is a <strong>fetch failure, not stale data and not an absence of risk</strong>. No volatility, beta, Sharpe, Sortino, drawdown, VaR, capture, factor loadings or stress replays this week. Every risk figure quoted above is carried from 2026-09-11. The fix is outside this report (see recommendation 3). Not retried this run — the retry reissues the prompt and waits, which is what overran the clock in earlier weeks.</p>
+
+<h2>Tax position</h2>
+<p>[redacted]% of value; net unrealised gain +30.29% of account; harvestable losses 2.71% — all carried from 2026-09-10 and <strong>all now understated on the loss side</strong>, since the ASTS complex has fallen materially since. Tax friction (gain share of proceeds) unchanged: NVDA 79.2%, GS 70.7%, AAPL 59.8%, VOOG 46.7%, QQQ 42.3%, ASTS 26.9%, MSFT 26.8%, VUG 17.9%, GOOGL 9.4%. The inversion holds — the largest look-through exposure is the most expensive thing in the account to touch. The 2026-12-31 realisation deadline is <strong>74 days</strong> out.</p>
+
+<h2>Options ladder</h2>
+<table>
+<tr><th>Expiry</th><th>DTE</th><th>Position</th></tr>
+<tr><td>2027-01-15</td><td><strong>89</strong></td><td><strong>ASTS $25/$30/$35 — ESCALATION THRESHOLD BREACHED</strong></td></tr>
+<tr><td>2027-01-15</td><td>89</td><td>AUR/ACHR/QS/SIRI — decayed, harvest candidates</td></tr>
+<tr><td>2028-01-21</td><td>460</td><td>ASTS $150/$180/$190 — deeper underwater</td></tr>
+<tr><td>2028-12-15</td><td>789</td><td>ASTS $60 — now out of the money</td></tr>
+</table>
+<p>The material change: all three Jan-2027 strikes are still in the money, but <strong>the cushion on the $35 strike has compressed from roughly two-thirds to roughly a quarter</strong> as ASTS fell. These stopped being a free ride this week.</p>
+<p><strong>The options picture is incomplete and this week that matters more than usual.</strong> The export has no Quantity column, so written calls and puts are invisible — reported weights are net and positive. With ASTS at a 52-week low, any short puts carry materially higher assignment exposure than they did a month ago, and this report cannot see them.</p>
+
+<h2>Week ahead</h2>
+<p>Mega-cap Q3 earnings season opens over the next two weeks — AAPL, MSFT, GOOGL, AMZN and META all report late Oct / early Nov, <strong>all dates estimated, none confirmed</strong>; NVDA reports ~mid-to-late Nov (estimated). ASTS Q3 estimated ~11 Nov. The 10-year fell 13bp to 5.11% on the week, the first real relief in months, which is what carried the Dow. BlueBirds 14, 15 and 16 have arrived at Cape Canaveral — a launch catalyst now sits inside the Jan-[redacted] life.</p>
+<p><em>Thin this week: the risk and factor section is absent entirely (fetch failure, not nothing-to-report), and the exact ASTS and NVDA weekly closes were not retrieved before the research cutoff, so the performance figure is an index-proxy estimate rather than a position-weighted calculation.</em></p>
+
+<hr>
+<p><em>Everything above this line is measured or sourced. Everything below it is interpretation. It is not financial advice, it has no view of your tax situation or anything outside this portfolio, and it can be wrong. I am not a financial advisor or a tax professional.</em></p>
+
+<h2>Recommendations</h2>
+
+<p><strong>1. Make the Jan-2027 ASTS call decision this week. Confidence: high.</strong><br>
+The 90-DTE escalation date passed on Friday after being flagged in six consecutive reviews, and the fundamentals of the decision changed in the same week: the $35 strike's cushion compressed from roughly two-thirds to roughly a quarter. Time value decays fastest from here. A written rule — roll, exercise, or close at a named ASTS level — removes the decision from a bad moment later.<br>
+<em>Counterargument:</em> BlueBirds 14–16 are at the Cape, so the single most likely upside catalyst sits inside the contract life. Acting on a 52-week-low week is how people sell the bottom of their highest-conviction position.<br>
+<em>Tax:</em> these are up +236% to +369%, so closing them realises almost the entire proceeds as gain, very likely short-term — the most expensive rung in the ladder on a friction basis. That argues for rolling over closing if the thesis is intact. Selling realises it; holding does not. Fold in closing the four decayed AUR/ACHR/QS/SIRI calls at the same expiry — near-certain total losses, near-zero cost to close, and the harvest is free.</p>
+
+<p><strong>2. Point October and November contributions at cash or non-growth. Confidence: moderate.</strong><br>
+The contribution lever before the trim lever: redirecting new money cuts concentration at zero tax cost, where trimming NVDA costs 79.2% of proceeds as gain. The case got sharper this week — the book owns essentially nothing in what worked, and SPAXX pays a real yield with the 10-year above 5%.<br>
+<em>Counterargument:</em> this is market timing dressed as risk management. Buying growth funds after a −3.64% Nasdaq week is buying lower, and on a long horizon the drag from sitting in cash usually exceeds the benefit of the diversification.<br>
+<em>Tax:</em> none. No sale, nothing realised.</p>
+
+<p><strong>3. Fix the Tier 2 data path. Confidence: high. Sixth week, fourth as a named item.</strong><br>
+The analytics half of this report has not run since 2026-09-11 and will not run next week either without a change outside the report. Two options: pre-approve <code><a href="https://www.google.com/url?q=http://raw.githubusercontent.com&amp;source=gmail&amp;ust=1792452380512000&amp;sa=E" rel="noopener noreferrer" target="_blank">raw.githubusercontent.com</a></code> for the scheduled task, or have the GitHub Action email the three files as attachments. The second needs no permission model at all.<br>
+<em>Counterargument:</em> the Tier 1 sections have carried the report fine for six weeks, and this is plumbing, not portfolio.<br>
+<em>Tax:</em> none.</p>
+
+<p><strong>Still outstanding:</strong> a fresh Fidelity export with Quantity and Acquisition date. Quantity makes written option positions visible — which, with ASTS at a 52-week low, is the single largest blind spot in this report. Acquisition date splits the harvestable losses into short and long term, which is what makes the 74-day realisation window actionable.</p>
+
+<p>Sources: Cantech Letter weekly wrap (week ended 2026-10-16, confirmed); HeyGoTrade NVDA and ASTS session reports (2026-10-15/16, confirmed); LPL Research weekly market performance; baseline weights and tax figures from the 2026-09-10 Fidelity export; risk shares from analytics.json dated 2026-09-11.</p>
+
+</div>
