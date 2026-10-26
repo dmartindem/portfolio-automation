@@ -1,0 +1,64 @@
+<div>
+
+<h2>Weekly Review — 25 Oct 2026</h2>
+<p>Week of 19–23 Oct 2026 · holdings baseline 2026-09-10 (<strong>45 days stale</strong>) · Tier 2 analytics unavailable for a <strong>7th consecutive week</strong></p>
+
+<p><strong>Headline: this week is only half-reported, and you should read it that way.</strong> I could confirm Monday and Tuesday — semis bounced hard off last week's breakdown (AMD +1.76% to $538.05, Micron +2.97%, Intel +2.43%, NVDA +1.38% to $217.09 on 20 Oct) and the indices were roughly flat (Nasdaq 26,430.89, S&amp;P 7,690.73, Dow 51,966.03, 10-year back up to 5.14%). Wednesday through Friday I could <strong>not</strong> retrieve — no weekly recap for the period had been published by the sources I could reach. That is a gap in coverage, not a quiet week. Nothing below should be read as "ASTS did nothing"; I could not check ASTS at all this week.</p>
+
+<h2>Look-through exposure</h2>
+<p>Weights are carried from the 2026-09-10 export. There has been no new export and no concentration series for seven weeks, so <strong>drift is unmeasured, not measured-as-zero</strong>.</p>
+<table>
+<tr><th>Name</th><th>All-in weight</th><th>Risk share</th><th>vs acknowledged</th></tr>
+<tr><td>NVDA</td><td>15.05%</td><td>13.7%</td><td>no alert · unmeasured</td></tr>
+<tr><td>ASTS</td><td>13.88%</td><td><strong>29.9%</strong></td><td>no alert · unmeasured</td></tr>
+<tr><td>AAPL</td><td>8.89%</td><td>—</td><td>no alert</td></tr>
+<tr><td>MSFT</td><td>8.68%</td><td>—</td><td>no alert</td></tr>
+<tr><td>VUG (fund)</td><td>27.86%</td><td>20.6%</td><td>—</td></tr>
+</table>
+<p>Mega-cap 8 = 50.37%, semis = 22.77%, options 3.29%, cash 2.81%. <strong>The ASTS gap is still the most useful number here:</strong> ~13.9% of capital driving 29.9% of portfolio variance, roughly 2.2× more risk than weight. VUG is the mirror image — 27.9% of capital, 20.6% of risk. Risk shares are from the 2026-09-11 run and are now <strong>44 days unverified</strong>.</p>
+<p>You also <strong>write</strong> calls and puts on ASTS. The export has no Quantity column, so short positions are invisible in everything above — the options picture is incomplete by construction, and with ASTS near its 52-week low ($39.87 intraday on 14 Oct), written-put assignment exposure is the part I cannot see.</p>
+
+<h2>Performance estimate</h2>
+<p><strong>Not computed — seventh week without prices.csv</strong>, and this week the news coverage only reached Tuesday. Partial read: through 20 Oct the semi sleeve was rebounding faster than the index, which would put this book modestly <em>ahead</em> of SPY over those two sessions and ahead of RSP. Wednesday–Friday: couldn't check. No reliable weekly figure vs SPY, QQQ or RSP this week. RSP has now been missed eight weeks running.</p>
+
+<h2>Risk and factor exposure</h2>
+<p><strong>Unavailable, 7th consecutive week.</strong> analytics.json and concentration.csv both failed with <code>PROVENANCE_REQUIRED</code> — an unanswered URL-permission prompt in an unattended run, not stale or missing data. No volatility, beta, Sharpe/Sortino, drawdown, VaR/CVaR, capture, factor loadings or stress replays. I did not retry: a retry issues a fresh prompt and waits, which is what blew the clock in earlier weeks. Every figure I can still quote (29.9% / 20.6% / 13.7% risk shares, Sharpe 0.945 vs SPY 0.59 at a 3.5% assumed risk-free rate) is from the 2026-09-11 run and is a <strong>backtest of the book as it stood then</strong>, assuming those weights held across the whole window, excluding options and cash. <strong>The fix is outside this report:</strong> pre-approve <a href="https://www.google.com/url?q=http://raw.githubusercontent.com&amp;source=gmail&amp;ust=1793056842528000&amp;sa=E" rel="noopener noreferrer" target="_blank">raw.githubusercontent.com</a> for the scheduled task, or have the GitHub Action email the three files as attachments.</p>
+
+<h2>Concentration and drift</h2>
+<p>No alert fires: nothing measured moved more than 2pp from the acknowledged levels (NVDA 15.05 / ASTS 13.88 / AAPL 8.89 / MSFT 8.68) and no new name crossed 8%. But nothing was measured. Last week's inference stands — ASTS likely drifted down ~1.0–1.5pp on the 23% drawdown from its 2 Oct level, which is the first move in seven weeks large enough to approach the band from below. A semi rebound this week would partly reverse it. Both are inference.</p>
+
+<h2>Tax position</h2>
+<p>[redacted]% of value; net unrealised gain +30.29% of the account; harvestable losses 2.71% — all unchanged, no sales recorded. The harvestable figure is <strong>materially understated</strong>: 58% of it sits in three ASTS Jan-2028 calls that were down 57–75% at baseline and are deeper now. Tax friction (gain share of proceeds, i.e. what a sale realises):</p>
+<table>
+<tr><th>High friction</th><th>Moderate</th><th>Low</th></tr>
+<tr><td>NVDA 79.2% · GS 70.7% · AAPL 59.8%</td><td>VOOG 46.7% · QQQ 42.3% · ASTS 26.9% · MSFT 26.8%</td><td>VUG 17.9% · GOOGL 9.4%</td></tr>
+</table>
+<p>Short- vs long-term split still blocked (no acquisition dates). Year-end realisation deadline is <strong>67 days</strong> out.</p>
+
+<h2>Options ladder</h2>
+<table>
+<tr><th>Expiry</th><th>DTE</th><th>Position</th></tr>
+<tr><td>2027-01-15</td><td><strong>82</strong></td><td>ASTS $25/$30/$35 — 1.40%, all still ITM, <strong>8 days past the 90-DTE escalation</strong></td></tr>
+<tr><td>2027-01-15</td><td>82</td><td>AUR / ACHR / QS / SIRI — decayed to ~0, harvest candidates</td></tr>
+<tr><td>2028-01-21</td><td>818</td><td>ASTS $150/$180/$190 — 0.66%, down 57–75%</td></tr>
+<tr><td>2028-12-15</td><td>1,147</td><td>ASTS $60 — 0.62%, now out of the money</td></tr>
+</table>
+<p>Next DTE alert: 60 days on <strong>2026-11-16</strong>. The $35 strike's cushion compressed from ~two-thirds ITM to ~a quarter ITM during the October drawdown; I could not re-price it this week.</p>
+
+<h2>Week ahead</h2>
+<p><strong>This is the largest single concentration of event risk in the book all quarter.</strong> MSFT, GOOGL, AAPL and AMZN all report in the 27–30 Oct window (<em>estimated</em> — exact dates not confirmed this run), and together they are <strong>28.8% of look-through exposure reporting inside roughly 72 hours</strong>, on top of a semi complex that is already trading on AI-financing anxiety. The October FOMC lands 27–28 Oct (<em>estimated</em>); the path priced as of 9 Oct was one more hike by December, and I could not confirm whether that has shifted. ASTS Q3 is estimated ~11 Nov, NVDA ~18 Nov.</p>
+
+<h2>Recommendations</h2>
+<p><em>Everything above this line is measured or sourced. Everything below it is interpretation. It is not financial advice, it has no view of your tax situation or anything outside this portfolio, and it can be wrong.</em></p>
+
+<p><strong>1. Point late-October and November contributions at cash or non-growth. Confidence: moderate.</strong> This is the free lever and it comes before any trim. Roughly 29% of your look-through exposure reports earnings inside one 72-hour window next week, and the contribution default sends new money into growth funds that are themselves mostly those same names. Redirecting to SPAXX costs nothing in tax and reduces mega-cap weight by arithmetic rather than by selling. <em>Counterargument:</em> this is market timing dressed as risk management — earnings are usually a non-event in aggregate, SPAXX yield is not equity return, and a systematic contribution plan beats a discretionary one most years.</p>
+
+<p><strong>2. Make the Jan-2027 ASTS call decision. Confidence: high. Seventh consecutive week raised; now 8 days past the escalation line.</strong> 82 DTE with the $35 strike's cushion materially thinner than it was three weeks ago. <em>Tax note:</em> these were +236% to +369% at baseline, so closing realises almost the entire proceeds as gain, probably short-term — which argues for rolling out rather than closing outright, and selling realises it either way. Fold in the four decayed AUR/ACHR/QS/SIRI calls on the same expiry: they are worth ~nothing, they are the cleanest harvest in the book, and the year-end deadline is 67 days out. <em>Counterargument:</em> nothing forces action until January, the strikes are still ITM, and rolling into a volatile pre-earnings tape pays a wider spread than waiting for calm.</p>
+
+<p><strong>3. Fix the Tier 2 data path. Confidence: high. Seventh week; fourth as a named recommendation.</strong> Half the report has not run since 11 September. Either pre-approve <a href="https://www.google.com/url?q=http://raw.githubusercontent.com&amp;source=gmail&amp;ust=1793056842528000&amp;sa=E" rel="noopener noreferrer" target="_blank">raw.githubusercontent.com</a> for this scheduled task, or change the GitHub Action to email the three files as attachments. The second option is more robust — it removes the permission prompt entirely. <em>Counterargument:</em> none worth stating; this is infrastructure, not a market call.</p>
+
+<p>Thin sections this run: performance estimate and the whole risk/factor block. Cause in both cases is data I could not reach, not an absence of events. Not a first Sunday, so no fresh-export request — but the export is 45 days old and a refresh with Quantity and Acquisition date would fix the two largest blind spots.</p>
+
+<p>Sources: HeyGoTrade NVDA 14/15/16/19/20 Oct 2026 (confirmed); LPL Research 9 Oct 2026 (confirmed); Cantech Letter week ended 16 Oct (confirmed); FOMC and earnings dates estimated, not confirmed. Not financial or tax advice.</p>
+
+</div>
