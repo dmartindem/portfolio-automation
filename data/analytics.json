@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-28T17:16:47.347181+00:00",
+ "generated_utc": "2026-10-28T18:28:38.168268+00:00",
  "window": {
   "start": "2021-10-29",
   "end": "2026-10-27",
@@ -8,221 +8,215 @@
  "coverage": {
   "tickers_used": 54,
   "tickers_requested": 58,
-  "book_pct_covered": 91.78,
+  "book_pct_covered": 90.86,
   "dropped": [
    "ELMT",
-   "HOOD",
    "HQ",
+   "RKLB",
    "SPCX"
   ]
  },
  "caveat": "BACKTEST OF THE CURRENT BOOK. This series assumes today's weights were held for the whole window. It is not realised past performance. Options and cash are excluded and weights renormalised over priceable holdings.",
  "risk_free_rate_annual": 0.035,
  "risk_metrics": {
-  "annualised_volatility": 0.30007018612789965,
-  "annualised_return": 0.35453861359906913,
-  "beta": 1.5055267118306965,
-  "sharpe": 0.8952694764821022,
-  "sortino": 1.4364001258602848,
-  "tracking_error": 0.17585176000232614,
-  "information_ratio": 0.9737623320894181,
-  "max_drawdown": -0.41024054522473097,
+  "annualised_volatility": 0.2983832946428106,
+  "annualised_return": 0.35018644830525636,
+  "beta": 1.4988515374096854,
+  "sharpe": 0.8895324539125316,
+  "sortino": 1.424402597448075,
+  "tracking_error": 0.17408851767343922,
+  "information_ratio": 0.9651166264994677,
+  "max_drawdown": -0.4055362256150177,
   "max_drawdown_days": 514,
-  "var_95_1d": -0.0303154165065539,
-  "var_99_1d": -0.04413301391629569,
-  "var_95_cornish_fisher": -0.026361447495860772,
-  "cvar_95_1d": -0.03893446960864867,
-  "downside_deviation": 0.18702565782756134,
-  "skew": 0.40883862749674416,
-  "excess_kurtosis": 3.338539173546105,
-  "up_capture": 1.632359631326502,
-  "down_capture": 1.5373543445912405
+  "var_95_1d": -0.0299300981965255,
+  "var_99_1d": -0.04404350060018842,
+  "var_95_cornish_fisher": -0.026139118350653655,
+  "cvar_95_1d": -0.03874173048641547,
+  "downside_deviation": 0.18633890780994655,
+  "skew": 0.41789974110087713,
+  "excess_kurtosis": 3.415288485332166,
+  "up_capture": 1.6219637790557895,
+  "down_capture": 1.5291068001346464
  },
  "benchmarks": {
   "SPY": {
-   "annualised_volatility": 0.17155710338269564,
-   "annualised_return": 0.14153184756887205,
-   "beta": 1.0007987220447285,
-   "sharpe": 0.5677751407555117,
-   "sortino": 0.7899345028308592,
+   "annualised_volatility": 0.17155727160590337,
+   "annualised_return": 0.14153189649219433,
+   "beta": 1.000798722044728,
+   "sharpe": 0.5677748339609923,
+   "sortino": 0.7899345087267671,
    "tracking_error": 0.0,
    "information_ratio": null,
-   "max_drawdown": -0.2449637690850992,
+   "max_drawdown": -0.24496393992794485,
    "max_drawdown_days": 488,
-   "var_95_1d": -0.016458259301635005,
-   "var_99_1d": -0.029294281263780343,
-   "var_95_cornish_fisher": -0.014245986499130786,
-   "cvar_95_1d": -0.024609814536548483,
-   "downside_deviation": 0.12330877835016461,
-   "skew": 0.3288818911447856,
-   "excess_kurtosis": 9.063405441573975,
+   "var_95_1d": -0.016458182320998094,
+   "var_99_1d": -0.02929429593046337,
+   "var_95_cornish_fisher": -0.014245999767394489,
+   "cvar_95_1d": -0.02460983704819545,
+   "downside_deviation": 0.1233088317129524,
+   "skew": 0.3288836146925275,
+   "excess_kurtosis": 9.063384863773639,
    "up_capture": 1.0,
    "down_capture": 1.0
   },
   "QQQ": {
-   "annualised_volatility": 0.2304764745829648,
-   "annualised_return": 0.17250945172874088,
-   "beta": 1.276965309753744,
-   "sharpe": 0.5388686474006557,
-   "sortino": 0.7763758387263645,
-   "tracking_error": 0.08628069269342285,
-   "information_ratio": 0.3105061718810031,
-   "max_drawdown": -0.351187366183773,
+   "annualised_volatility": 0.23047633322585181,
+   "annualised_return": 0.17250943208563507,
+   "beta": 1.276963251733189,
+   "sharpe": 0.538868905168215,
+   "sortino": 0.7763766003801936,
+   "tracking_error": 0.08628049747189677,
+   "information_ratio": 0.3105061831670945,
+   "max_drawdown": -0.351187152609846,
    "max_drawdown_days": 493,
-   "var_95_1d": -0.02311822951371645,
-   "var_99_1d": -0.038934406484465264,
-   "var_95_cornish_fisher": -0.021055922797737436,
-   "cvar_95_1d": -0.03257461320953539,
-   "downside_deviation": 0.15996961770466328,
-   "skew": 0.18911502859650317,
-   "excess_kurtosis": 4.802860029810876,
-   "up_capture": 1.3119680777689229,
-   "down_capture": 1.326194167012704
+   "var_95_1d": -0.023118679255269357,
+   "var_99_1d": -0.03893407523243557,
+   "var_95_cornish_fisher": -0.0210558978181542,
+   "cvar_95_1d": -0.03257454883394542,
+   "downside_deviation": 0.15996943917652862,
+   "skew": 0.18911790187318275,
+   "excess_kurtosis": 4.802858614583598,
+   "up_capture": 1.3119665031793772,
+   "down_capture": 1.3261923858494469
   },
   "RSP": {
-   "annualised_volatility": 0.16112457554384396,
-   "annualised_return": 0.09851757024805319,
-   "beta": 0.8564044809589303,
-   "sharpe": 0.3660467491360314,
-   "sortino": 0.5304057817405299,
-   "tracking_error": 0.07086664986256695,
-   "information_ratio": -0.5422399889298083,
-   "max_drawdown": -0.21384413931445811,
+   "annualised_volatility": 0.1611245408644746,
+   "annualised_return": 0.09851761107007939,
+   "beta": 0.856403434375422,
+   "sharpe": 0.3660470586430299,
+   "sortino": 0.5304053487207371,
+   "tracking_error": 0.07086671559884458,
+   "information_ratio": -0.5422395664519769,
+   "max_drawdown": -0.21384400978428508,
    "max_drawdown_days": 517,
-   "var_95_1d": -0.014938287624549318,
-   "var_99_1d": -0.027456424772428562,
-   "var_95_cornish_fisher": -0.014985585945742673,
-   "cvar_95_1d": -0.022624680389719563,
-   "downside_deviation": 0.11119623713415533,
-   "skew": 0.0938198432162156,
-   "excess_kurtosis": 5.210413599931417,
-   "up_capture": 0.837539857451428,
-   "down_capture": 0.857699058106862
+   "var_95_1d": -0.01493841802128466,
+   "var_99_1d": -0.027456322834421776,
+   "var_95_cornish_fisher": -0.014985599332981474,
+   "cvar_95_1d": -0.02262466383928156,
+   "downside_deviation": 0.11119639800182828,
+   "skew": 0.0938137994591916,
+   "excess_kurtosis": 5.210417602297139,
+   "up_capture": 0.8375389970443877,
+   "down_capture": 0.8576979340737115
   }
  },
  "risk_decomposition": {
-  "portfolio_volatility": 0.30007018612789965,
-  "diversification_ratio": 1.3948755806745186,
-  "hhi": 0.1361058574653468,
-  "effective_n": 7.347222365169733,
+  "portfolio_volatility": 0.2983832946428106,
+  "diversification_ratio": 1.3897380183414403,
+  "hhi": 0.13874904070474087,
+  "effective_n": 7.207257037027078,
   "contributions": [
    {
     "ticker": "ASTS",
-    "weight_pct": 11.58,
-    "risk_share_pct": 30.1,
+    "weight_pct": 11.7,
+    "risk_share_pct": 30.51,
     "flag": true
    },
    {
     "ticker": "VUG",
-    "weight_pct": 30.36,
-    "risk_share_pct": 20.56,
+    "weight_pct": 30.66,
+    "risk_share_pct": 20.92,
     "flag": true
    },
    {
     "ticker": "NVDA",
-    "weight_pct": 10.36,
-    "risk_share_pct": 13.64,
+    "weight_pct": 10.47,
+    "risk_share_pct": 13.9,
     "flag": false
    },
    {
     "ticker": "VOOG",
-    "weight_pct": 9.37,
-    "risk_share_pct": 6.03,
+    "weight_pct": 9.47,
+    "risk_share_pct": 6.13,
     "flag": false
    },
    {
     "ticker": "MSFT",
-    "weight_pct": 5.6,
-    "risk_share_pct": 3.48,
+    "weight_pct": 5.66,
+    "risk_share_pct": 3.54,
     "flag": false
    },
    {
     "ticker": "QQQ",
-    "weight_pct": 4.47,
-    "risk_share_pct": 3.08,
+    "weight_pct": 4.51,
+    "risk_share_pct": 3.13,
     "flag": false
    },
    {
     "ticker": "AAPL",
-    "weight_pct": 4.87,
-    "risk_share_pct": 2.81,
+    "weight_pct": 4.92,
+    "risk_share_pct": 2.86,
     "flag": false
    },
    {
     "ticker": "AMZN",
-    "weight_pct": 2.94,
-    "risk_share_pct": 2.41,
-    "flag": false
-   },
-   {
-    "ticker": "RKLB",
-    "weight_pct": 1.12,
-    "risk_share_pct": 1.75,
+    "weight_pct": 2.97,
+    "risk_share_pct": 2.45,
     "flag": false
    },
    {
     "ticker": "PLTR",
-    "weight_pct": 1.32,
-    "risk_share_pct": 1.71,
+    "weight_pct": 1.33,
+    "risk_share_pct": 1.73,
     "flag": false
    },
    {
     "ticker": "AMD",
-    "weight_pct": 1.27,
-    "risk_share_pct": 1.67,
+    "weight_pct": 1.29,
+    "risk_share_pct": 1.69,
     "flag": false
    },
    {
     "ticker": "GOOGL",
-    "weight_pct": 2.44,
-    "risk_share_pct": 1.62,
+    "weight_pct": 2.47,
+    "risk_share_pct": 1.65,
     "flag": false
    },
    {
     "ticker": "GS",
-    "weight_pct": 2.33,
-    "risk_share_pct": 1.28,
+    "weight_pct": 2.36,
+    "risk_share_pct": 1.3,
     "flag": false
    },
    {
     "ticker": "QQQM",
-    "weight_pct": 1.82,
-    "risk_share_pct": 1.25,
+    "weight_pct": 1.84,
+    "risk_share_pct": 1.27,
     "flag": false
    },
    {
     "ticker": "TQQQ",
-    "weight_pct": 0.51,
-    "risk_share_pct": 1.05,
+    "weight_pct": 0.52,
+    "risk_share_pct": 1.07,
     "flag": false
    },
    {
     "ticker": "IUSG",
-    "weight_pct": 1.63,
-    "risk_share_pct": 1.04,
+    "weight_pct": 1.65,
+    "risk_share_pct": 1.05,
     "flag": false
    },
    {
     "ticker": "DELL",
-    "weight_pct": 1.1,
-    "risk_share_pct": 0.96,
+    "weight_pct": 1.11,
+    "risk_share_pct": 0.97,
     "flag": false
    },
    {
     "ticker": "META",
-    "weight_pct": 1.07,
-    "risk_share_pct": 0.93,
+    "weight_pct": 1.08,
+    "risk_share_pct": 0.95,
     "flag": false
    },
    {
     "ticker": "TSLA",
     "weight_pct": 0.68,
-    "risk_share_pct": 0.8,
+    "risk_share_pct": 0.81,
     "flag": false
    },
    {
     "ticker": "VELO",
-    "weight_pct": 0.28,
+    "weight_pct": 0.29,
     "risk_share_pct": 0.42,
     "flag": false
    },
@@ -240,14 +234,14 @@
    },
    {
     "ticker": "ONDS",
-    "weight_pct": 0.17,
+    "weight_pct": 0.18,
     "risk_share_pct": 0.26,
     "flag": false
    },
    {
     "ticker": "NBIS",
-    "weight_pct": 0.29,
-    "risk_share_pct": 0.23,
+    "weight_pct": 0.3,
+    "risk_share_pct": 0.24,
     "flag": false
    },
    {
@@ -265,18 +259,24 @@
    {
     "ticker": "JPM",
     "weight_pct": 0.45,
-    "risk_share_pct": 0.16,
+    "risk_share_pct": 0.17,
     "flag": false
    },
    {
     "ticker": "IWM",
-    "weight_pct": 0.29,
-    "risk_share_pct": 0.16,
+    "weight_pct": 0.3,
+    "risk_share_pct": 0.17,
     "flag": false
    },
    {
     "ticker": "SMR",
     "weight_pct": 0.14,
+    "risk_share_pct": 0.16,
+    "flag": false
+   },
+   {
+    "ticker": "HOOD",
+    "weight_pct": 0.12,
     "risk_share_pct": 0.16,
     "flag": false
    },
@@ -288,7 +288,7 @@
    },
    {
     "ticker": "IBM",
-    "weight_pct": 0.49,
+    "weight_pct": 0.5,
     "risk_share_pct": 0.13,
     "flag": false
    },
@@ -311,6 +311,12 @@
     "flag": false
    },
    {
+    "ticker": "ISRG",
+    "weight_pct": 0.14,
+    "risk_share_pct": 0.09,
+    "flag": false
+   },
+   {
     "ticker": "NNE",
     "weight_pct": 0.1,
     "risk_share_pct": 0.09,
@@ -318,14 +324,8 @@
    },
    {
     "ticker": "MSTR",
-    "weight_pct": 0.05,
+    "weight_pct": 0.06,
     "risk_share_pct": 0.09,
-    "flag": false
-   },
-   {
-    "ticker": "ISRG",
-    "weight_pct": 0.14,
-    "risk_share_pct": 0.08,
     "flag": false
    },
    {
@@ -342,7 +342,7 @@
    },
    {
     "ticker": "HIMS",
-    "weight_pct": 0.05,
+    "weight_pct": 0.06,
     "risk_share_pct": 0.07,
     "flag": false
    },
@@ -361,7 +361,7 @@
    {
     "ticker": "DE",
     "weight_pct": 0.15,
-    "risk_share_pct": 0.04,
+    "risk_share_pct": 0.05,
     "flag": false
    },
    {
@@ -396,7 +396,7 @@
    },
    {
     "ticker": "NKLR",
-    "weight_pct": 0.05,
+    "weight_pct": 0.06,
     "risk_share_pct": 0.02,
     "flag": false
    },
@@ -442,210 +442,204 @@
     "observations": 1253
    },
    "risk_metrics": {
-    "annualised_volatility": 0.30007018612789965,
-    "annualised_return": 0.35453861359906913,
-    "beta": 1.5055267118306965,
-    "sharpe": 0.8952694764821022,
-    "sortino": 1.4364001258602848,
-    "tracking_error": 0.17585176000232614,
-    "information_ratio": 0.9737623320894181,
-    "max_drawdown": -0.41024054522473097,
+    "annualised_volatility": 0.2983832946428106,
+    "annualised_return": 0.35018644830525636,
+    "beta": 1.4988515374096854,
+    "sharpe": 0.8895324539125316,
+    "sortino": 1.424402597448075,
+    "tracking_error": 0.17408851767343922,
+    "information_ratio": 0.9651166264994677,
+    "max_drawdown": -0.4055362256150177,
     "max_drawdown_days": 514,
-    "var_95_1d": -0.0303154165065539,
-    "var_99_1d": -0.04413301391629569,
-    "var_95_cornish_fisher": -0.026361447495860772,
-    "cvar_95_1d": -0.03893446960864867,
-    "downside_deviation": 0.18702565782756134,
-    "skew": 0.40883862749674416,
-    "excess_kurtosis": 3.338539173546105,
-    "up_capture": 1.632359631326502,
-    "down_capture": 1.5373543445912405
+    "var_95_1d": -0.0299300981965255,
+    "var_99_1d": -0.04404350060018842,
+    "var_95_cornish_fisher": -0.026139118350653655,
+    "cvar_95_1d": -0.03874173048641547,
+    "downside_deviation": 0.18633890780994655,
+    "skew": 0.41789974110087713,
+    "excess_kurtosis": 3.415288485332166,
+    "up_capture": 1.6219637790557895,
+    "down_capture": 1.5291068001346464
    },
    "benchmarks": {
     "SPY": {
-     "annualised_volatility": 0.17155710338269564,
-     "annualised_return": 0.14153184756887205,
-     "beta": 1.0007987220447285,
-     "sharpe": 0.5677751407555117,
-     "sortino": 0.7899345028308592,
+     "annualised_volatility": 0.17155727160590337,
+     "annualised_return": 0.14153189649219433,
+     "beta": 1.000798722044728,
+     "sharpe": 0.5677748339609923,
+     "sortino": 0.7899345087267671,
      "tracking_error": 0.0,
      "information_ratio": null,
-     "max_drawdown": -0.2449637690850992,
+     "max_drawdown": -0.24496393992794485,
      "max_drawdown_days": 488,
-     "var_95_1d": -0.016458259301635005,
-     "var_99_1d": -0.029294281263780343,
-     "var_95_cornish_fisher": -0.014245986499130786,
-     "cvar_95_1d": -0.024609814536548483,
-     "downside_deviation": 0.12330877835016461,
-     "skew": 0.3288818911447856,
-     "excess_kurtosis": 9.063405441573975,
+     "var_95_1d": -0.016458182320998094,
+     "var_99_1d": -0.02929429593046337,
+     "var_95_cornish_fisher": -0.014245999767394489,
+     "cvar_95_1d": -0.02460983704819545,
+     "downside_deviation": 0.1233088317129524,
+     "skew": 0.3288836146925275,
+     "excess_kurtosis": 9.063384863773639,
      "up_capture": 1.0,
      "down_capture": 1.0
     },
     "QQQ": {
-     "annualised_volatility": 0.2304764745829648,
-     "annualised_return": 0.17250945172874088,
-     "beta": 1.276965309753744,
-     "sharpe": 0.5388686474006557,
-     "sortino": 0.7763758387263645,
-     "tracking_error": 0.08628069269342285,
-     "information_ratio": 0.3105061718810031,
-     "max_drawdown": -0.351187366183773,
+     "annualised_volatility": 0.23047633322585181,
+     "annualised_return": 0.17250943208563507,
+     "beta": 1.276963251733189,
+     "sharpe": 0.538868905168215,
+     "sortino": 0.7763766003801936,
+     "tracking_error": 0.08628049747189677,
+     "information_ratio": 0.3105061831670945,
+     "max_drawdown": -0.351187152609846,
      "max_drawdown_days": 493,
-     "var_95_1d": -0.02311822951371645,
-     "var_99_1d": -0.038934406484465264,
-     "var_95_cornish_fisher": -0.021055922797737436,
-     "cvar_95_1d": -0.03257461320953539,
-     "downside_deviation": 0.15996961770466328,
-     "skew": 0.18911502859650317,
-     "excess_kurtosis": 4.802860029810876,
-     "up_capture": 1.3119680777689229,
-     "down_capture": 1.326194167012704
+     "var_95_1d": -0.023118679255269357,
+     "var_99_1d": -0.03893407523243557,
+     "var_95_cornish_fisher": -0.0210558978181542,
+     "cvar_95_1d": -0.03257454883394542,
+     "downside_deviation": 0.15996943917652862,
+     "skew": 0.18911790187318275,
+     "excess_kurtosis": 4.802858614583598,
+     "up_capture": 1.3119665031793772,
+     "down_capture": 1.3261923858494469
     },
     "RSP": {
-     "annualised_volatility": 0.16112457554384396,
-     "annualised_return": 0.09851757024805319,
-     "beta": 0.8564044809589303,
-     "sharpe": 0.3660467491360314,
-     "sortino": 0.5304057817405299,
-     "tracking_error": 0.07086664986256695,
-     "information_ratio": -0.5422399889298083,
-     "max_drawdown": -0.21384413931445811,
+     "annualised_volatility": 0.1611245408644746,
+     "annualised_return": 0.09851761107007939,
+     "beta": 0.856403434375422,
+     "sharpe": 0.3660470586430299,
+     "sortino": 0.5304053487207371,
+     "tracking_error": 0.07086671559884458,
+     "information_ratio": -0.5422395664519769,
+     "max_drawdown": -0.21384400978428508,
      "max_drawdown_days": 517,
-     "var_95_1d": -0.014938287624549318,
-     "var_99_1d": -0.027456424772428562,
-     "var_95_cornish_fisher": -0.014985585945742673,
-     "cvar_95_1d": -0.022624680389719563,
-     "downside_deviation": 0.11119623713415533,
-     "skew": 0.0938198432162156,
-     "excess_kurtosis": 5.210413599931417,
-     "up_capture": 0.837539857451428,
-     "down_capture": 0.857699058106862
+     "var_95_1d": -0.01493841802128466,
+     "var_99_1d": -0.027456322834421776,
+     "var_95_cornish_fisher": -0.014985599332981474,
+     "cvar_95_1d": -0.02262466383928156,
+     "downside_deviation": 0.11119639800182828,
+     "skew": 0.0938137994591916,
+     "excess_kurtosis": 5.210417602297139,
+     "up_capture": 0.8375389970443877,
+     "down_capture": 0.8576979340737115
     }
    },
    "risk_decomposition": {
-    "portfolio_volatility": 0.30007018612789965,
-    "diversification_ratio": 1.3948755806745186,
-    "hhi": 0.1361058574653468,
-    "effective_n": 7.347222365169733,
+    "portfolio_volatility": 0.2983832946428106,
+    "diversification_ratio": 1.3897380183414403,
+    "hhi": 0.13874904070474087,
+    "effective_n": 7.207257037027078,
     "contributions": [
      {
       "ticker": "ASTS",
-      "weight_pct": 11.58,
-      "risk_share_pct": 30.1,
+      "weight_pct": 11.7,
+      "risk_share_pct": 30.51,
       "flag": true
      },
      {
       "ticker": "VUG",
-      "weight_pct": 30.36,
-      "risk_share_pct": 20.56,
+      "weight_pct": 30.66,
+      "risk_share_pct": 20.92,
       "flag": true
      },
      {
       "ticker": "NVDA",
-      "weight_pct": 10.36,
-      "risk_share_pct": 13.64,
+      "weight_pct": 10.47,
+      "risk_share_pct": 13.9,
       "flag": false
      },
      {
       "ticker": "VOOG",
-      "weight_pct": 9.37,
-      "risk_share_pct": 6.03,
+      "weight_pct": 9.47,
+      "risk_share_pct": 6.13,
       "flag": false
      },
      {
       "ticker": "MSFT",
-      "weight_pct": 5.6,
-      "risk_share_pct": 3.48,
+      "weight_pct": 5.66,
+      "risk_share_pct": 3.54,
       "flag": false
      },
      {
       "ticker": "QQQ",
-      "weight_pct": 4.47,
-      "risk_share_pct": 3.08,
+      "weight_pct": 4.51,
+      "risk_share_pct": 3.13,
       "flag": false
      },
      {
       "ticker": "AAPL",
-      "weight_pct": 4.87,
-      "risk_share_pct": 2.81,
+      "weight_pct": 4.92,
+      "risk_share_pct": 2.86,
       "flag": false
      },
      {
       "ticker": "AMZN",
-      "weight_pct": 2.94,
-      "risk_share_pct": 2.41,
-      "flag": false
-     },
-     {
-      "ticker": "RKLB",
-      "weight_pct": 1.12,
-      "risk_share_pct": 1.75,
+      "weight_pct": 2.97,
+      "risk_share_pct": 2.45,
       "flag": false
      },
      {
       "ticker": "PLTR",
-      "weight_pct": 1.32,
-      "risk_share_pct": 1.71,
+      "weight_pct": 1.33,
+      "risk_share_pct": 1.73,
       "flag": false
      },
      {
       "ticker": "AMD",
-      "weight_pct": 1.27,
-      "risk_share_pct": 1.67,
+      "weight_pct": 1.29,
+      "risk_share_pct": 1.69,
       "flag": false
      },
      {
       "ticker": "GOOGL",
-      "weight_pct": 2.44,
-      "risk_share_pct": 1.62,
+      "weight_pct": 2.47,
+      "risk_share_pct": 1.65,
       "flag": false
      },
      {
       "ticker": "GS",
-      "weight_pct": 2.33,
-      "risk_share_pct": 1.28,
+      "weight_pct": 2.36,
+      "risk_share_pct": 1.3,
       "flag": false
      },
      {
       "ticker": "QQQM",
-      "weight_pct": 1.82,
-      "risk_share_pct": 1.25,
+      "weight_pct": 1.84,
+      "risk_share_pct": 1.27,
       "flag": false
      },
      {
       "ticker": "TQQQ",
-      "weight_pct": 0.51,
-      "risk_share_pct": 1.05,
+      "weight_pct": 0.52,
+      "risk_share_pct": 1.07,
       "flag": false
      },
      {
       "ticker": "IUSG",
-      "weight_pct": 1.63,
-      "risk_share_pct": 1.04,
+      "weight_pct": 1.65,
+      "risk_share_pct": 1.05,
       "flag": false
      },
      {
       "ticker": "DELL",
-      "weight_pct": 1.1,
-      "risk_share_pct": 0.96,
+      "weight_pct": 1.11,
+      "risk_share_pct": 0.97,
       "flag": false
      },
      {
       "ticker": "META",
-      "weight_pct": 1.07,
-      "risk_share_pct": 0.93,
+      "weight_pct": 1.08,
+      "risk_share_pct": 0.95,
       "flag": false
      },
      {
       "ticker": "TSLA",
       "weight_pct": 0.68,
-      "risk_share_pct": 0.8,
+      "risk_share_pct": 0.81,
       "flag": false
      },
      {
       "ticker": "VELO",
-      "weight_pct": 0.28,
+      "weight_pct": 0.29,
       "risk_share_pct": 0.42,
       "flag": false
      },
@@ -663,14 +657,14 @@
      },
      {
       "ticker": "ONDS",
-      "weight_pct": 0.17,
+      "weight_pct": 0.18,
       "risk_share_pct": 0.26,
       "flag": false
      },
      {
       "ticker": "NBIS",
-      "weight_pct": 0.29,
-      "risk_share_pct": 0.23,
+      "weight_pct": 0.3,
+      "risk_share_pct": 0.24,
       "flag": false
      },
      {
@@ -688,18 +682,24 @@
      {
       "ticker": "JPM",
       "weight_pct": 0.45,
-      "risk_share_pct": 0.16,
+      "risk_share_pct": 0.17,
       "flag": false
      },
      {
       "ticker": "IWM",
-      "weight_pct": 0.29,
-      "risk_share_pct": 0.16,
+      "weight_pct": 0.3,
+      "risk_share_pct": 0.17,
       "flag": false
      },
      {
       "ticker": "SMR",
       "weight_pct": 0.14,
+      "risk_share_pct": 0.16,
+      "flag": false
+     },
+     {
+      "ticker": "HOOD",
+      "weight_pct": 0.12,
       "risk_share_pct": 0.16,
       "flag": false
      },
@@ -711,7 +711,7 @@
      },
      {
       "ticker": "IBM",
-      "weight_pct": 0.49,
+      "weight_pct": 0.5,
       "risk_share_pct": 0.13,
       "flag": false
      },
@@ -734,6 +734,12 @@
       "flag": false
      },
      {
+      "ticker": "ISRG",
+      "weight_pct": 0.14,
+      "risk_share_pct": 0.09,
+      "flag": false
+     },
+     {
       "ticker": "NNE",
       "weight_pct": 0.1,
       "risk_share_pct": 0.09,
@@ -741,14 +747,8 @@
      },
      {
       "ticker": "MSTR",
-      "weight_pct": 0.05,
+      "weight_pct": 0.06,
       "risk_share_pct": 0.09,
-      "flag": false
-     },
-     {
-      "ticker": "ISRG",
-      "weight_pct": 0.14,
-      "risk_share_pct": 0.08,
       "flag": false
      },
      {
@@ -765,7 +765,7 @@
      },
      {
       "ticker": "HIMS",
-      "weight_pct": 0.05,
+      "weight_pct": 0.06,
       "risk_share_pct": 0.07,
       "flag": false
      },
@@ -784,7 +784,7 @@
      {
       "ticker": "DE",
       "weight_pct": 0.15,
-      "risk_share_pct": 0.04,
+      "risk_share_pct": 0.05,
       "flag": false
      },
      {
@@ -819,7 +819,7 @@
      },
      {
       "ticker": "NKLR",
-      "weight_pct": 0.05,
+      "weight_pct": 0.06,
       "risk_share_pct": 0.02,
       "flag": false
      },
@@ -859,425 +859,425 @@
     "available": true,
     "method": "additive: weight x annualised excess return / portfolio volatility",
     "observations": 1253,
-    "sharpe": 0.895269,
-    "excess_return_annual": 0.268644,
-    "volatility_annual": 0.30007,
-    "identity_residual": 1.1102230246251565e-16,
+    "sharpe": 0.889532,
+    "excess_return_annual": 0.265422,
+    "volatility_annual": 0.298383,
+    "identity_residual": 2.220446049250313e-16,
     "return_shares_meaningful": true,
     "positions": [
      {
       "ticker": "ASTS",
-      "weight": 0.11582,
+      "weight": 0.116993,
       "excess_return_annual": 0.794586,
-      "sharpe_contribution": 0.306693,
-      "return_share": 0.34257,
-      "risk_share": 0.300997,
-      "marginal_sharpe_per_pp": 0.003214
+      "sharpe_contribution": 0.311549,
+      "return_share": 0.35024,
+      "risk_share": 0.30512,
+      "marginal_sharpe_per_pp": 0.003431
      },
      {
       "ticker": "NVDA",
-      "weight": 0.103617,
+      "weight": 0.104667,
       "excess_return_annual": 0.535375,
-      "sharpe_contribution": 0.18487,
-      "return_share": 0.206497,
-      "risk_share": 0.136418,
-      "marginal_sharpe_per_pp": 0.006055
+      "sharpe_contribution": 0.187798,
+      "return_share": 0.21112,
+      "risk_share": 0.138979,
+      "marginal_sharpe_per_pp": 0.006131
      },
      {
       "ticker": "VUG",
-      "weight": 0.303552,
+      "weight": 0.306626,
       "excess_return_annual": 0.102286,
-      "sharpe_contribution": 0.103473,
-      "return_share": 0.115577,
-      "risk_share": 0.205633,
-      "marginal_sharpe_per_pp": -0.002656
+      "sharpe_contribution": 0.105111,
+      "return_share": 0.118165,
+      "risk_share": 0.20922,
+      "marginal_sharpe_per_pp": -0.002642
      },
      {
       "ticker": "VOOG",
-      "weight": 0.093702,
+      "weight": 0.094651,
       "excess_return_annual": 0.106714,
-      "sharpe_contribution": 0.033323,
-      "return_share": 0.037221,
-      "risk_share": 0.06028,
-      "marginal_sharpe_per_pp": -0.002203
+      "sharpe_contribution": 0.033851,
+      "return_share": 0.038055,
+      "risk_share": 0.061326,
+      "marginal_sharpe_per_pp": -0.002187
      },
      {
       "ticker": "AAPL",
-      "weight": 0.048703,
+      "weight": 0.049197,
       "excess_return_annual": 0.174472,
-      "sharpe_contribution": 0.028318,
-      "return_share": 0.031631,
-      "risk_share": 0.028052,
-      "marginal_sharpe_per_pp": 0.000658
+      "sharpe_contribution": 0.028766,
+      "return_share": 0.032339,
+      "risk_share": 0.028622,
+      "marginal_sharpe_per_pp": 0.000672
      },
      {
       "ticker": "PLTR",
-      "weight": 0.013184,
+      "weight": 0.013317,
       "excess_return_annual": 0.596205,
-      "sharpe_contribution": 0.026194,
-      "return_share": 0.029259,
-      "risk_share": 0.017126,
-      "marginal_sharpe_per_pp": 0.008239
-     },
-     {
-      "ticker": "RKLB",
-      "weight": 0.011222,
-      "excess_return_annual": 0.566334,
-      "sharpe_contribution": 0.021181,
-      "return_share": 0.023658,
-      "risk_share": 0.017479,
-      "marginal_sharpe_per_pp": 0.00493
+      "sharpe_contribution": 0.026609,
+      "return_share": 0.029914,
+      "risk_share": 0.017322,
+      "marginal_sharpe_per_pp": 0.008411
      },
      {
       "ticker": "DELL",
-      "weight": 0.011005,
+      "weight": 0.011116,
       "excess_return_annual": 0.57129,
-      "sharpe_contribution": 0.020951,
-      "return_share": 0.023402,
-      "risk_share": 0.009573,
-      "marginal_sharpe_per_pp": 0.01125
+      "sharpe_contribution": 0.021283,
+      "return_share": 0.023926,
+      "risk_share": 0.009727,
+      "marginal_sharpe_per_pp": 0.011363
      },
      {
       "ticker": "MSFT",
-      "weight": 0.056003,
+      "weight": 0.056571,
       "excess_return_annual": 0.111959,
-      "sharpe_contribution": 0.020895,
-      "return_share": 0.02334,
-      "risk_share": 0.034773,
-      "marginal_sharpe_per_pp": -0.001828
+      "sharpe_contribution": 0.021226,
+      "return_share": 0.023862,
+      "risk_share": 0.035449,
+      "marginal_sharpe_per_pp": -0.001822
      },
      {
       "ticker": "AMD",
-      "weight": 0.012748,
+      "weight": 0.012877,
       "excess_return_annual": 0.437987,
-      "sharpe_contribution": 0.018607,
-      "return_share": 0.020784,
-      "risk_share": 0.016674,
-      "marginal_sharpe_per_pp": 0.002887
+      "sharpe_contribution": 0.018902,
+      "return_share": 0.021249,
+      "risk_share": 0.016942,
+      "marginal_sharpe_per_pp": 0.002975
      },
      {
       "ticker": "QQQ",
-      "weight": 0.044672,
+      "weight": 0.045124,
       "excess_return_annual": 0.124197,
-      "sharpe_contribution": 0.018489,
-      "return_share": 0.020652,
-      "risk_share": 0.030782,
-      "marginal_sharpe_per_pp": -0.00203
+      "sharpe_contribution": 0.018782,
+      "return_share": 0.021115,
+      "risk_share": 0.031305,
+      "marginal_sharpe_per_pp": -0.002009
      },
      {
       "ticker": "GS",
-      "weight": 0.023317,
+      "weight": 0.023553,
       "excess_return_annual": 0.188799,
-      "sharpe_contribution": 0.01467,
-      "return_share": 0.016387,
-      "risk_share": 0.012773,
-      "marginal_sharpe_per_pp": 0.001387
+      "sharpe_contribution": 0.014903,
+      "return_share": 0.016753,
+      "risk_share": 0.012961,
+      "marginal_sharpe_per_pp": 0.001432
      },
      {
       "ticker": "GOOGL",
-      "weight": 0.024406,
+      "weight": 0.024653,
       "excess_return_annual": 0.17677,
-      "sharpe_contribution": 0.014378,
-      "return_share": 0.016059,
-      "risk_share": 0.016219,
-      "marginal_sharpe_per_pp": -5.8e-05
+      "sharpe_contribution": 0.014605,
+      "return_share": 0.016419,
+      "risk_share": 0.016539,
+      "marginal_sharpe_per_pp": -4.3e-05
      },
      {
       "ticker": "AMZN",
-      "weight": 0.029418,
+      "weight": 0.029716,
       "excess_return_annual": 0.108978,
-      "sharpe_contribution": 0.010684,
-      "return_share": 0.011934,
-      "risk_share": 0.024092,
-      "marginal_sharpe_per_pp": -0.0037
+      "sharpe_contribution": 0.010853,
+      "return_share": 0.012201,
+      "risk_share": 0.024528,
+      "marginal_sharpe_per_pp": -0.00369
      },
      {
       "ticker": "QQQM",
-      "weight": 0.018196,
+      "weight": 0.01838,
       "excess_return_annual": 0.12456,
-      "sharpe_contribution": 0.007553,
-      "return_share": 0.008437,
-      "risk_share": 0.012452,
-      "marginal_sharpe_per_pp": -0.001975
+      "sharpe_contribution": 0.007673,
+      "return_share": 0.008626,
+      "risk_share": 0.012664,
+      "marginal_sharpe_per_pp": -0.001954
      },
      {
       "ticker": "META",
-      "weight": 0.010678,
+      "weight": 0.010786,
       "excess_return_annual": 0.205986,
-      "sharpe_contribution": 0.00733,
-      "return_share": 0.008187,
-      "risk_share": 0.009317,
-      "marginal_sharpe_per_pp": -0.000948
+      "sharpe_contribution": 0.007446,
+      "return_share": 0.008371,
+      "risk_share": 0.009503,
+      "marginal_sharpe_per_pp": -0.000934
      },
      {
       "ticker": "NBIS",
-      "weight": 0.002942,
+      "weight": 0.002972,
       "excess_return_annual": 0.647232,
-      "sharpe_contribution": 0.006345,
-      "return_share": 0.007088,
-      "risk_share": 0.002341,
-      "marginal_sharpe_per_pp": 0.014446
+      "sharpe_contribution": 0.006446,
+      "return_share": 0.007246,
+      "risk_share": 0.002366,
+      "marginal_sharpe_per_pp": 0.014609
      },
      {
       "ticker": "QBTS",
-      "weight": 0.00207,
+      "weight": 0.002091,
       "excess_return_annual": 0.827155,
-      "sharpe_contribution": 0.005706,
-      "return_share": 0.006374,
-      "risk_share": 0.002613,
-      "marginal_sharpe_per_pp": 0.016265
+      "sharpe_contribution": 0.005797,
+      "return_share": 0.006517,
+      "risk_share": 0.002614,
+      "marginal_sharpe_per_pp": 0.016603
      },
      {
       "ticker": "TQQQ",
-      "weight": 0.005121,
+      "weight": 0.005173,
       "excess_return_annual": 0.334056,
-      "sharpe_contribution": 0.005701,
-      "return_share": 0.006368,
-      "risk_share": 0.010488,
-      "marginal_sharpe_per_pp": -0.007203
+      "sharpe_contribution": 0.005791,
+      "return_share": 0.00651,
+      "risk_share": 0.010667,
+      "marginal_sharpe_per_pp": -0.007148
      },
      {
       "ticker": "IUSG",
-      "weight": 0.016343,
+      "weight": 0.016509,
       "excess_return_annual": 0.103538,
-      "sharpe_contribution": 0.005639,
-      "return_share": 0.006299,
-      "risk_share": 0.010367,
-      "marginal_sharpe_per_pp": -0.002228
+      "sharpe_contribution": 0.005729,
+      "return_share": 0.00644,
+      "risk_share": 0.010546,
+      "marginal_sharpe_per_pp": -0.002212
      },
      {
       "ticker": "TSLA",
-      "weight": 0.006755,
+      "weight": 0.006824,
       "excess_return_annual": 0.168373,
-      "sharpe_contribution": 0.00379,
-      "return_share": 0.004234,
-      "risk_share": 0.007984,
-      "marginal_sharpe_per_pp": -0.00497
+      "sharpe_contribution": 0.00385,
+      "return_share": 0.004329,
+      "risk_share": 0.008095,
+      "marginal_sharpe_per_pp": -0.00491
      },
      {
       "ticker": "AVGO",
-      "weight": 0.002288,
+      "weight": 0.002311,
       "excess_return_annual": 0.45683,
-      "sharpe_contribution": 0.003483,
-      "return_share": 0.003891,
-      "risk_share": 0.002156,
-      "marginal_sharpe_per_pp": 0.006789
+      "sharpe_contribution": 0.003539,
+      "return_share": 0.003978,
+      "risk_share": 0.002193,
+      "marginal_sharpe_per_pp": 0.006872
      },
      {
       "ticker": "IBM",
-      "weight": 0.004903,
+      "weight": 0.004953,
       "excess_return_annual": 0.197697,
-      "sharpe_contribution": 0.00323,
-      "return_share": 0.003608,
-      "risk_share": 0.001264,
-      "marginal_sharpe_per_pp": 0.00428
+      "sharpe_contribution": 0.003281,
+      "return_share": 0.003689,
+      "risk_share": 0.00129,
+      "marginal_sharpe_per_pp": 0.004309
      },
      {
       "ticker": "ONDS",
-      "weight": 0.001743,
+      "weight": 0.001761,
       "excess_return_annual": 0.521937,
-      "sharpe_contribution": 0.003032,
-      "return_share": 0.003387,
-      "risk_share": 0.00262,
-      "marginal_sharpe_per_pp": 0.003937
+      "sharpe_contribution": 0.00308,
+      "return_share": 0.003463,
+      "risk_share": 0.002639,
+      "marginal_sharpe_per_pp": 0.004163
      },
      {
       "ticker": "KRKNF",
-      "weight": 0.001525,
+      "weight": 0.001541,
       "excess_return_annual": 0.593576,
-      "sharpe_contribution": 0.003017,
-      "return_share": 0.00337,
-      "risk_share": 0.00089,
-      "marginal_sharpe_per_pp": 0.014557
+      "sharpe_contribution": 0.003065,
+      "return_share": 0.003446,
+      "risk_share": 0.000903,
+      "marginal_sharpe_per_pp": 0.014677
      },
      {
       "ticker": "JPM",
-      "weight": 0.004467,
+      "weight": 0.004512,
       "excess_return_annual": 0.15588,
-      "sharpe_contribution": 0.002321,
-      "return_share": 0.002592,
-      "risk_share": 0.001628,
-      "marginal_sharpe_per_pp": 0.001933
+      "sharpe_contribution": 0.002357,
+      "return_share": 0.00265,
+      "risk_share": 0.001652,
+      "marginal_sharpe_per_pp": 0.001967
      },
      {
       "ticker": "IREN",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": 0.645607,
-      "sharpe_contribution": 0.00211,
-      "return_share": 0.002357,
-      "risk_share": 0.00176,
-      "marginal_sharpe_per_pp": 0.005449
+      "sharpe_contribution": 0.002143,
+      "return_share": 0.002409,
+      "risk_share": 0.001778,
+      "marginal_sharpe_per_pp": 0.005668
      },
      {
       "ticker": "NNE",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": 0.600032,
-      "sharpe_contribution": 0.001961,
-      "return_share": 0.00219,
-      "risk_share": 0.000947,
-      "marginal_sharpe_per_pp": 0.011353
+      "sharpe_contribution": 0.001992,
+      "return_share": 0.002239,
+      "risk_share": 0.000949,
+      "marginal_sharpe_per_pp": 0.01159
+     },
+     {
+      "ticker": "HOOD",
+      "weight": 0.001211,
+      "excess_return_annual": 0.394676,
+      "sharpe_contribution": 0.001601,
+      "return_share": 0.0018,
+      "risk_share": 0.001629,
+      "marginal_sharpe_per_pp": 0.001258
      },
      {
       "ticker": "SMR",
-      "weight": 0.001416,
+      "weight": 0.001431,
       "excess_return_annual": 0.30482,
-      "sharpe_contribution": 0.001439,
-      "return_share": 0.001607,
-      "risk_share": 0.001615,
-      "marginal_sharpe_per_pp": -5.1e-05
+      "sharpe_contribution": 0.001462,
+      "return_share": 0.001643,
+      "risk_share": 0.001619,
+      "marginal_sharpe_per_pp": 0.00015
      },
      {
       "ticker": "BULL",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": 0.404423,
-      "sharpe_contribution": 0.001322,
-      "return_share": 0.001476,
-      "risk_share": 0.000282,
-      "marginal_sharpe_per_pp": 0.010899
+      "sharpe_contribution": 0.001343,
+      "return_share": 0.001509,
+      "risk_share": 0.000289,
+      "marginal_sharpe_per_pp": 0.010959
      },
      {
       "ticker": "ORLY",
-      "weight": 0.002615,
+      "weight": 0.002641,
       "excess_return_annual": 0.147041,
-      "sharpe_contribution": 0.001281,
-      "return_share": 0.001431,
-      "risk_share": 0.000291,
-      "marginal_sharpe_per_pp": 0.003904
+      "sharpe_contribution": 0.001302,
+      "return_share": 0.001463,
+      "risk_share": 0.000297,
+      "marginal_sharpe_per_pp": 0.003927
      },
      {
       "ticker": "SCHA",
-      "weight": 0.006973,
+      "weight": 0.007044,
       "excess_return_annual": 0.050071,
-      "sharpe_contribution": 0.001164,
-      "return_share": 0.0013,
-      "risk_share": 0.003864,
-      "marginal_sharpe_per_pp": -0.003293
+      "sharpe_contribution": 0.001182,
+      "return_share": 0.001329,
+      "risk_share": 0.003915,
+      "marginal_sharpe_per_pp": -0.003266
      },
      {
       "ticker": "LUNR",
-      "weight": 0.000327,
+      "weight": 0.00033,
       "excess_return_annual": 0.970488,
-      "sharpe_contribution": 0.001057,
-      "return_share": 0.001181,
-      "risk_share": 0.000288,
-      "marginal_sharpe_per_pp": 0.024449
+      "sharpe_contribution": 0.001074,
+      "return_share": 0.001207,
+      "risk_share": 0.000285,
+      "marginal_sharpe_per_pp": 0.024841
      },
      {
       "ticker": "HIMS",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": 0.569634,
-      "sharpe_contribution": 0.001034,
-      "return_share": 0.001155,
-      "risk_share": 0.000673,
-      "marginal_sharpe_per_pp": 0.007931
+      "sharpe_contribution": 0.001051,
+      "return_share": 0.001181,
+      "risk_share": 0.000679,
+      "marginal_sharpe_per_pp": 0.00811
      },
      {
       "ticker": "MSTR",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": 0.515687,
-      "sharpe_contribution": 0.000936,
-      "return_share": 0.001046,
-      "risk_share": 0.000878,
-      "marginal_sharpe_per_pp": 0.002759
+      "sharpe_contribution": 0.000951,
+      "return_share": 0.001069,
+      "risk_share": 0.000889,
+      "marginal_sharpe_per_pp": 0.002906
      },
      {
       "ticker": "RDW",
-      "weight": 0.000654,
+      "weight": 0.00066,
       "excess_return_annual": 0.339433,
-      "sharpe_contribution": 0.000739,
-      "return_share": 0.000826,
-      "risk_share": 0.001028,
-      "marginal_sharpe_per_pp": -0.00277
+      "sharpe_contribution": 0.000751,
+      "return_share": 0.000844,
+      "risk_share": 0.001027,
+      "marginal_sharpe_per_pp": -0.002459
      },
      {
       "ticker": "DE",
-      "weight": 0.001525,
+      "weight": 0.001541,
       "excess_return_annual": 0.143871,
-      "sharpe_contribution": 0.000731,
-      "return_share": 0.000817,
-      "risk_share": 0.000447,
-      "marginal_sharpe_per_pp": 0.002169
+      "sharpe_contribution": 0.000743,
+      "return_share": 0.000835,
+      "risk_share": 0.000452,
+      "marginal_sharpe_per_pp": 0.002213
      },
      {
       "ticker": "SERV",
-      "weight": 0.000763,
+      "weight": 0.00077,
       "excess_return_annual": 0.281864,
-      "sharpe_contribution": 0.000716,
-      "return_share": 0.0008,
-      "risk_share": 0.000702,
-      "marginal_sharpe_per_pp": 0.001158
+      "sharpe_contribution": 0.000728,
+      "return_share": 0.000818,
+      "risk_share": 0.000706,
+      "marginal_sharpe_per_pp": 0.001294
      },
      {
       "ticker": "OKLO",
-      "weight": 0.000327,
+      "weight": 0.00033,
       "excess_return_annual": 0.559198,
-      "sharpe_contribution": 0.000609,
-      "return_share": 0.00068,
-      "risk_share": 0.000321,
-      "marginal_sharpe_per_pp": 0.009838
+      "sharpe_contribution": 0.000619,
+      "return_share": 0.000696,
+      "risk_share": 0.000322,
+      "marginal_sharpe_per_pp": 0.010074
      },
      {
       "ticker": "TE",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": 0.177485,
-      "sharpe_contribution": 0.00058,
-      "return_share": 0.000648,
-      "risk_share": 0.001351,
-      "marginal_sharpe_per_pp": -0.006419
+      "sharpe_contribution": 0.000589,
+      "return_share": 0.000662,
+      "risk_share": 0.00136,
+      "marginal_sharpe_per_pp": -0.006264
      },
      {
       "ticker": "LTRX",
-      "weight": 0.00109,
+      "weight": 0.001101,
       "excess_return_annual": 0.125539,
-      "sharpe_contribution": 0.000456,
-      "return_share": 0.000509,
-      "risk_share": 0.001037,
-      "marginal_sharpe_per_pp": -0.004333
+      "sharpe_contribution": 0.000463,
+      "return_share": 0.000521,
+      "risk_share": 0.001045,
+      "marginal_sharpe_per_pp": -0.004236
      },
      {
       "ticker": "IWM",
-      "weight": 0.002942,
+      "weight": 0.002972,
       "excess_return_annual": 0.043763,
-      "sharpe_contribution": 0.000429,
-      "return_share": 0.000479,
-      "risk_share": 0.001643,
-      "marginal_sharpe_per_pp": -0.003543
+      "sharpe_contribution": 0.000436,
+      "return_share": 0.00049,
+      "risk_share": 0.001665,
+      "marginal_sharpe_per_pp": -0.003516
      },
      {
       "ticker": "ACHR",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": 0.267081,
-      "sharpe_contribution": 0.000388,
-      "return_share": 0.000433,
-      "risk_share": 0.000596,
-      "marginal_sharpe_per_pp": -0.003348
+      "sharpe_contribution": 0.000394,
+      "return_share": 0.000443,
+      "risk_share": 0.000599,
+      "marginal_sharpe_per_pp": -0.003156
      },
      {
       "ticker": "ISRG",
-      "weight": 0.001416,
+      "weight": 0.001431,
       "excess_return_annual": 0.07043,
-      "sharpe_contribution": 0.000332,
-      "return_share": 0.000371,
-      "risk_share": 0.00084,
-      "marginal_sharpe_per_pp": -0.002965
+      "sharpe_contribution": 0.000338,
+      "return_share": 0.00038,
+      "risk_share": 0.000855,
+      "marginal_sharpe_per_pp": -0.002955
      },
      {
       "ticker": "GME",
-      "weight": 0.000109,
+      "weight": 0.00011,
       "excess_return_annual": 0.237856,
-      "sharpe_contribution": 8.6e-05,
-      "return_share": 9.6e-05,
-      "risk_share": 9.4e-05,
-      "marginal_sharpe_per_pp": 0.000183
+      "sharpe_contribution": 8.8e-05,
+      "return_share": 9.9e-05,
+      "risk_share": 9.5e-05,
+      "marginal_sharpe_per_pp": 0.00028
      },
      {
       "ticker": "NCLH",
-      "weight": 0.000763,
+      "weight": 0.00077,
       "excess_return_annual": 0.030955,
-      "sharpe_contribution": 7.9e-05,
-      "return_share": 8.8e-05,
-      "risk_share": 0.000729,
-      "marginal_sharpe_per_pp": -0.007528
+      "sharpe_contribution": 8e-05,
+      "return_share": 9e-05,
+      "risk_share": 0.000739,
+      "marginal_sharpe_per_pp": -0.007501
      },
      {
       "ticker": "AMC",
@@ -1286,70 +1286,70 @@
       "sharpe_contribution": -0.0,
       "return_share": -0.0,
       "risk_share": 0.0,
-      "marginal_sharpe_per_pp": -0.024809
+      "marginal_sharpe_per_pp": -0.024863
      },
      {
       "ticker": "SRFM",
-      "weight": 0.000109,
+      "weight": 0.00011,
       "excess_return_annual": -0.059347,
       "sharpe_contribution": -2.2e-05,
-      "return_share": -2.4e-05,
+      "return_share": -2.5e-05,
       "risk_share": 8.5e-05,
-      "marginal_sharpe_per_pp": -0.008938
+      "marginal_sharpe_per_pp": -0.008851
      },
      {
       "ticker": "QS",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": -0.04594,
-      "sharpe_contribution": -6.7e-05,
-      "return_share": -7.5e-05,
-      "risk_share": 0.000609,
-      "marginal_sharpe_per_pp": -0.014032
+      "sharpe_contribution": -6.8e-05,
+      "return_share": -7.6e-05,
+      "risk_share": 0.000613,
+      "marginal_sharpe_per_pp": -0.013931
      },
      {
       "ticker": "BAER",
-      "weight": 0.000218,
+      "weight": 0.00022,
       "excess_return_annual": -0.197432,
-      "sharpe_contribution": -0.000143,
-      "return_share": -0.00016,
+      "sharpe_contribution": -0.000146,
+      "return_share": -0.000164,
       "risk_share": 6e-05,
-      "marginal_sharpe_per_pp": -0.009029
+      "marginal_sharpe_per_pp": -0.009042
      },
      {
       "ticker": "DIS",
-      "weight": 0.000654,
+      "weight": 0.00066,
       "excess_return_annual": -0.07182,
-      "sharpe_contribution": -0.000156,
-      "return_share": -0.000175,
-      "risk_share": 0.000315,
-      "marginal_sharpe_per_pp": -0.006704
+      "sharpe_contribution": -0.000159,
+      "return_share": -0.000179,
+      "risk_share": 0.000319,
+      "marginal_sharpe_per_pp": -0.006709
      },
      {
       "ticker": "FLY",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": -0.123419,
-      "sharpe_contribution": -0.000179,
-      "return_share": -0.0002,
-      "risk_share": 0.000196,
-      "marginal_sharpe_per_pp": -0.00813
+      "sharpe_contribution": -0.000182,
+      "return_share": -0.000205,
+      "risk_share": 0.000193,
+      "marginal_sharpe_per_pp": -0.008039
      },
      {
       "ticker": "NKLR",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": -0.264707,
-      "sharpe_contribution": -0.000481,
-      "return_share": -0.000537,
+      "sharpe_contribution": -0.000488,
+      "return_share": -0.000549,
       "risk_share": 0.000191,
-      "marginal_sharpe_per_pp": -0.011956
+      "marginal_sharpe_per_pp": -0.011964
      },
      {
       "ticker": "VELO",
-      "weight": 0.002833,
+      "weight": 0.002862,
       "excess_return_annual": -0.10691,
-      "sharpe_contribution": -0.001009,
-      "return_share": -0.001127,
-      "risk_share": 0.00417,
-      "marginal_sharpe_per_pp": -0.01674
+      "sharpe_contribution": -0.001025,
+      "return_share": -0.001153,
+      "risk_share": 0.004173,
+      "marginal_sharpe_per_pp": -0.016555
      }
     ]
    }
@@ -1363,246 +1363,252 @@
     "observations": 252
    },
    "risk_metrics": {
-    "annualised_volatility": 0.270168920285107,
-    "annualised_return": 0.17530761955643737,
-    "beta": 1.80267911516655,
-    "sharpe": 0.4685279780135467,
-    "sortino": 0.7815034006654108,
-    "tracking_error": 0.17615972238871566,
-    "information_ratio": 0.08425455650034086,
-    "max_drawdown": -0.17003860279685268,
+    "annualised_volatility": 0.26534939975262434,
+    "annualised_return": 0.17268502647824113,
+    "beta": 1.7802416099323404,
+    "sharpe": 0.4686137310740459,
+    "sortino": 0.7740037454947926,
+    "tracking_error": 0.1708072553587745,
+    "information_ratio": 0.07380848296732137,
+    "max_drawdown": -0.16836467018068535,
     "max_drawdown_days": 102,
-    "var_95_1d": -0.028762353092100474,
-    "var_99_1d": -0.035570197927607544,
-    "var_95_cornish_fisher": -0.027218062469595804,
-    "cvar_95_1d": -0.03427380353846259,
-    "downside_deviation": 0.16197203727521378,
-    "skew": 0.015199628553498181,
-    "excess_kurtosis": 0.1849889800152694,
-    "up_capture": 1.8005255009020378,
-    "down_capture": 1.9459096440788446
+    "var_95_1d": -0.028184579283534007,
+    "var_99_1d": -0.03493308324430833,
+    "var_95_cornish_fisher": -0.026781522518852255,
+    "cvar_95_1d": -0.03380731492663012,
+    "downside_deviation": 0.16065345029673683,
+    "skew": 0.003208759891114486,
+    "excess_kurtosis": 0.20129291776549668,
+    "up_capture": 1.778668589729618,
+    "down_capture": 1.922675593563426
    },
    "benchmarks": {
     "SPY": {
-     "annualised_volatility": 0.12725491077365855,
-     "annualised_return": 0.15800272471542542,
-     "beta": 1.0039840637450208,
-     "sharpe": 0.8780756513117579,
-     "sortino": 1.350572936394625,
+     "annualised_volatility": 0.12725491316059465,
+     "annualised_return": 0.158002619628004,
+     "beta": 1.00398406374502,
+     "sharpe": 0.8780749212997268,
+     "sortino": 1.3505713082877833,
      "tracking_error": 0.0,
      "information_ratio": null,
-     "max_drawdown": -0.08884972983911354,
+     "max_drawdown": -0.08884972983911332,
      "max_drawdown_days": 52,
      "var_95_1d": -0.013488030420843976,
      "var_99_1d": -0.017447249227625524,
-     "var_95_cornish_fisher": -0.012533142165129794,
-     "cvar_95_1d": -0.016731622159990363,
-     "downside_deviation": 0.08273484211707219,
-     "skew": -0.024756610070120075,
-     "excess_kurtosis": 0.7907005498042926,
+     "var_95_cornish_fisher": -0.01253314466061779,
+     "cvar_95_1d": -0.016731629212690165,
+     "downside_deviation": 0.0827348746214317,
+     "skew": -0.02475748177752648,
+     "excess_kurtosis": 0.7907011146959465,
      "up_capture": 1.0,
      "down_capture": 1.0
     },
     "QQQ": {
-     "annualised_volatility": 0.2002175354796266,
-     "annualised_return": 0.1979347179004729,
-     "beta": 1.459764554441198,
-     "sharpe": 0.7275273618695305,
-     "sortino": 1.1170010972541762,
-     "tracking_error": 0.09586542503070106,
-     "information_ratio": 0.35387415970301805,
-     "max_drawdown": -0.1196437720684469,
+     "annualised_volatility": 0.20021751241933397,
+     "annualised_return": 0.19793471237279214,
+     "beta": 1.4597645287508059,
+     "sharpe": 0.7275274226002932,
+     "sortino": 1.1170008761310266,
+     "tracking_error": 0.09586537514579174,
+     "information_ratio": 0.35387524285797106,
+     "max_drawdown": -0.11964360224241621,
      "max_drawdown_days": 113,
      "var_95_1d": -0.019593011876054812,
      "var_99_1d": -0.026756793115794535,
-     "var_95_cornish_fisher": -0.020176376338783854,
-     "cvar_95_1d": -0.02495107322525085,
-     "downside_deviation": 0.13040608084055064,
-     "skew": -0.09278108780626824,
-     "excess_kurtosis": 0.7279027684861156,
-     "up_capture": 1.4392740762780696,
-     "down_capture": 1.4825303632711184
+     "var_95_cornish_fisher": -0.020176373253851448,
+     "cvar_95_1d": -0.02495106534850918,
+     "downside_deviation": 0.13040610252197654,
+     "skew": -0.09278098591902963,
+     "excess_kurtosis": 0.7279040904011645,
+     "up_capture": 1.4392738475031113,
+     "down_capture": 1.4825299026100331
     },
     "RSP": {
-     "annualised_volatility": 0.11500262160481915,
-     "annualised_return": 0.16310240270629106,
-     "beta": 0.6800319677465531,
-     "sharpe": 1.0098571854053677,
-     "sortino": 1.7704676155796433,
-     "tracking_error": 0.08649967901089978,
-     "information_ratio": 0.05083007426336568,
+     "annualised_volatility": 0.11500265152946561,
+     "annualised_return": 0.163102312440929,
+     "beta": 0.6800324755890247,
+     "sharpe": 1.009856247395595,
+     "sortino": 1.770466342874006,
+     "tracking_error": 0.0864996228535863,
+     "information_ratio": 0.050830259260655236,
      "max_drawdown": -0.07852283143962768,
      "max_drawdown_days": 51,
      "var_95_1d": -0.011843250816509682,
-     "var_99_1d": -0.014803588146078442,
-     "var_95_cornish_fisher": -0.011085630511741884,
-     "cvar_95_1d": -0.013578625349855962,
-     "downside_deviation": 0.0655963558701178,
-     "skew": 0.11138750134703429,
-     "excess_kurtosis": 0.004535156404816212,
-     "up_capture": 0.7351092937494436,
-     "down_capture": 0.6738161790562606
+     "var_99_1d": -0.014803509996949788,
+     "var_95_cornish_fisher": -0.011085636011764315,
+     "cvar_95_1d": -0.013578612963563108,
+     "downside_deviation": 0.06559635916352134,
+     "skew": 0.11138675984117168,
+     "excess_kurtosis": 0.004531037191769972,
+     "up_capture": 0.7351098292355541,
+     "down_capture": 0.6738168494285772
     }
    },
    "risk_decomposition": {
-    "portfolio_volatility": 0.27016892028510703,
-    "diversification_ratio": 1.4271934334425962,
-    "hhi": 0.1361058574653468,
-    "effective_n": 7.347222365169733,
+    "portfolio_volatility": 0.26534939975262434,
+    "diversification_ratio": 1.4309515502909824,
+    "hhi": 0.13874904070474087,
+    "effective_n": 7.207257037027078,
     "contributions": [
      {
       "ticker": "ASTS",
-      "weight_pct": 11.58,
-      "risk_share_pct": 37.64,
+      "weight_pct": 11.7,
+      "risk_share_pct": 38.42,
       "flag": true
      },
      {
       "ticker": "VUG",
-      "weight_pct": 30.36,
-      "risk_share_pct": 17.53,
+      "weight_pct": 30.66,
+      "risk_share_pct": 18.15,
       "flag": false
      },
      {
       "ticker": "NVDA",
-      "weight_pct": 10.36,
-      "risk_share_pct": 9.83,
+      "weight_pct": 10.47,
+      "risk_share_pct": 10.19,
       "flag": false
      },
      {
       "ticker": "VOOG",
-      "weight_pct": 9.37,
-      "risk_share_pct": 5.57,
-      "flag": false
-     },
-     {
-      "ticker": "RKLB",
-      "weight_pct": 1.12,
-      "risk_share_pct": 2.99,
+      "weight_pct": 9.47,
+      "risk_share_pct": 5.76,
       "flag": false
      },
      {
       "ticker": "QQQ",
-      "weight_pct": 4.47,
-      "risk_share_pct": 2.83,
+      "weight_pct": 4.51,
+      "risk_share_pct": 2.92,
       "flag": false
      },
      {
       "ticker": "MSFT",
-      "weight_pct": 5.6,
-      "risk_share_pct": 2.72,
+      "weight_pct": 5.66,
+      "risk_share_pct": 2.83,
       "flag": false
      },
      {
       "ticker": "AMD",
-      "weight_pct": 1.27,
-      "risk_share_pct": 2.08,
+      "weight_pct": 1.29,
+      "risk_share_pct": 2.14,
       "flag": false
      },
      {
       "ticker": "AMZN",
-      "weight_pct": 2.94,
-      "risk_share_pct": 1.81,
+      "weight_pct": 2.97,
+      "risk_share_pct": 1.88,
       "flag": false
      },
      {
       "ticker": "GS",
-      "weight_pct": 2.33,
-      "risk_share_pct": 1.6,
+      "weight_pct": 2.36,
+      "risk_share_pct": 1.65,
       "flag": false
      },
      {
       "ticker": "PLTR",
-      "weight_pct": 1.32,
-      "risk_share_pct": 1.41,
+      "weight_pct": 1.33,
+      "risk_share_pct": 1.46,
       "flag": false
      },
      {
       "ticker": "DELL",
-      "weight_pct": 1.1,
-      "risk_share_pct": 1.3,
+      "weight_pct": 1.11,
+      "risk_share_pct": 1.34,
       "flag": false
      },
      {
       "ticker": "GOOGL",
-      "weight_pct": 2.44,
-      "risk_share_pct": 1.25,
+      "weight_pct": 2.47,
+      "risk_share_pct": 1.29,
       "flag": false
      },
      {
       "ticker": "QQQM",
-      "weight_pct": 1.82,
-      "risk_share_pct": 1.14,
+      "weight_pct": 1.84,
+      "risk_share_pct": 1.18,
       "flag": false
      },
      {
       "ticker": "IUSG",
-      "weight_pct": 1.63,
-      "risk_share_pct": 0.96,
+      "weight_pct": 1.65,
+      "risk_share_pct": 0.99,
       "flag": false
      },
      {
       "ticker": "TQQQ",
-      "weight_pct": 0.51,
-      "risk_share_pct": 0.96,
+      "weight_pct": 0.52,
+      "risk_share_pct": 0.99,
       "flag": false
      },
      {
       "ticker": "AAPL",
-      "weight_pct": 4.87,
-      "risk_share_pct": 0.93,
+      "weight_pct": 4.92,
+      "risk_share_pct": 0.97,
       "flag": false
      },
      {
       "ticker": "VELO",
-      "weight_pct": 0.28,
-      "risk_share_pct": 0.88,
+      "weight_pct": 0.29,
+      "risk_share_pct": 0.89,
       "flag": false
      },
      {
       "ticker": "NBIS",
-      "weight_pct": 0.29,
-      "risk_share_pct": 0.69,
+      "weight_pct": 0.3,
+      "risk_share_pct": 0.71,
       "flag": false
      },
      {
       "ticker": "TSLA",
       "weight_pct": 0.68,
-      "risk_share_pct": 0.67,
+      "risk_share_pct": 0.69,
       "flag": false
      },
      {
       "ticker": "META",
-      "weight_pct": 1.07,
-      "risk_share_pct": 0.66,
+      "weight_pct": 1.08,
+      "risk_share_pct": 0.68,
       "flag": false
      },
      {
       "ticker": "QBTS",
       "weight_pct": 0.21,
-      "risk_share_pct": 0.53,
+      "risk_share_pct": 0.54,
       "flag": false
      },
      {
       "ticker": "ONDS",
-      "weight_pct": 0.17,
-      "risk_share_pct": 0.39,
+      "weight_pct": 0.18,
+      "risk_share_pct": 0.4,
       "flag": false
      },
      {
       "ticker": "SCHA",
       "weight_pct": 0.7,
-      "risk_share_pct": 0.34,
+      "risk_share_pct": 0.35,
       "flag": false
      },
      {
       "ticker": "SMR",
       "weight_pct": 0.14,
-      "risk_share_pct": 0.34,
+      "risk_share_pct": 0.35,
       "flag": false
      },
      {
       "ticker": "AVGO",
       "weight_pct": 0.23,
+      "risk_share_pct": 0.25,
+      "flag": false
+     },
+     {
+      "ticker": "TE",
+      "weight_pct": 0.1,
+      "risk_share_pct": 0.25,
+      "flag": false
+     },
+     {
+      "ticker": "IREN",
+      "weight_pct": 0.1,
       "risk_share_pct": 0.24,
       "flag": false
      },
@@ -1613,15 +1619,15 @@
       "flag": false
      },
      {
-      "ticker": "TE",
-      "weight_pct": 0.1,
-      "risk_share_pct": 0.24,
+      "ticker": "KRKNF",
+      "weight_pct": 0.15,
+      "risk_share_pct": 0.19,
       "flag": false
      },
      {
-      "ticker": "IREN",
-      "weight_pct": 0.1,
-      "risk_share_pct": 0.23,
+      "ticker": "HOOD",
+      "weight_pct": 0.12,
+      "risk_share_pct": 0.19,
       "flag": false
      },
      {
@@ -1631,15 +1637,15 @@
       "flag": false
      },
      {
-      "ticker": "KRKNF",
-      "weight_pct": 0.15,
+      "ticker": "LTRX",
+      "weight_pct": 0.11,
       "risk_share_pct": 0.18,
       "flag": false
      },
      {
-      "ticker": "LTRX",
-      "weight_pct": 0.11,
-      "risk_share_pct": 0.17,
+      "ticker": "IWM",
+      "weight_pct": 0.3,
+      "risk_share_pct": 0.15,
       "flag": false
      },
      {
@@ -1649,15 +1655,15 @@
       "flag": false
      },
      {
-      "ticker": "IWM",
-      "weight_pct": 0.29,
+      "ticker": "IBM",
+      "weight_pct": 0.5,
       "risk_share_pct": 0.14,
       "flag": false
      },
      {
-      "ticker": "IBM",
-      "weight_pct": 0.49,
-      "risk_share_pct": 0.13,
+      "ticker": "FLY",
+      "weight_pct": 0.04,
+      "risk_share_pct": 0.12,
       "flag": false
      },
      {
@@ -1673,15 +1679,15 @@
       "flag": false
      },
      {
-      "ticker": "FLY",
-      "weight_pct": 0.04,
+      "ticker": "NKLR",
+      "weight_pct": 0.06,
       "risk_share_pct": 0.11,
       "flag": false
      },
      {
-      "ticker": "NKLR",
-      "weight_pct": 0.05,
-      "risk_share_pct": 0.1,
+      "ticker": "MSTR",
+      "weight_pct": 0.06,
+      "risk_share_pct": 0.09,
       "flag": false
      },
      {
@@ -1692,13 +1698,7 @@
      },
      {
       "ticker": "HIMS",
-      "weight_pct": 0.05,
-      "risk_share_pct": 0.08,
-      "flag": false
-     },
-     {
-      "ticker": "MSTR",
-      "weight_pct": 0.05,
+      "weight_pct": 0.06,
       "risk_share_pct": 0.08,
       "flag": false
      },
@@ -1780,299 +1780,290 @@
     "available": true,
     "method": "additive: weight x annualised excess return / portfolio volatility",
     "observations": 252,
-    "sharpe": 0.468528,
-    "excess_return_annual": 0.126582,
-    "volatility_annual": 0.270169,
+    "sharpe": 0.468614,
+    "excess_return_annual": 0.124346,
+    "volatility_annual": 0.265349,
     "identity_residual": 1.1102230246251565e-16,
     "return_shares_meaningful": true,
     "positions": [
      {
       "ticker": "NVDA",
-      "weight": 0.103617,
-      "excess_return_annual": 0.19472,
-      "sharpe_contribution": 0.07468,
-      "return_share": 0.159394,
-      "risk_share": 0.098341,
-      "marginal_sharpe_per_pp": 0.002761
+      "weight": 0.104667,
+      "excess_return_annual": 0.194719,
+      "sharpe_contribution": 0.076807,
+      "return_share": 0.163902,
+      "risk_share": 0.101882,
+      "marginal_sharpe_per_pp": 0.002777
      },
      {
       "ticker": "VUG",
-      "weight": 0.303552,
+      "weight": 0.306626,
       "excess_return_annual": 0.0659,
-      "sharpe_contribution": 0.074042,
-      "return_share": 0.158032,
-      "risk_share": 0.175321,
-      "marginal_sharpe_per_pp": -0.000267
+      "sharpe_contribution": 0.076151,
+      "return_share": 0.162502,
+      "risk_share": 0.181464,
+      "marginal_sharpe_per_pp": -0.00029
      },
      {
       "ticker": "DELL",
-      "weight": 0.011005,
+      "weight": 0.011116,
       "excess_return_annual": 1.405636,
-      "sharpe_contribution": 0.057255,
-      "return_share": 0.122201,
-      "risk_share": 0.013042,
-      "marginal_sharpe_per_pp": 0.046475
+      "sharpe_contribution": 0.058885,
+      "return_share": 0.125658,
+      "risk_share": 0.013428,
+      "marginal_sharpe_per_pp": 0.047312
      },
      {
       "ticker": "AAPL",
-      "weight": 0.048703,
+      "weight": 0.049197,
       "excess_return_annual": 0.275897,
-      "sharpe_contribution": 0.049736,
-      "return_share": 0.106154,
-      "risk_share": 0.009346,
-      "marginal_sharpe_per_pp": 0.009313
+      "sharpe_contribution": 0.051152,
+      "return_share": 0.109156,
+      "risk_share": 0.009721,
+      "marginal_sharpe_per_pp": 0.009472
      },
      {
       "ticker": "AMD",
-      "weight": 0.012748,
+      "weight": 0.012877,
       "excess_return_annual": 0.990369,
-      "sharpe_contribution": 0.04673,
-      "return_share": 0.099739,
-      "risk_share": 0.020757,
-      "marginal_sharpe_per_pp": 0.029029
+      "sharpe_contribution": 0.048061,
+      "return_share": 0.10256,
+      "risk_share": 0.021359,
+      "marginal_sharpe_per_pp": 0.02955
      },
      {
       "ticker": "VOOG",
-      "weight": 0.093702,
+      "weight": 0.094651,
       "excess_return_annual": 0.113541,
-      "sharpe_contribution": 0.039379,
-      "return_share": 0.084049,
-      "risk_share": 0.0557,
-      "marginal_sharpe_per_pp": 0.001418
+      "sharpe_contribution": 0.0405,
+      "return_share": 0.086426,
+      "risk_share": 0.057621,
+      "marginal_sharpe_per_pp": 0.001426
      },
      {
       "ticker": "QQQ",
-      "weight": 0.044672,
+      "weight": 0.045124,
       "excess_return_annual": 0.145664,
-      "sharpe_contribution": 0.024085,
-      "return_share": 0.051406,
-      "risk_share": 0.028251,
-      "marginal_sharpe_per_pp": 0.002429
+      "sharpe_contribution": 0.024771,
+      "return_share": 0.05286,
+      "risk_share": 0.029186,
+      "marginal_sharpe_per_pp": 0.002459
      },
      {
       "ticker": "GOOGL",
-      "weight": 0.024406,
-      "excess_return_annual": 0.22662,
-      "sharpe_contribution": 0.020472,
-      "return_share": 0.043695,
-      "risk_share": 0.01247,
-      "marginal_sharpe_per_pp": 0.005994
+      "weight": 0.024653,
+      "excess_return_annual": 0.226621,
+      "sharpe_contribution": 0.021055,
+      "return_share": 0.044931,
+      "risk_share": 0.012942,
+      "marginal_sharpe_per_pp": 0.006081
      },
      {
       "ticker": "VELO",
-      "weight": 0.002833,
+      "weight": 0.002862,
       "excess_return_annual": 1.672262,
-      "sharpe_contribution": 0.017535,
-      "return_share": 0.037425,
-      "risk_share": 0.008766,
-      "marginal_sharpe_per_pp": 0.047399
+      "sharpe_contribution": 0.018034,
+      "return_share": 0.038483,
+      "risk_share": 0.008902,
+      "marginal_sharpe_per_pp": 0.048443
      },
      {
       "ticker": "GS",
-      "weight": 0.023317,
+      "weight": 0.023553,
       "excess_return_annual": 0.185938,
-      "sharpe_contribution": 0.016047,
-      "return_share": 0.03425,
-      "risk_share": 0.015956,
-      "marginal_sharpe_per_pp": 0.003676
+      "sharpe_contribution": 0.016504,
+      "return_share": 0.035219,
+      "risk_share": 0.016486,
+      "marginal_sharpe_per_pp": 0.003727
      },
      {
       "ticker": "AMZN",
-      "weight": 0.029418,
+      "weight": 0.029716,
       "excess_return_annual": 0.14494,
-      "sharpe_contribution": 0.015782,
-      "return_share": 0.033685,
-      "risk_share": 0.018126,
-      "marginal_sharpe_per_pp": 0.002478
-     },
-     {
-      "ticker": "RKLB",
-      "weight": 0.011222,
-      "excess_return_annual": 0.291718,
-      "sharpe_contribution": 0.012118,
-      "return_share": 0.025863,
-      "risk_share": 0.029874,
-      "marginal_sharpe_per_pp": -0.001674
+      "sharpe_contribution": 0.016232,
+      "return_share": 0.034637,
+      "risk_share": 0.018762,
+      "marginal_sharpe_per_pp": 0.002503
      },
      {
       "ticker": "PLTR",
-      "weight": 0.013184,
+      "weight": 0.013317,
       "excess_return_annual": 0.215506,
-      "sharpe_contribution": 0.010516,
-      "return_share": 0.022445,
-      "risk_share": 0.014129,
-      "marginal_sharpe_per_pp": 0.002956
+      "sharpe_contribution": 0.010816,
+      "return_share": 0.02308,
+      "risk_share": 0.014556,
+      "marginal_sharpe_per_pp": 0.003
      },
      {
       "ticker": "NBIS",
-      "weight": 0.002942,
+      "weight": 0.002972,
       "excess_return_annual": 0.916666,
-      "sharpe_contribution": 0.009981,
-      "return_share": 0.021304,
-      "risk_share": 0.006928,
-      "marginal_sharpe_per_pp": 0.022895
+      "sharpe_contribution": 0.010266,
+      "return_share": 0.021906,
+      "risk_share": 0.007134,
+      "marginal_sharpe_per_pp": 0.023295
      },
      {
       "ticker": "QQQM",
-      "weight": 0.018196,
+      "weight": 0.01838,
       "excess_return_annual": 0.145783,
-      "sharpe_contribution": 0.009818,
-      "return_share": 0.020956,
-      "risk_share": 0.011423,
-      "marginal_sharpe_per_pp": 0.002455
+      "sharpe_contribution": 0.010098,
+      "return_share": 0.021548,
+      "risk_share": 0.011802,
+      "marginal_sharpe_per_pp": 0.002485
      },
      {
       "ticker": "MSFT",
-      "weight": 0.056003,
-      "excess_return_annual": 0.041069,
-      "sharpe_contribution": 0.008513,
-      "return_share": 0.01817,
-      "risk_share": 0.027191,
-      "marginal_sharpe_per_pp": -0.000755
+      "weight": 0.056571,
+      "excess_return_annual": 0.041068,
+      "sharpe_contribution": 0.008755,
+      "return_share": 0.018684,
+      "risk_share": 0.028313,
+      "marginal_sharpe_per_pp": -0.000798
      },
      {
       "ticker": "TQQQ",
-      "weight": 0.005121,
+      "weight": 0.005173,
       "excess_return_annual": 0.400168,
-      "sharpe_contribution": 0.007585,
-      "return_share": 0.016189,
-      "risk_share": 0.009627,
-      "marginal_sharpe_per_pp": 0.006004
+      "sharpe_contribution": 0.007801,
+      "return_share": 0.016647,
+      "risk_share": 0.009946,
+      "marginal_sharpe_per_pp": 0.006071
      },
      {
       "ticker": "IUSG",
-      "weight": 0.016343,
+      "weight": 0.016509,
       "excess_return_annual": 0.112301,
-      "sharpe_contribution": 0.006793,
-      "return_share": 0.0145,
-      "risk_share": 0.009568,
-      "marginal_sharpe_per_pp": 0.001414
+      "sharpe_contribution": 0.006987,
+      "return_share": 0.01491,
+      "risk_share": 0.009896,
+      "marginal_sharpe_per_pp": 0.001423
      },
      {
       "ticker": "SCHA",
-      "weight": 0.006973,
+      "weight": 0.007044,
       "excess_return_annual": 0.141699,
-      "sharpe_contribution": 0.003657,
-      "return_share": 0.007806,
-      "risk_share": 0.003384,
-      "marginal_sharpe_per_pp": 0.002971
+      "sharpe_contribution": 0.003761,
+      "return_share": 0.008027,
+      "risk_share": 0.003485,
+      "marginal_sharpe_per_pp": 0.003022
      },
      {
       "ticker": "ONDS",
-      "weight": 0.001743,
+      "weight": 0.001761,
       "excess_return_annual": 0.4086,
-      "sharpe_contribution": 0.002637,
-      "return_share": 0.005627,
-      "risk_share": 0.003894,
-      "marginal_sharpe_per_pp": 0.004658
+      "sharpe_contribution": 0.002712,
+      "return_share": 0.005786,
+      "risk_share": 0.003986,
+      "marginal_sharpe_per_pp": 0.004792
      },
      {
       "ticker": "JPM",
-      "weight": 0.004467,
+      "weight": 0.004512,
       "excess_return_annual": 0.119502,
-      "sharpe_contribution": 0.001976,
-      "return_share": 0.004217,
-      "risk_share": 0.001085,
-      "marginal_sharpe_per_pp": 0.003285
+      "sharpe_contribution": 0.002032,
+      "return_share": 0.004337,
+      "risk_share": 0.001118,
+      "marginal_sharpe_per_pp": 0.003342
      },
      {
       "ticker": "DE",
-      "weight": 0.001525,
+      "weight": 0.001541,
       "excess_return_annual": 0.331954,
-      "sharpe_contribution": 0.001874,
-      "return_share": 0.004,
-      "risk_share": 0.00016,
-      "marginal_sharpe_per_pp": 0.011794
+      "sharpe_contribution": 0.001928,
+      "return_share": 0.004113,
+      "risk_share": 0.000161,
+      "marginal_sharpe_per_pp": 0.01202
      },
      {
       "ticker": "LTRX",
-      "weight": 0.00109,
+      "weight": 0.001101,
       "excess_return_annual": 0.429064,
-      "sharpe_contribution": 0.00173,
-      "return_share": 0.003693,
-      "risk_share": 0.00173,
-      "marginal_sharpe_per_pp": 0.008442
+      "sharpe_contribution": 0.00178,
+      "return_share": 0.003798,
+      "risk_share": 0.001774,
+      "marginal_sharpe_per_pp": 0.008617
      },
      {
       "ticker": "RDW",
-      "weight": 0.000654,
+      "weight": 0.00066,
       "excess_return_annual": 0.696524,
-      "sharpe_contribution": 0.001685,
-      "return_share": 0.003597,
-      "risk_share": 0.001918,
-      "marginal_sharpe_per_pp": 0.012032
+      "sharpe_contribution": 0.001733,
+      "return_share": 0.003699,
+      "risk_share": 0.001948,
+      "marginal_sharpe_per_pp": 0.012425
      },
      {
       "ticker": "TE",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": 0.352765,
-      "sharpe_contribution": 0.00128,
-      "return_share": 0.002733,
-      "risk_share": 0.002448,
-      "marginal_sharpe_per_pp": 0.001363
+      "sharpe_contribution": 0.001317,
+      "return_share": 0.00281,
+      "risk_share": 0.00251,
+      "marginal_sharpe_per_pp": 0.001421
      },
      {
       "ticker": "IWM",
-      "weight": 0.002942,
+      "weight": 0.002972,
       "excess_return_annual": 0.107659,
-      "sharpe_contribution": 0.001172,
-      "return_share": 0.002502,
-      "risk_share": 0.001421,
-      "marginal_sharpe_per_pp": 0.001722
+      "sharpe_contribution": 0.001206,
+      "return_share": 0.002573,
+      "risk_share": 0.001463,
+      "marginal_sharpe_per_pp": 0.001751
      },
      {
       "ticker": "LUNR",
-      "weight": 0.000327,
+      "weight": 0.00033,
       "excess_return_annual": 0.469137,
-      "sharpe_contribution": 0.000568,
-      "return_share": 0.001211,
-      "risk_share": 0.000931,
-      "marginal_sharpe_per_pp": 0.004023
+      "sharpe_contribution": 0.000584,
+      "return_share": 0.001246,
+      "risk_share": 0.000943,
+      "marginal_sharpe_per_pp": 0.0043
      },
      {
       "ticker": "FLY",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": 0.234716,
-      "sharpe_contribution": 0.000379,
-      "return_share": 0.000808,
-      "risk_share": 0.001146,
-      "marginal_sharpe_per_pp": -0.003628
+      "sharpe_contribution": 0.000389,
+      "return_share": 0.000831,
+      "risk_share": 0.001159,
+      "marginal_sharpe_per_pp": -0.003487
      },
      {
       "ticker": "AVGO",
-      "weight": 0.002288,
+      "weight": 0.002311,
       "excess_return_annual": 0.04451,
-      "sharpe_contribution": 0.000377,
-      "return_share": 0.000805,
-      "risk_share": 0.002402,
-      "marginal_sharpe_per_pp": -0.003271
+      "sharpe_contribution": 0.000388,
+      "return_share": 0.000827,
+      "risk_share": 0.002483,
+      "marginal_sharpe_per_pp": -0.003357
      },
      {
       "ticker": "TSLA",
-      "weight": 0.006755,
+      "weight": 0.006824,
       "excess_return_annual": 0.005966,
-      "sharpe_contribution": 0.000149,
-      "return_share": 0.000318,
-      "risk_share": 0.00669,
-      "marginal_sharpe_per_pp": -0.004419
+      "sharpe_contribution": 0.000153,
+      "return_share": 0.000327,
+      "risk_share": 0.006909,
+      "marginal_sharpe_per_pp": -0.00452
      },
      {
       "ticker": "GME",
-      "weight": 0.000109,
+      "weight": 0.00011,
       "excess_return_annual": 0.042298,
-      "sharpe_contribution": 1.7e-05,
-      "return_share": 3.6e-05,
-      "risk_share": 2.1e-05,
-      "marginal_sharpe_per_pp": 0.000643
+      "sharpe_contribution": 1.8e-05,
+      "return_share": 3.7e-05,
+      "risk_share": 2.3e-05,
+      "marginal_sharpe_per_pp": 0.000632
      },
      {
       "ticker": "DIS",
-      "weight": 0.000654,
+      "weight": 0.00066,
       "excess_return_annual": 0.002403,
       "sharpe_contribution": 6e-06,
-      "return_share": 1.2e-05,
-      "risk_share": 0.000123,
-      "marginal_sharpe_per_pp": -0.000791
+      "return_share": 1.3e-05,
+      "risk_share": 0.000127,
+      "marginal_sharpe_per_pp": -0.000808
      },
      {
       "ticker": "AMC",
@@ -2081,196 +2072,205 @@
       "sharpe_contribution": 0.0,
       "return_share": 0.0,
       "risk_share": 0.0,
-      "marginal_sharpe_per_pp": 0.012138
+      "marginal_sharpe_per_pp": 0.012298
      },
      {
       "ticker": "HIMS",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": -0.216451,
-      "sharpe_contribution": -0.000436,
-      "return_share": -0.000932,
-      "risk_share": 0.000814,
-      "marginal_sharpe_per_pp": -0.015014
+      "sharpe_contribution": -0.000449,
+      "return_share": -0.000958,
+      "risk_share": 0.000838,
+      "marginal_sharpe_per_pp": -0.015295
      },
      {
       "ticker": "SRFM",
-      "weight": 0.000109,
+      "weight": 0.00011,
       "excess_return_annual": -1.231172,
-      "sharpe_contribution": -0.000497,
-      "return_share": -0.00106,
-      "risk_share": 0.000207,
-      "marginal_sharpe_per_pp": -0.054482
+      "sharpe_contribution": -0.000511,
+      "return_share": -0.00109,
+      "risk_share": 0.000213,
+      "marginal_sharpe_per_pp": -0.055466
+     },
+     {
+      "ticker": "HOOD",
+      "weight": 0.001211,
+      "excess_return_annual": -0.173518,
+      "sharpe_contribution": -0.000792,
+      "return_share": -0.001689,
+      "risk_share": 0.001921,
+      "marginal_sharpe_per_pp": -0.013976
      },
      {
       "ticker": "ORLY",
-      "weight": 0.002615,
+      "weight": 0.002641,
       "excess_return_annual": -0.080921,
-      "sharpe_contribution": -0.000783,
-      "return_share": -0.001672,
-      "risk_share": -0.000177,
-      "marginal_sharpe_per_pp": -0.002677
+      "sharpe_contribution": -0.000806,
+      "return_share": -0.001719,
+      "risk_share": -0.000182,
+      "marginal_sharpe_per_pp": -0.002728
      },
      {
       "ticker": "NCLH",
-      "weight": 0.000763,
+      "weight": 0.00077,
       "excess_return_annual": -0.285181,
-      "sharpe_contribution": -0.000805,
-      "return_share": -0.001718,
-      "risk_share": 0.000522,
-      "marginal_sharpe_per_pp": -0.013763
+      "sharpe_contribution": -0.000828,
+      "return_share": -0.001767,
+      "risk_share": 0.000539,
+      "marginal_sharpe_per_pp": -0.014024
      },
      {
       "ticker": "BAER",
-      "weight": 0.000218,
+      "weight": 0.00022,
       "excess_return_annual": -1.034835,
-      "sharpe_contribution": -0.000835,
-      "return_share": -0.001781,
-      "risk_share": 0.00018,
-      "marginal_sharpe_per_pp": -0.042166
+      "sharpe_contribution": -0.000858,
+      "return_share": -0.001832,
+      "risk_share": 0.000184,
+      "marginal_sharpe_per_pp": -0.042922
      },
      {
       "ticker": "MSTR",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": -0.420009,
-      "sharpe_contribution": -0.000847,
-      "return_share": -0.001808,
-      "risk_share": 0.000829,
-      "marginal_sharpe_per_pp": -0.022675
+      "sharpe_contribution": -0.000871,
+      "return_share": -0.001859,
+      "risk_share": 0.000853,
+      "marginal_sharpe_per_pp": -0.023089
      },
      {
       "ticker": "ISRG",
-      "weight": 0.001416,
+      "weight": 0.001431,
       "excess_return_annual": -0.180079,
-      "sharpe_contribution": -0.000944,
-      "return_share": -0.002015,
-      "risk_share": 0.000286,
-      "marginal_sharpe_per_pp": -0.007612
+      "sharpe_contribution": -0.000971,
+      "return_share": -0.002072,
+      "risk_share": 0.0003,
+      "marginal_sharpe_per_pp": -0.007769
      },
      {
       "ticker": "IREN",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": -0.308286,
-      "sharpe_contribution": -0.001119,
-      "return_share": -0.002388,
-      "risk_share": 0.002312,
-      "marginal_sharpe_per_pp": -0.022457
+      "sharpe_contribution": -0.001151,
+      "return_share": -0.002456,
+      "risk_share": 0.002374,
+      "marginal_sharpe_per_pp": -0.022851
      },
      {
       "ticker": "ACHR",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": -0.776353,
-      "sharpe_contribution": -0.001252,
-      "return_share": -0.002673,
-      "risk_share": 0.000689,
-      "marginal_sharpe_per_pp": -0.03614
+      "sharpe_contribution": -0.001288,
+      "return_share": -0.002749,
+      "risk_share": 0.000707,
+      "marginal_sharpe_per_pp": -0.036782
      },
      {
       "ticker": "OKLO",
-      "weight": 0.000327,
+      "weight": 0.00033,
       "excess_return_annual": -1.217329,
-      "sharpe_contribution": -0.001473,
-      "return_share": -0.003143,
-      "risk_share": 0.00078,
-      "marginal_sharpe_per_pp": -0.056243
+      "sharpe_contribution": -0.001515,
+      "return_share": -0.003232,
+      "risk_share": 0.000799,
+      "marginal_sharpe_per_pp": -0.05722
      },
      {
       "ticker": "IBM",
-      "weight": 0.004903,
+      "weight": 0.004953,
       "excess_return_annual": -0.09268,
-      "sharpe_contribution": -0.001682,
-      "return_share": -0.00359,
-      "risk_share": 0.001326,
-      "marginal_sharpe_per_pp": -0.004697
+      "sharpe_contribution": -0.00173,
+      "return_share": -0.003691,
+      "risk_share": 0.001404,
+      "marginal_sharpe_per_pp": -0.004821
      },
      {
       "ticker": "QS",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": -1.179998,
-      "sharpe_contribution": -0.001904,
-      "return_share": -0.004063,
-      "risk_share": 0.00071,
-      "marginal_sharpe_per_pp": -0.051311
+      "sharpe_contribution": -0.001958,
+      "return_share": -0.004178,
+      "risk_share": 0.000729,
+      "marginal_sharpe_per_pp": -0.052232
      },
      {
       "ticker": "KRKNF",
-      "weight": 0.001525,
+      "weight": 0.001541,
       "excess_return_annual": -0.339012,
-      "sharpe_contribution": -0.001914,
-      "return_share": -0.004085,
-      "risk_share": 0.001795,
-      "marginal_sharpe_per_pp": -0.018063
+      "sharpe_contribution": -0.001969,
+      "return_share": -0.004201,
+      "risk_share": 0.001854,
+      "marginal_sharpe_per_pp": -0.018414
      },
      {
       "ticker": "NKLR",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": -0.976104,
-      "sharpe_contribution": -0.001968,
-      "return_share": -0.004201,
-      "risk_share": 0.001044,
-      "marginal_sharpe_per_pp": -0.045107
+      "sharpe_contribution": -0.002024,
+      "return_share": -0.00432,
+      "risk_share": 0.001073,
+      "marginal_sharpe_per_pp": -0.045921
      },
      {
       "ticker": "BULL",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": -0.56499,
-      "sharpe_contribution": -0.002051,
-      "return_share": -0.004377,
-      "risk_share": 0.001079,
-      "marginal_sharpe_per_pp": -0.026067
+      "sharpe_contribution": -0.002109,
+      "return_share": -0.004501,
+      "risk_share": 0.001115,
+      "marginal_sharpe_per_pp": -0.026567
      },
      {
       "ticker": "NNE",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": -0.914705,
-      "sharpe_contribution": -0.00332,
-      "return_share": -0.007086,
-      "risk_share": 0.002359,
-      "marginal_sharpe_per_pp": -0.045127
+      "sharpe_contribution": -0.003415,
+      "return_share": -0.007286,
+      "risk_share": 0.002417,
+      "marginal_sharpe_per_pp": -0.045908
      },
      {
       "ticker": "SERV",
-      "weight": 0.000763,
+      "weight": 0.00077,
       "excess_return_annual": -1.265522,
-      "sharpe_contribution": -0.003573,
-      "return_share": -0.007625,
-      "risk_share": 0.001474,
-      "marginal_sharpe_per_pp": -0.055898
+      "sharpe_contribution": -0.003674,
+      "return_share": -0.007841,
+      "risk_share": 0.001514,
+      "marginal_sharpe_per_pp": -0.056901
      },
      {
       "ticker": "QBTS",
-      "weight": 0.00207,
+      "weight": 0.002091,
       "excess_return_annual": -0.510705,
-      "sharpe_contribution": -0.003913,
-      "return_share": -0.008352,
-      "risk_share": 0.005257,
-      "marginal_sharpe_per_pp": -0.030801
+      "sharpe_contribution": -0.004025,
+      "return_share": -0.008589,
+      "risk_share": 0.005389,
+      "marginal_sharpe_per_pp": -0.031324
      },
      {
       "ticker": "META",
-      "weight": 0.010678,
+      "weight": 0.010786,
       "excess_return_annual": -0.115374,
-      "sharpe_contribution": -0.00456,
-      "return_share": -0.009732,
-      "risk_share": 0.006556,
-      "marginal_sharpe_per_pp": -0.007147
+      "sharpe_contribution": -0.00469,
+      "return_share": -0.010008,
+      "risk_share": 0.006829,
+      "marginal_sharpe_per_pp": -0.007315
      },
      {
       "ticker": "SMR",
-      "weight": 0.001416,
+      "weight": 0.001431,
       "excess_return_annual": -1.464028,
-      "sharpe_contribution": -0.007676,
-      "return_share": -0.016382,
-      "risk_share": 0.003363,
-      "marginal_sharpe_per_pp": -0.065315
+      "sharpe_contribution": -0.007894,
+      "return_share": -0.016846,
+      "risk_share": 0.003453,
+      "marginal_sharpe_per_pp": -0.066483
      },
      {
       "ticker": "ASTS",
-      "weight": 0.11582,
+      "weight": 0.116993,
       "excess_return_annual": -0.019824,
-      "sharpe_contribution": -0.008499,
-      "return_share": -0.018139,
-      "risk_share": 0.376427,
-      "marginal_sharpe_per_pp": -0.015961
+      "sharpe_contribution": -0.008741,
+      "return_share": -0.018652,
+      "risk_share": 0.384188,
+      "marginal_sharpe_per_pp": -0.016136
      }
     ]
    }
@@ -2284,24 +2284,24 @@
     "observations": 206
    },
    "risk_metrics": {
-    "annualised_volatility": 0.27075781158992496,
-    "annualised_return": 0.1924791488303046,
-    "beta": 1.7775338478552356,
-    "sharpe": 0.5211150003261839,
-    "sortino": 0.8717495050296088,
-    "tracking_error": 0.17628140500071499,
-    "information_ratio": 0.05780323950906043,
-    "max_drawdown": -0.1700386027968529,
+    "annualised_volatility": 0.26614714043196463,
+    "annualised_return": 0.19191371460619977,
+    "beta": 1.7568878858073953,
+    "sharpe": 0.5283594121953233,
+    "sortino": 0.8749819871603586,
+    "tracking_error": 0.17112420285110058,
+    "information_ratio": 0.056771781626948625,
+    "max_drawdown": -0.16836467018068513,
     "max_drawdown_days": 102,
-    "var_95_1d": -0.028255424460738157,
-    "var_99_1d": -0.03570491697198936,
-    "var_95_cornish_fisher": -0.02696294149790701,
-    "cvar_95_1d": -0.034600415849078,
-    "downside_deviation": 0.16185378513086543,
-    "skew": 0.05744457858384621,
-    "excess_kurtosis": 0.3374276431110672,
-    "up_capture": 1.7594818167409507,
-    "down_capture": 1.9238793250036423
+    "var_95_1d": -0.02771073867770714,
+    "var_99_1d": -0.03501485146604801,
+    "var_95_cornish_fisher": -0.026549932383816848,
+    "cvar_95_1d": -0.034109345335873245,
+    "downside_deviation": 0.1607134189498775,
+    "skew": 0.04464000421304969,
+    "excess_kurtosis": 0.3531188463106536,
+    "up_capture": 1.7427152862396798,
+    "down_capture": 1.9038379051590335
    },
    "benchmarks": {
     "SPY": {
@@ -2325,205 +2325,205 @@
      "down_capture": 1.0
     },
     "QQQ": {
-     "annualised_volatility": 0.20560551151741746,
-     "annualised_return": 0.24794824177726138,
-     "beta": 1.4728426268009596,
-     "sharpe": 0.9075543244778682,
-     "sortino": 1.4174106694188253,
-     "tracking_error": 0.1006537705309425,
-     "information_ratio": 0.5533011830515108,
-     "max_drawdown": -0.11723577907285909,
+     "annualised_volatility": 0.2056054986423234,
+     "annualised_return": 0.24794823835800672,
+     "beta": 1.4728426116066689,
+     "sharpe": 0.9075543679715212,
+     "sortino": 1.4174107163164298,
+     "tracking_error": 0.10065374673101864,
+     "information_ratio": 0.5533012866364568,
+     "max_drawdown": -0.11723569369470088,
      "max_drawdown_days": 76,
      "var_95_1d": -0.019403843171645507,
      "var_99_1d": -0.028406011728103604,
-     "var_95_cornish_fisher": -0.02053380842277436,
-     "cvar_95_1d": -0.025410435963973795,
-     "downside_deviation": 0.1316472178035928,
-     "skew": -0.08346414556680362,
-     "excess_kurtosis": 0.7603570845709382,
-     "up_capture": 1.4745980142594228,
-     "down_capture": 1.507313308274173
+     "var_95_cornish_fisher": -0.020533804728669912,
+     "cvar_95_1d": -0.02541041811185061,
+     "downside_deviation": 0.13164721151307154,
+     "skew": -0.0834635470558766,
+     "excess_kurtosis": 0.7603577907774923,
+     "up_capture": 1.4745980242239356,
+     "down_capture": 1.5073133244781076
     },
     "RSP": {
-     "annualised_volatility": 0.11522994937025251,
-     "annualised_return": 0.19316469656308355,
-     "beta": 0.6775456649316076,
-     "sharpe": 1.2294641087702596,
-     "sortino": 2.1076391167896453,
-     "tracking_error": 0.08647500299994341,
-     "information_ratio": 0.12448413798142442,
-     "max_drawdown": -0.07852283143962802,
+     "annualised_volatility": 0.11522994865102314,
+     "annualised_return": 0.19316469646047274,
+     "beta": 0.6775460633931226,
+     "sharpe": 1.2294641156972106,
+     "sortino": 2.1076387210013094,
+     "tracking_error": 0.08647492572961198,
+     "information_ratio": 0.12448424821980869,
+     "max_drawdown": -0.07852283143962813,
      "max_drawdown_days": 51,
      "var_95_1d": -0.011883933184661827,
-     "var_99_1d": -0.014909481717565249,
-     "var_95_cornish_fisher": -0.011097626965982295,
-     "cvar_95_1d": -0.013744645832924491,
-     "downside_deviation": 0.06721790551217942,
-     "skew": 0.06632800149028668,
-     "excess_kurtosis": 0.030983841008213886,
-     "up_capture": 0.7320879152739913,
-     "down_capture": 0.6537126346343265
+     "var_99_1d": -0.014909404086354749,
+     "var_95_cornish_fisher": -0.011097626702742754,
+     "cvar_95_1d": -0.013744638525446102,
+     "downside_deviation": 0.06721791809402666,
+     "skew": 0.06632811613306061,
+     "excess_kurtosis": 0.030983507645046895,
+     "up_capture": 0.7320882130411868,
+     "down_capture": 0.6537130026493649
     }
    },
    "risk_decomposition": {
-    "portfolio_volatility": 0.270757811589925,
-    "diversification_ratio": 1.4408570278876454,
-    "hhi": 0.1361058574653468,
-    "effective_n": 7.347222365169733,
+    "portfolio_volatility": 0.26614714043196463,
+    "diversification_ratio": 1.444126910744661,
+    "hhi": 0.13874904070474087,
+    "effective_n": 7.207257037027078,
     "contributions": [
      {
       "ticker": "ASTS",
-      "weight_pct": 11.58,
-      "risk_share_pct": 36.9,
+      "weight_pct": 11.7,
+      "risk_share_pct": 37.63,
       "flag": true
      },
      {
       "ticker": "VUG",
-      "weight_pct": 30.36,
-      "risk_share_pct": 17.92,
+      "weight_pct": 30.66,
+      "risk_share_pct": 18.53,
       "flag": false
      },
      {
       "ticker": "NVDA",
-      "weight_pct": 10.36,
-      "risk_share_pct": 9.79,
+      "weight_pct": 10.47,
+      "risk_share_pct": 10.14,
       "flag": false
      },
      {
       "ticker": "VOOG",
-      "weight_pct": 9.37,
-      "risk_share_pct": 5.69,
-      "flag": false
-     },
-     {
-      "ticker": "RKLB",
-      "weight_pct": 1.12,
-      "risk_share_pct": 2.9,
+      "weight_pct": 9.47,
+      "risk_share_pct": 5.88,
       "flag": false
      },
      {
       "ticker": "MSFT",
-      "weight_pct": 5.6,
-      "risk_share_pct": 2.89,
+      "weight_pct": 5.66,
+      "risk_share_pct": 3.01,
       "flag": false
      },
      {
       "ticker": "QQQ",
-      "weight_pct": 4.47,
-      "risk_share_pct": 2.89,
+      "weight_pct": 4.51,
+      "risk_share_pct": 2.98,
       "flag": false
      },
      {
       "ticker": "AMD",
-      "weight_pct": 1.27,
-      "risk_share_pct": 2.17,
+      "weight_pct": 1.29,
+      "risk_share_pct": 2.23,
       "flag": false
      },
      {
       "ticker": "AMZN",
-      "weight_pct": 2.94,
-      "risk_share_pct": 1.8,
+      "weight_pct": 2.97,
+      "risk_share_pct": 1.86,
       "flag": false
      },
      {
       "ticker": "GS",
-      "weight_pct": 2.33,
-      "risk_share_pct": 1.71,
+      "weight_pct": 2.36,
+      "risk_share_pct": 1.77,
       "flag": false
      },
      {
       "ticker": "DELL",
-      "weight_pct": 1.1,
-      "risk_share_pct": 1.37,
+      "weight_pct": 1.11,
+      "risk_share_pct": 1.4,
       "flag": false
      },
      {
       "ticker": "PLTR",
-      "weight_pct": 1.32,
-      "risk_share_pct": 1.27,
+      "weight_pct": 1.33,
+      "risk_share_pct": 1.31,
       "flag": false
      },
      {
       "ticker": "GOOGL",
-      "weight_pct": 2.44,
-      "risk_share_pct": 1.22,
+      "weight_pct": 2.47,
+      "risk_share_pct": 1.27,
       "flag": false
      },
      {
       "ticker": "QQQM",
-      "weight_pct": 1.82,
-      "risk_share_pct": 1.17,
+      "weight_pct": 1.84,
+      "risk_share_pct": 1.2,
       "flag": false
      },
      {
       "ticker": "IUSG",
-      "weight_pct": 1.63,
-      "risk_share_pct": 0.98,
+      "weight_pct": 1.65,
+      "risk_share_pct": 1.01,
       "flag": false
      },
      {
       "ticker": "TQQQ",
-      "weight_pct": 0.51,
-      "risk_share_pct": 0.98,
+      "weight_pct": 0.52,
+      "risk_share_pct": 1.01,
       "flag": false
      },
      {
       "ticker": "AAPL",
-      "weight_pct": 4.87,
-      "risk_share_pct": 0.97,
+      "weight_pct": 4.92,
+      "risk_share_pct": 1.0,
       "flag": false
      },
      {
       "ticker": "VELO",
-      "weight_pct": 0.28,
-      "risk_share_pct": 0.82,
+      "weight_pct": 0.29,
+      "risk_share_pct": 0.84,
       "flag": false
      },
      {
       "ticker": "NBIS",
-      "weight_pct": 0.29,
-      "risk_share_pct": 0.7,
+      "weight_pct": 0.3,
+      "risk_share_pct": 0.73,
       "flag": false
      },
      {
       "ticker": "TSLA",
       "weight_pct": 0.68,
-      "risk_share_pct": 0.68,
+      "risk_share_pct": 0.7,
       "flag": false
      },
      {
       "ticker": "META",
-      "weight_pct": 1.07,
-      "risk_share_pct": 0.65,
+      "weight_pct": 1.08,
+      "risk_share_pct": 0.68,
       "flag": false
      },
      {
       "ticker": "QBTS",
       "weight_pct": 0.21,
-      "risk_share_pct": 0.5,
+      "risk_share_pct": 0.51,
       "flag": false
      },
      {
       "ticker": "ONDS",
-      "weight_pct": 0.17,
-      "risk_share_pct": 0.38,
+      "weight_pct": 0.18,
+      "risk_share_pct": 0.39,
       "flag": false
      },
      {
       "ticker": "SCHA",
       "weight_pct": 0.7,
-      "risk_share_pct": 0.34,
+      "risk_share_pct": 0.35,
       "flag": false
      },
      {
       "ticker": "SMR",
       "weight_pct": 0.14,
-      "risk_share_pct": 0.33,
+      "risk_share_pct": 0.34,
       "flag": false
      },
      {
       "ticker": "IREN",
       "weight_pct": 0.1,
+      "risk_share_pct": 0.25,
+      "flag": false
+     },
+     {
+      "ticker": "AVGO",
+      "weight_pct": 0.23,
       "risk_share_pct": 0.24,
       "flag": false
      },
@@ -2540,9 +2540,9 @@
       "flag": false
      },
      {
-      "ticker": "AVGO",
-      "weight_pct": 0.23,
-      "risk_share_pct": 0.23,
+      "ticker": "LTRX",
+      "weight_pct": 0.11,
+      "risk_share_pct": 0.2,
       "flag": false
      },
      {
@@ -2552,26 +2552,26 @@
       "flag": false
      },
      {
-      "ticker": "LTRX",
-      "weight_pct": 0.11,
+      "ticker": "KRKNF",
+      "weight_pct": 0.15,
       "risk_share_pct": 0.19,
       "flag": false
      },
      {
-      "ticker": "KRKNF",
-      "weight_pct": 0.15,
+      "ticker": "HOOD",
+      "weight_pct": 0.12,
       "risk_share_pct": 0.18,
       "flag": false
      },
      {
       "ticker": "IBM",
-      "weight_pct": 0.49,
+      "weight_pct": 0.5,
       "risk_share_pct": 0.14,
       "flag": false
      },
      {
       "ticker": "IWM",
-      "weight_pct": 0.29,
+      "weight_pct": 0.3,
       "risk_share_pct": 0.14,
       "flag": false
      },
@@ -2582,14 +2582,14 @@
       "flag": false
      },
      {
-      "ticker": "BULL",
-      "weight_pct": 0.1,
-      "risk_share_pct": 0.11,
+      "ticker": "FLY",
+      "weight_pct": 0.04,
+      "risk_share_pct": 0.12,
       "flag": false
      },
      {
-      "ticker": "FLY",
-      "weight_pct": 0.04,
+      "ticker": "BULL",
+      "weight_pct": 0.1,
       "risk_share_pct": 0.11,
       "flag": false
      },
@@ -2601,13 +2601,19 @@
      },
      {
       "ticker": "NKLR",
-      "weight_pct": 0.05,
+      "weight_pct": 0.06,
       "risk_share_pct": 0.1,
       "flag": false
      },
      {
+      "ticker": "HIMS",
+      "weight_pct": 0.06,
+      "risk_share_pct": 0.09,
+      "flag": false
+     },
+     {
       "ticker": "MSTR",
-      "weight_pct": 0.05,
+      "weight_pct": 0.06,
       "risk_share_pct": 0.09,
       "flag": false
      },
@@ -2615,12 +2621,6 @@
       "ticker": "LUNR",
       "weight_pct": 0.03,
       "risk_share_pct": 0.09,
-      "flag": false
-     },
-     {
-      "ticker": "HIMS",
-      "weight_pct": 0.05,
-      "risk_share_pct": 0.08,
       "flag": false
      },
      {
@@ -2701,290 +2701,281 @@
     "available": true,
     "method": "additive: weight x annualised excess return / portfolio volatility",
     "observations": 206,
-    "sharpe": 0.521115,
-    "excess_return_annual": 0.141096,
-    "volatility_annual": 0.270758,
+    "sharpe": 0.528359,
+    "excess_return_annual": 0.140621,
+    "volatility_annual": 0.266147,
     "identity_residual": 1.1102230246251565e-16,
     "return_shares_meaningful": true,
     "positions": [
      {
       "ticker": "VUG",
-      "weight": 0.303552,
+      "weight": 0.306626,
       "excess_return_annual": 0.08866,
-      "sharpe_contribution": 0.099399,
-      "return_share": 0.190742,
-      "risk_share": 0.179215,
-      "marginal_sharpe_per_pp": 0.000198
+      "sharpe_contribution": 0.102144,
+      "return_share": 0.193324,
+      "risk_share": 0.185312,
+      "marginal_sharpe_per_pp": 0.000138
      },
      {
       "ticker": "NVDA",
-      "weight": 0.103617,
+      "weight": 0.104667,
       "excess_return_annual": 0.22839,
-      "sharpe_contribution": 0.087404,
-      "return_share": 0.167724,
-      "risk_share": 0.097938,
-      "marginal_sharpe_per_pp": 0.00351
+      "sharpe_contribution": 0.089818,
+      "return_share": 0.169994,
+      "risk_share": 0.101353,
+      "marginal_sharpe_per_pp": 0.003465
      },
      {
       "ticker": "DELL",
-      "weight": 0.011005,
+      "weight": 0.011116,
       "excess_return_annual": 1.988291,
-      "sharpe_contribution": 0.080811,
-      "return_share": 0.155074,
-      "risk_share": 0.01365,
-      "marginal_sharpe_per_pp": 0.06697
+      "sharpe_contribution": 0.083044,
+      "return_share": 0.157173,
+      "risk_share": 0.014015,
+      "marginal_sharpe_per_pp": 0.068045
      },
      {
       "ticker": "AMD",
-      "weight": 0.012748,
+      "weight": 0.012877,
       "excess_return_annual": 1.392309,
-      "sharpe_contribution": 0.065553,
-      "return_share": 0.125794,
-      "risk_share": 0.021732,
-      "marginal_sharpe_per_pp": 0.042539
+      "sharpe_contribution": 0.067364,
+      "return_share": 0.127496,
+      "risk_share": 0.022325,
+      "marginal_sharpe_per_pp": 0.043153
      },
      {
       "ticker": "AAPL",
-      "weight": 0.048703,
+      "weight": 0.049197,
       "excess_return_annual": 0.300639,
-      "sharpe_contribution": 0.054078,
-      "return_share": 0.103774,
-      "risk_share": 0.009675,
-      "marginal_sharpe_per_pp": 0.010068
+      "sharpe_contribution": 0.055572,
+      "return_share": 0.105179,
+      "risk_share": 0.010036,
+      "marginal_sharpe_per_pp": 0.010218
      },
      {
       "ticker": "VOOG",
-      "weight": 0.093702,
+      "weight": 0.094651,
       "excess_return_annual": 0.136028,
-      "sharpe_contribution": 0.047076,
-      "return_share": 0.090337,
-      "risk_share": 0.056946,
-      "marginal_sharpe_per_pp": 0.001857
+      "sharpe_contribution": 0.048376,
+      "return_share": 0.091559,
+      "risk_share": 0.058848,
+      "marginal_sharpe_per_pp": 0.001826
      },
      {
       "ticker": "QQQ",
-      "weight": 0.044672,
+      "weight": 0.045124,
       "excess_return_annual": 0.186598,
-      "sharpe_contribution": 0.030787,
-      "return_share": 0.059078,
-      "risk_share": 0.028897,
-      "marginal_sharpe_per_pp": 0.003521
+      "sharpe_contribution": 0.031637,
+      "return_share": 0.059878,
+      "risk_share": 0.029813,
+      "marginal_sharpe_per_pp": 0.00352
      },
      {
       "ticker": "MSFT",
-      "weight": 0.056003,
+      "weight": 0.056571,
       "excess_return_annual": 0.148284,
-      "sharpe_contribution": 0.030671,
-      "return_share": 0.058856,
-      "risk_share": 0.028873,
-      "marginal_sharpe_per_pp": 0.00279
+      "sharpe_contribution": 0.031518,
+      "return_share": 0.059653,
+      "risk_share": 0.03005,
+      "marginal_sharpe_per_pp": 0.002765
      },
      {
       "ticker": "NBIS",
-      "weight": 0.002942,
+      "weight": 0.002972,
       "excess_return_annual": 1.457377,
-      "sharpe_contribution": 0.015835,
-      "return_share": 0.030386,
-      "risk_share": 0.007045,
-      "marginal_sharpe_per_pp": 0.041347
+      "sharpe_contribution": 0.016272,
+      "return_share": 0.030797,
+      "risk_share": 0.007253,
+      "marginal_sharpe_per_pp": 0.041862
      },
      {
       "ticker": "AMZN",
-      "weight": 0.029418,
+      "weight": 0.029716,
       "excess_return_annual": 0.136843,
-      "sharpe_contribution": 0.014868,
-      "return_share": 0.028531,
-      "risk_share": 0.018018,
-      "marginal_sharpe_per_pp": 0.001862
+      "sharpe_contribution": 0.015279,
+      "return_share": 0.028918,
+      "risk_share": 0.018643,
+      "marginal_sharpe_per_pp": 0.001827
      },
      {
       "ticker": "PLTR",
-      "weight": 0.013184,
+      "weight": 0.013317,
       "excess_return_annual": 0.28657,
-      "sharpe_contribution": 0.013954,
-      "return_share": 0.026777,
-      "risk_share": 0.012696,
-      "marginal_sharpe_per_pp": 0.005566
+      "sharpe_contribution": 0.014339,
+      "return_share": 0.027139,
+      "risk_share": 0.013077,
+      "marginal_sharpe_per_pp": 0.005579
      },
      {
       "ticker": "QQQM",
-      "weight": 0.018196,
+      "weight": 0.01838,
       "excess_return_annual": 0.186525,
-      "sharpe_contribution": 0.012535,
-      "return_share": 0.024054,
-      "risk_share": 0.011668,
-      "marginal_sharpe_per_pp": 0.003547
+      "sharpe_contribution": 0.012881,
+      "return_share": 0.02438,
+      "risk_share": 0.012038,
+      "marginal_sharpe_per_pp": 0.003548
      },
      {
       "ticker": "TQQQ",
-      "weight": 0.005121,
+      "weight": 0.005173,
       "excess_return_annual": 0.523047,
-      "sharpe_contribution": 0.009893,
-      "return_share": 0.018983,
-      "risk_share": 0.009835,
-      "marginal_sharpe_per_pp": 0.00931
+      "sharpe_contribution": 0.010166,
+      "return_share": 0.01924,
+      "risk_share": 0.010146,
+      "marginal_sharpe_per_pp": 0.009289
      },
      {
       "ticker": "IUSG",
-      "weight": 0.016343,
+      "weight": 0.016509,
       "excess_return_annual": 0.136371,
-      "sharpe_contribution": 0.008232,
-      "return_share": 0.015796,
-      "risk_share": 0.009762,
-      "marginal_sharpe_per_pp": 0.001924
+      "sharpe_contribution": 0.008459,
+      "return_share": 0.01601,
+      "risk_share": 0.010087,
+      "marginal_sharpe_per_pp": 0.001896
      },
      {
       "ticker": "GS",
-      "weight": 0.023317,
+      "weight": 0.023553,
       "excess_return_annual": 0.082761,
-      "sharpe_contribution": 0.007127,
-      "return_share": 0.013677,
-      "risk_share": 0.017095,
-      "marginal_sharpe_per_pp": -0.000764
-     },
-     {
-      "ticker": "RKLB",
-      "weight": 0.011222,
-      "excess_return_annual": 0.167523,
-      "sharpe_contribution": 0.006944,
-      "return_share": 0.013324,
-      "risk_share": 0.028995,
-      "marginal_sharpe_per_pp": -0.007277
+      "sharpe_contribution": 0.007324,
+      "return_share": 0.013862,
+      "risk_share": 0.017658,
+      "marginal_sharpe_per_pp": -0.000852
      },
      {
       "ticker": "SCHA",
-      "weight": 0.006973,
+      "weight": 0.007044,
       "excess_return_annual": 0.173103,
-      "sharpe_contribution": 0.004458,
-      "return_share": 0.008555,
-      "risk_share": 0.003444,
-      "marginal_sharpe_per_pp": 0.00382
+      "sharpe_contribution": 0.004581,
+      "return_share": 0.008671,
+      "risk_share": 0.003546,
+      "marginal_sharpe_per_pp": 0.003844
      },
      {
       "ticker": "GOOGL",
-      "weight": 0.024406,
+      "weight": 0.024653,
       "excess_return_annual": 0.045682,
-      "sharpe_contribution": 0.004118,
-      "return_share": 0.007902,
-      "risk_share": 0.012217,
-      "marginal_sharpe_per_pp": -0.000921
+      "sharpe_contribution": 0.004232,
+      "return_share": 0.008009,
+      "risk_share": 0.012654,
+      "marginal_sharpe_per_pp": -0.000996
      },
      {
       "ticker": "VELO",
-      "weight": 0.002833,
+      "weight": 0.002862,
       "excess_return_annual": 0.343217,
-      "sharpe_contribution": 0.003591,
-      "return_share": 0.006891,
-      "risk_share": 0.008238,
-      "marginal_sharpe_per_pp": -0.002479
+      "sharpe_contribution": 0.00369,
+      "return_share": 0.006984,
+      "risk_share": 0.008382,
+      "marginal_sharpe_per_pp": -0.002581
      },
      {
       "ticker": "DE",
-      "weight": 0.001525,
+      "weight": 0.001541,
       "excess_return_annual": 0.422655,
-      "sharpe_contribution": 0.002381,
-      "return_share": 0.004569,
-      "risk_share": 0.000198,
-      "marginal_sharpe_per_pp": 0.014932
+      "sharpe_contribution": 0.002447,
+      "return_share": 0.004631,
+      "risk_share": 0.000199,
+      "marginal_sharpe_per_pp": 0.015197
      },
      {
       "ticker": "RDW",
-      "weight": 0.000654,
+      "weight": 0.00066,
       "excess_return_annual": 0.811944,
-      "sharpe_contribution": 0.00196,
-      "return_share": 0.003762,
-      "risk_share": 0.001991,
-      "marginal_sharpe_per_pp": 0.014118
+      "sharpe_contribution": 0.002015,
+      "return_share": 0.003813,
+      "risk_share": 0.002021,
+      "marginal_sharpe_per_pp": 0.014339
      },
      {
       "ticker": "IWM",
-      "weight": 0.002942,
+      "weight": 0.002972,
       "excess_return_annual": 0.147751,
-      "sharpe_contribution": 0.001605,
-      "return_share": 0.003081,
-      "risk_share": 0.001405,
-      "marginal_sharpe_per_pp": 0.002968
+      "sharpe_contribution": 0.00165,
+      "return_share": 0.003122,
+      "risk_share": 0.001446,
+      "marginal_sharpe_per_pp": 0.00298
      },
      {
       "ticker": "LTRX",
-      "weight": 0.00109,
+      "weight": 0.001101,
       "excess_return_annual": 0.304958,
-      "sharpe_contribution": 0.001227,
-      "return_share": 0.002355,
-      "risk_share": 0.001919,
-      "marginal_sharpe_per_pp": 0.002084
+      "sharpe_contribution": 0.001261,
+      "return_share": 0.002387,
+      "risk_share": 0.001965,
+      "marginal_sharpe_per_pp": 0.002024
      },
      {
       "ticker": "JPM",
-      "weight": 0.004467,
+      "weight": 0.004512,
       "excess_return_annual": 0.062741,
-      "sharpe_contribution": 0.001035,
-      "return_share": 0.001986,
-      "risk_share": 0.001004,
-      "marginal_sharpe_per_pp": 0.001146
+      "sharpe_contribution": 0.001064,
+      "return_share": 0.002013,
+      "risk_share": 0.001036,
+      "marginal_sharpe_per_pp": 0.001145
      },
      {
       "ticker": "FLY",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": 0.357909,
-      "sharpe_contribution": 0.000576,
-      "return_share": 0.001106,
-      "risk_share": 0.001143,
-      "marginal_sharpe_per_pp": -0.000454
+      "sharpe_contribution": 0.000592,
+      "return_share": 0.00112,
+      "risk_share": 0.001155,
+      "marginal_sharpe_per_pp": -0.000419
      },
      {
       "ticker": "AVGO",
-      "weight": 0.002288,
+      "weight": 0.002311,
       "excess_return_annual": 0.057732,
-      "sharpe_contribution": 0.000488,
-      "return_share": 0.000936,
-      "risk_share": 0.002291,
-      "marginal_sharpe_per_pp": -0.003085
-     },
-     {
-      "ticker": "IREN",
-      "weight": 0.000981,
-      "excess_return_annual": 0.128263,
-      "sharpe_contribution": 0.000465,
-      "return_share": 0.000891,
-      "risk_share": 0.002396,
-      "marginal_sharpe_per_pp": -0.007996
+      "sharpe_contribution": 0.000501,
+      "return_share": 0.000949,
+      "risk_share": 0.002364,
+      "marginal_sharpe_per_pp": -0.003236
      },
      {
       "ticker": "MSTR",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": 0.231234,
-      "sharpe_contribution": 0.000465,
-      "return_share": 0.000893,
-      "risk_share": 0.000859,
-      "marginal_sharpe_per_pp": 0.00032
+      "sharpe_contribution": 0.000478,
+      "return_share": 0.000905,
+      "risk_share": 0.000884,
+      "marginal_sharpe_per_pp": 0.000204
+     },
+     {
+      "ticker": "IREN",
+      "weight": 0.000991,
+      "excess_return_annual": 0.128263,
+      "sharpe_contribution": 0.000477,
+      "return_share": 0.000903,
+      "risk_share": 0.00246,
+      "marginal_sharpe_per_pp": -0.008303
      },
      {
       "ticker": "HIMS",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": 0.20696,
-      "sharpe_contribution": 0.000416,
-      "return_share": 0.000799,
-      "risk_share": 0.000842,
-      "marginal_sharpe_per_pp": -0.000407
+      "sharpe_contribution": 0.000428,
+      "return_share": 0.00081,
+      "risk_share": 0.000866,
+      "marginal_sharpe_per_pp": -0.000534
      },
      {
       "ticker": "LUNR",
-      "weight": 0.000327,
+      "weight": 0.00033,
       "excess_return_annual": 0.138373,
-      "sharpe_contribution": 0.000167,
-      "return_share": 0.000321,
-      "risk_share": 0.000904,
-      "marginal_sharpe_per_pp": -0.009308
+      "sharpe_contribution": 0.000172,
+      "return_share": 0.000325,
+      "risk_share": 0.000915,
+      "marginal_sharpe_per_pp": -0.009447
      },
      {
       "ticker": "GME",
-      "weight": 0.000109,
+      "weight": 0.00011,
       "excess_return_annual": 0.230795,
-      "sharpe_contribution": 9.3e-05,
-      "return_share": 0.000178,
-      "risk_share": 2.2e-05,
-      "marginal_sharpe_per_pp": 0.007448
+      "sharpe_contribution": 9.5e-05,
+      "return_share": 0.000181,
+      "risk_share": 2.4e-05,
+      "marginal_sharpe_per_pp": 0.007539
      },
      {
       "ticker": "AMC",
@@ -2993,205 +2984,214 @@
       "sharpe_contribution": 0.0,
       "return_share": 0.0,
       "risk_share": 0.0,
-      "marginal_sharpe_per_pp": 0.038855
+      "marginal_sharpe_per_pp": 0.039409
+     },
+     {
+      "ticker": "HOOD",
+      "weight": 0.001211,
+      "excess_return_annual": -0.003476,
+      "sharpe_contribution": -1.6e-05,
+      "return_share": -3e-05,
+      "risk_share": 0.001827,
+      "marginal_sharpe_per_pp": -0.008104
      },
      {
       "ticker": "DIS",
-      "weight": 0.000654,
+      "weight": 0.00066,
       "excess_return_annual": -0.028092,
-      "sharpe_contribution": -6.8e-05,
-      "return_share": -0.00013,
-      "risk_share": 0.000113,
-      "marginal_sharpe_per_pp": -0.001939
+      "sharpe_contribution": -7e-05,
+      "return_share": -0.000132,
+      "risk_share": 0.000117,
+      "marginal_sharpe_per_pp": -0.001992
      },
      {
       "ticker": "ORLY",
-      "weight": 0.002615,
+      "weight": 0.002641,
       "excess_return_annual": -0.017107,
-      "sharpe_contribution": -0.000165,
-      "return_share": -0.000317,
-      "risk_share": -0.000145,
-      "marginal_sharpe_per_pp": -0.000342
+      "sharpe_contribution": -0.00017,
+      "return_share": -0.000321,
+      "risk_share": -0.00015,
+      "marginal_sharpe_per_pp": -0.000343
      },
      {
       "ticker": "SRFM",
-      "weight": 0.000109,
+      "weight": 0.00011,
       "excess_return_annual": -0.589956,
-      "sharpe_contribution": -0.000237,
-      "return_share": -0.000456,
-      "risk_share": 0.000209,
-      "marginal_sharpe_per_pp": -0.031763
+      "sharpe_contribution": -0.000244,
+      "return_share": -0.000462,
+      "risk_share": 0.000214,
+      "marginal_sharpe_per_pp": -0.032459
      },
      {
       "ticker": "ONDS",
-      "weight": 0.001743,
+      "weight": 0.001761,
       "excess_return_annual": -0.059745,
-      "sharpe_contribution": -0.000385,
-      "return_share": -0.000738,
-      "risk_share": 0.003813,
-      "marginal_sharpe_per_pp": -0.013606
+      "sharpe_contribution": -0.000395,
+      "return_share": -0.000748,
+      "risk_share": 0.003906,
+      "marginal_sharpe_per_pp": -0.013966
      },
      {
       "ticker": "META",
-      "weight": 0.010678,
+      "weight": 0.010786,
       "excess_return_annual": -0.012335,
-      "sharpe_contribution": -0.000486,
-      "return_share": -0.000933,
-      "risk_share": 0.006523,
-      "marginal_sharpe_per_pp": -0.003639
+      "sharpe_contribution": -0.0005,
+      "return_share": -0.000946,
+      "risk_share": 0.006803,
+      "marginal_sharpe_per_pp": -0.003796
      },
      {
       "ticker": "ACHR",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": -0.497484,
-      "sharpe_contribution": -0.000801,
-      "return_share": -0.001537,
-      "risk_share": 0.000671,
-      "marginal_sharpe_per_pp": -0.026395
+      "sharpe_contribution": -0.000823,
+      "return_share": -0.001557,
+      "risk_share": 0.000688,
+      "marginal_sharpe_per_pp": -0.026954
      },
      {
       "ticker": "BULL",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": -0.233276,
-      "sharpe_contribution": -0.000845,
-      "return_share": -0.001621,
-      "risk_share": 0.001098,
-      "marginal_sharpe_per_pp": -0.01445
+      "sharpe_contribution": -0.000868,
+      "return_share": -0.001643,
+      "risk_share": 0.001135,
+      "marginal_sharpe_per_pp": -0.014819
      },
      {
       "ticker": "NCLH",
-      "weight": 0.000763,
+      "weight": 0.00077,
       "excess_return_annual": -0.313569,
-      "sharpe_contribution": -0.000883,
-      "return_share": -0.001695,
-      "risk_share": 0.000522,
-      "marginal_sharpe_per_pp": -0.015147
+      "sharpe_contribution": -0.000908,
+      "return_share": -0.001718,
+      "risk_share": 0.000542,
+      "marginal_sharpe_per_pp": -0.015496
      },
      {
       "ticker": "OKLO",
-      "weight": 0.000327,
+      "weight": 0.00033,
       "excess_return_annual": -0.812843,
-      "sharpe_contribution": -0.000981,
-      "return_share": -0.001883,
-      "risk_share": 0.000764,
-      "marginal_sharpe_per_pp": -0.042208
+      "sharpe_contribution": -0.001008,
+      "return_share": -0.001909,
+      "risk_share": 0.000782,
+      "marginal_sharpe_per_pp": -0.043059
      },
      {
       "ticker": "BAER",
-      "weight": 0.000218,
+      "weight": 0.00022,
       "excess_return_annual": -1.35995,
-      "sharpe_contribution": -0.001095,
-      "return_share": -0.0021,
-      "risk_share": 0.000202,
-      "marginal_sharpe_per_pp": -0.055051
+      "sharpe_contribution": -0.001125,
+      "return_share": -0.002129,
+      "risk_share": 0.000207,
+      "marginal_sharpe_per_pp": -0.056057
      },
      {
       "ticker": "NKLR",
-      "weight": 0.000545,
+      "weight": 0.00055,
       "excess_return_annual": -0.609705,
-      "sharpe_contribution": -0.001227,
-      "return_share": -0.002354,
-      "risk_share": 0.000964,
-      "marginal_sharpe_per_pp": -0.031741
+      "sharpe_contribution": -0.001261,
+      "return_share": -0.002386,
+      "risk_share": 0.000992,
+      "marginal_sharpe_per_pp": -0.032437
      },
      {
       "ticker": "IBM",
-      "weight": 0.004903,
+      "weight": 0.004953,
       "excess_return_annual": -0.071618,
-      "sharpe_contribution": -0.001297,
-      "return_share": -0.002489,
-      "risk_share": 0.001365,
-      "marginal_sharpe_per_pp": -0.004096
+      "sharpe_contribution": -0.001333,
+      "return_share": -0.002522,
+      "risk_share": 0.001448,
+      "marginal_sharpe_per_pp": -0.004235
      },
      {
       "ticker": "TSLA",
-      "weight": 0.006755,
+      "weight": 0.006824,
       "excess_return_annual": -0.052262,
-      "sharpe_contribution": -0.001304,
-      "return_share": -0.002502,
-      "risk_share": 0.006754,
-      "marginal_sharpe_per_pp": -0.00714
+      "sharpe_contribution": -0.00134,
+      "return_share": -0.002536,
+      "risk_share": 0.006964,
+      "marginal_sharpe_per_pp": -0.007356
      },
      {
       "ticker": "ISRG",
-      "weight": 0.001416,
+      "weight": 0.001431,
       "excess_return_annual": -0.261665,
-      "sharpe_contribution": -0.001369,
-      "return_share": -0.002627,
-      "risk_share": 0.000258,
-      "marginal_sharpe_per_pp": -0.010615
+      "sharpe_contribution": -0.001407,
+      "return_share": -0.002662,
+      "risk_share": 0.000271,
+      "marginal_sharpe_per_pp": -0.010834
      },
      {
       "ticker": "QS",
-      "weight": 0.000436,
+      "weight": 0.00044,
       "excess_return_annual": -0.918286,
-      "sharpe_contribution": -0.001478,
-      "return_share": -0.002836,
-      "risk_share": 0.000717,
-      "marginal_sharpe_per_pp": -0.042493
+      "sharpe_contribution": -0.001519,
+      "return_share": -0.002875,
+      "risk_share": 0.000737,
+      "marginal_sharpe_per_pp": -0.043347
      },
      {
       "ticker": "NNE",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": -0.441918,
-      "sharpe_contribution": -0.0016,
-      "return_share": -0.003071,
-      "risk_share": 0.002386,
-      "marginal_sharpe_per_pp": -0.029002
+      "sharpe_contribution": -0.001645,
+      "return_share": -0.003113,
+      "risk_share": 0.002445,
+      "marginal_sharpe_per_pp": -0.029646
      },
      {
       "ticker": "TE",
-      "weight": 0.000981,
+      "weight": 0.000991,
       "excess_return_annual": -0.544137,
-      "sharpe_contribution": -0.001971,
-      "return_share": -0.003782,
-      "risk_share": 0.002392,
-      "marginal_sharpe_per_pp": -0.032806
+      "sharpe_contribution": -0.002025,
+      "return_share": -0.003833,
+      "risk_share": 0.002445,
+      "marginal_sharpe_per_pp": -0.033486
      },
      {
       "ticker": "KRKNF",
-      "weight": 0.001525,
+      "weight": 0.001541,
       "excess_return_annual": -0.401276,
-      "sharpe_contribution": -0.002261,
-      "return_share": -0.004338,
-      "risk_share": 0.001809,
-      "marginal_sharpe_per_pp": -0.021001
+      "sharpe_contribution": -0.002323,
+      "return_share": -0.004397,
+      "risk_share": 0.001867,
+      "marginal_sharpe_per_pp": -0.021479
      },
      {
       "ticker": "SERV",
-      "weight": 0.000763,
+      "weight": 0.00077,
       "excess_return_annual": -1.276783,
-      "sharpe_contribution": -0.003597,
-      "return_share": -0.006902,
-      "risk_share": 0.001402,
-      "marginal_sharpe_per_pp": -0.056732
+      "sharpe_contribution": -0.003696,
+      "return_share": -0.006995,
+      "risk_share": 0.00144,
+      "marginal_sharpe_per_pp": -0.057847
      },
      {
       "ticker": "SMR",
-      "weight": 0.001416,
+      "weight": 0.001431,
       "excess_return_annual": -0.709613,
-      "sharpe_contribution": -0.003712,
-      "return_share": -0.007124,
-      "risk_share": 0.003283,
-      "marginal_sharpe_per_pp": -0.038286
+      "sharpe_contribution": -0.003815,
+      "return_share": -0.00722,
+      "risk_share": 0.003367,
+      "marginal_sharpe_per_pp": -0.039098
      },
      {
       "ticker": "QBTS",
-      "weight": 0.00207,
+      "weight": 0.002091,
       "excess_return_annual": -0.498466,
-      "sharpe_contribution": -0.003811,
-      "return_share": -0.007314,
-      "risk_share": 0.004984,
-      "marginal_sharpe_per_pp": -0.030957
+      "sharpe_contribution": -0.003916,
+      "return_share": -0.007413,
+      "risk_share": 0.005113,
+      "marginal_sharpe_per_pp": -0.031647
      },
      {
       "ticker": "ASTS",
-      "weight": 0.11582,
+      "weight": 0.116993,
       "excess_return_annual": -0.134473,
-      "sharpe_contribution": -0.057523,
-      "return_share": -0.110384,
-      "risk_share": 0.369002,
-      "marginal_sharpe_per_pp": -0.021569
+      "sharpe_contribution": -0.059112,
+      "return_share": -0.111878,
+      "risk_share": 0.376266,
+      "marginal_sharpe_per_pp": -0.022045
      }
     ]
    }
@@ -3202,43 +3202,43 @@
   "observations": 1234,
   "data_through": "2026-09-30",
   "note": "Ken French updates monthly; loadings run through prior month-end.",
-  "r_squared": 0.8062798079436191,
-  "annualised_alpha": 0.20064950646563284,
+  "r_squared": 0.8060909576613892,
+  "annualised_alpha": 0.19620234952454574,
   "loadings": [
    {
     "factor": "Mkt-RF",
-    "beta": 1.2952938241916216,
-    "t_stat": 52.23508063110841,
+    "beta": 1.293755262684981,
+    "t_stat": 52.43698889307703,
     "significant_95": true
    },
    {
     "factor": "SMB",
-    "beta": 0.02539700801493605,
-    "t_stat": 0.5885589791886124,
+    "beta": 0.014081229980426196,
+    "t_stat": 0.3279741887527985,
     "significant_95": false
    },
    {
     "factor": "HML",
-    "beta": -0.3610779195778732,
-    "t_stat": -9.665842275653377,
+    "beta": -0.36034243652598036,
+    "t_stat": -9.694955601814591,
     "significant_95": true
    },
    {
     "factor": "RMW",
-    "beta": -0.22672200188119968,
-    "t_stat": -5.345248135410621,
+    "beta": -0.20862168279064242,
+    "t_stat": -4.943394709110938,
     "significant_95": true
    },
    {
     "factor": "CMA",
-    "beta": -0.14572488163010544,
-    "t_stat": -2.890340373064244,
+    "beta": -0.14395571376286256,
+    "t_stat": -2.8696955638423693,
     "significant_95": true
    },
    {
     "factor": "Mom",
-    "beta": 0.09352559623085832,
-    "t_stat": 3.929712839073552,
+    "beta": 0.08953639872125833,
+    "t_stat": 3.7811298662058976,
     "significant_95": true
    }
   ]
@@ -3257,8 +3257,8 @@
   "rates_2022": {
    "label": "2022",
    "available": true,
-   "portfolio_return": -0.3277281040379131,
-   "benchmark_return": -0.2405921941221454,
+   "portfolio_return": -0.3231685747120885,
+   "benchmark_return": -0.24059210661878616,
    "tickers_with_history": 48,
    "of_total": 54,
    "note": "Names without history in this window contribute zero, so the drawdown is understated for a book this young."
@@ -3273,425 +3273,425 @@
   "available": true,
   "method": "additive: weight x annualised excess return / portfolio volatility",
   "observations": 1253,
-  "sharpe": 0.895269,
-  "excess_return_annual": 0.268644,
-  "volatility_annual": 0.30007,
-  "identity_residual": 1.1102230246251565e-16,
+  "sharpe": 0.889532,
+  "excess_return_annual": 0.265422,
+  "volatility_annual": 0.298383,
+  "identity_residual": 2.220446049250313e-16,
   "return_shares_meaningful": true,
   "positions": [
    {
     "ticker": "ASTS",
-    "weight": 0.11582,
+    "weight": 0.116993,
     "excess_return_annual": 0.794586,
-    "sharpe_contribution": 0.306693,
-    "return_share": 0.34257,
-    "risk_share": 0.300997,
-    "marginal_sharpe_per_pp": 0.003214
+    "sharpe_contribution": 0.311549,
+    "return_share": 0.35024,
+    "risk_share": 0.30512,
+    "marginal_sharpe_per_pp": 0.003431
    },
    {
     "ticker": "NVDA",
-    "weight": 0.103617,
+    "weight": 0.104667,
     "excess_return_annual": 0.535375,
-    "sharpe_contribution": 0.18487,
-    "return_share": 0.206497,
-    "risk_share": 0.136418,
-    "marginal_sharpe_per_pp": 0.006055
+    "sharpe_contribution": 0.187798,
+    "return_share": 0.21112,
+    "risk_share": 0.138979,
+    "marginal_sharpe_per_pp": 0.006131
    },
    {
     "ticker": "VUG",
-    "weight": 0.303552,
+    "weight": 0.306626,
     "excess_return_annual": 0.102286,
-    "sharpe_contribution": 0.103473,
-    "return_share": 0.115577,
-    "risk_share": 0.205633,
-    "marginal_sharpe_per_pp": -0.002656
+    "sharpe_contribution": 0.105111,
+    "return_share": 0.118165,
+    "risk_share": 0.20922,
+    "marginal_sharpe_per_pp": -0.002642
    },
    {
     "ticker": "VOOG",
-    "weight": 0.093702,
+    "weight": 0.094651,
     "excess_return_annual": 0.106714,
-    "sharpe_contribution": 0.033323,
-    "return_share": 0.037221,
-    "risk_share": 0.06028,
-    "marginal_sharpe_per_pp": -0.002203
+    "sharpe_contribution": 0.033851,
+    "return_share": 0.038055,
+    "risk_share": 0.061326,
+    "marginal_sharpe_per_pp": -0.002187
    },
    {
     "ticker": "AAPL",
-    "weight": 0.048703,
+    "weight": 0.049197,
     "excess_return_annual": 0.174472,
-    "sharpe_contribution": 0.028318,
-    "return_share": 0.031631,
-    "risk_share": 0.028052,
-    "marginal_sharpe_per_pp": 0.000658
+    "sharpe_contribution": 0.028766,
+    "return_share": 0.032339,
+    "risk_share": 0.028622,
+    "marginal_sharpe_per_pp": 0.000672
    },
    {
     "ticker": "PLTR",
-    "weight": 0.013184,
+    "weight": 0.013317,
     "excess_return_annual": 0.596205,
-    "sharpe_contribution": 0.026194,
-    "return_share": 0.029259,
-    "risk_share": 0.017126,
-    "marginal_sharpe_per_pp": 0.008239
-   },
-   {
-    "ticker": "RKLB",
-    "weight": 0.011222,
-    "excess_return_annual": 0.566334,
-    "sharpe_contribution": 0.021181,
-    "return_share": 0.023658,
-    "risk_share": 0.017479,
-    "marginal_sharpe_per_pp": 0.00493
+    "sharpe_contribution": 0.026609,
+    "return_share": 0.029914,
+    "risk_share": 0.017322,
+    "marginal_sharpe_per_pp": 0.008411
    },
    {
     "ticker": "DELL",
-    "weight": 0.011005,
+    "weight": 0.011116,
     "excess_return_annual": 0.57129,
-    "sharpe_contribution": 0.020951,
-    "return_share": 0.023402,
-    "risk_share": 0.009573,
-    "marginal_sharpe_per_pp": 0.01125
+    "sharpe_contribution": 0.021283,
+    "return_share": 0.023926,
+    "risk_share": 0.009727,
+    "marginal_sharpe_per_pp": 0.011363
    },
    {
     "ticker": "MSFT",
-    "weight": 0.056003,
+    "weight": 0.056571,
     "excess_return_annual": 0.111959,
-    "sharpe_contribution": 0.020895,
-    "return_share": 0.02334,
-    "risk_share": 0.034773,
-    "marginal_sharpe_per_pp": -0.001828
+    "sharpe_contribution": 0.021226,
+    "return_share": 0.023862,
+    "risk_share": 0.035449,
+    "marginal_sharpe_per_pp": -0.001822
    },
    {
     "ticker": "AMD",
-    "weight": 0.012748,
+    "weight": 0.012877,
     "excess_return_annual": 0.437987,
-    "sharpe_contribution": 0.018607,
-    "return_share": 0.020784,
-    "risk_share": 0.016674,
-    "marginal_sharpe_per_pp": 0.002887
+    "sharpe_contribution": 0.018902,
+    "return_share": 0.021249,
+    "risk_share": 0.016942,
+    "marginal_sharpe_per_pp": 0.002975
    },
    {
     "ticker": "QQQ",
-    "weight": 0.044672,
+    "weight": 0.045124,
     "excess_return_annual": 0.124197,
-    "sharpe_contribution": 0.018489,
-    "return_share": 0.020652,
-    "risk_share": 0.030782,
-    "marginal_sharpe_per_pp": -0.00203
+    "sharpe_contribution": 0.018782,
+    "return_share": 0.021115,
+    "risk_share": 0.031305,
+    "marginal_sharpe_per_pp": -0.002009
    },
    {
     "ticker": "GS",
-    "weight": 0.023317,
+    "weight": 0.023553,
     "excess_return_annual": 0.188799,
-    "sharpe_contribution": 0.01467,
-    "return_share": 0.016387,
-    "risk_share": 0.012773,
-    "marginal_sharpe_per_pp": 0.001387
+    "sharpe_contribution": 0.014903,
+    "return_share": 0.016753,
+    "risk_share": 0.012961,
+    "marginal_sharpe_per_pp": 0.001432
    },
    {
     "ticker": "GOOGL",
-    "weight": 0.024406,
+    "weight": 0.024653,
     "excess_return_annual": 0.17677,
-    "sharpe_contribution": 0.014378,
-    "return_share": 0.016059,
-    "risk_share": 0.016219,
-    "marginal_sharpe_per_pp": -5.8e-05
+    "sharpe_contribution": 0.014605,
+    "return_share": 0.016419,
+    "risk_share": 0.016539,
+    "marginal_sharpe_per_pp": -4.3e-05
    },
    {
     "ticker": "AMZN",
-    "weight": 0.029418,
+    "weight": 0.029716,
     "excess_return_annual": 0.108978,
-    "sharpe_contribution": 0.010684,
-    "return_share": 0.011934,
-    "risk_share": 0.024092,
-    "marginal_sharpe_per_pp": -0.0037
+    "sharpe_contribution": 0.010853,
+    "return_share": 0.012201,
+    "risk_share": 0.024528,
+    "marginal_sharpe_per_pp": -0.00369
    },
    {
     "ticker": "QQQM",
-    "weight": 0.018196,
+    "weight": 0.01838,
     "excess_return_annual": 0.12456,
-    "sharpe_contribution": 0.007553,
-    "return_share": 0.008437,
-    "risk_share": 0.012452,
-    "marginal_sharpe_per_pp": -0.001975
+    "sharpe_contribution": 0.007673,
+    "return_share": 0.008626,
+    "risk_share": 0.012664,
+    "marginal_sharpe_per_pp": -0.001954
    },
    {
     "ticker": "META",
-    "weight": 0.010678,
+    "weight": 0.010786,
     "excess_return_annual": 0.205986,
-    "sharpe_contribution": 0.00733,
-    "return_share": 0.008187,
-    "risk_share": 0.009317,
-    "marginal_sharpe_per_pp": -0.000948
+    "sharpe_contribution": 0.007446,
+    "return_share": 0.008371,
+    "risk_share": 0.009503,
+    "marginal_sharpe_per_pp": -0.000934
    },
    {
     "ticker": "NBIS",
-    "weight": 0.002942,
+    "weight": 0.002972,
     "excess_return_annual": 0.647232,
-    "sharpe_contribution": 0.006345,
-    "return_share": 0.007088,
-    "risk_share": 0.002341,
-    "marginal_sharpe_per_pp": 0.014446
+    "sharpe_contribution": 0.006446,
+    "return_share": 0.007246,
+    "risk_share": 0.002366,
+    "marginal_sharpe_per_pp": 0.014609
    },
    {
     "ticker": "QBTS",
-    "weight": 0.00207,
+    "weight": 0.002091,
     "excess_return_annual": 0.827155,
-    "sharpe_contribution": 0.005706,
-    "return_share": 0.006374,
-    "risk_share": 0.002613,
-    "marginal_sharpe_per_pp": 0.016265
+    "sharpe_contribution": 0.005797,
+    "return_share": 0.006517,
+    "risk_share": 0.002614,
+    "marginal_sharpe_per_pp": 0.016603
    },
    {
     "ticker": "TQQQ",
-    "weight": 0.005121,
+    "weight": 0.005173,
     "excess_return_annual": 0.334056,
-    "sharpe_contribution": 0.005701,
-    "return_share": 0.006368,
-    "risk_share": 0.010488,
-    "marginal_sharpe_per_pp": -0.007203
+    "sharpe_contribution": 0.005791,
+    "return_share": 0.00651,
+    "risk_share": 0.010667,
+    "marginal_sharpe_per_pp": -0.007148
    },
    {
     "ticker": "IUSG",
-    "weight": 0.016343,
+    "weight": 0.016509,
     "excess_return_annual": 0.103538,
-    "sharpe_contribution": 0.005639,
-    "return_share": 0.006299,
-    "risk_share": 0.010367,
-    "marginal_sharpe_per_pp": -0.002228
+    "sharpe_contribution": 0.005729,
+    "return_share": 0.00644,
+    "risk_share": 0.010546,
+    "marginal_sharpe_per_pp": -0.002212
    },
    {
     "ticker": "TSLA",
-    "weight": 0.006755,
+    "weight": 0.006824,
     "excess_return_annual": 0.168373,
-    "sharpe_contribution": 0.00379,
-    "return_share": 0.004234,
-    "risk_share": 0.007984,
-    "marginal_sharpe_per_pp": -0.00497
+    "sharpe_contribution": 0.00385,
+    "return_share": 0.004329,
+    "risk_share": 0.008095,
+    "marginal_sharpe_per_pp": -0.00491
    },
    {
     "ticker": "AVGO",
-    "weight": 0.002288,
+    "weight": 0.002311,
     "excess_return_annual": 0.45683,
-    "sharpe_contribution": 0.003483,
-    "return_share": 0.003891,
-    "risk_share": 0.002156,
-    "marginal_sharpe_per_pp": 0.006789
+    "sharpe_contribution": 0.003539,
+    "return_share": 0.003978,
+    "risk_share": 0.002193,
+    "marginal_sharpe_per_pp": 0.006872
    },
    {
     "ticker": "IBM",
-    "weight": 0.004903,
+    "weight": 0.004953,
     "excess_return_annual": 0.197697,
-    "sharpe_contribution": 0.00323,
-    "return_share": 0.003608,
-    "risk_share": 0.001264,
-    "marginal_sharpe_per_pp": 0.00428
+    "sharpe_contribution": 0.003281,
+    "return_share": 0.003689,
+    "risk_share": 0.00129,
+    "marginal_sharpe_per_pp": 0.004309
    },
    {
     "ticker": "ONDS",
-    "weight": 0.001743,
+    "weight": 0.001761,
     "excess_return_annual": 0.521937,
-    "sharpe_contribution": 0.003032,
-    "return_share": 0.003387,
-    "risk_share": 0.00262,
-    "marginal_sharpe_per_pp": 0.003937
+    "sharpe_contribution": 0.00308,
+    "return_share": 0.003463,
+    "risk_share": 0.002639,
+    "marginal_sharpe_per_pp": 0.004163
    },
    {
     "ticker": "KRKNF",
-    "weight": 0.001525,
+    "weight": 0.001541,
     "excess_return_annual": 0.593576,
-    "sharpe_contribution": 0.003017,
-    "return_share": 0.00337,
-    "risk_share": 0.00089,
-    "marginal_sharpe_per_pp": 0.014557
+    "sharpe_contribution": 0.003065,
+    "return_share": 0.003446,
+    "risk_share": 0.000903,
+    "marginal_sharpe_per_pp": 0.014677
    },
    {
     "ticker": "JPM",
-    "weight": 0.004467,
+    "weight": 0.004512,
     "excess_return_annual": 0.15588,
-    "sharpe_contribution": 0.002321,
-    "return_share": 0.002592,
-    "risk_share": 0.001628,
-    "marginal_sharpe_per_pp": 0.001933
+    "sharpe_contribution": 0.002357,
+    "return_share": 0.00265,
+    "risk_share": 0.001652,
+    "marginal_sharpe_per_pp": 0.001967
    },
    {
     "ticker": "IREN",
-    "weight": 0.000981,
+    "weight": 0.000991,
     "excess_return_annual": 0.645607,
-    "sharpe_contribution": 0.00211,
-    "return_share": 0.002357,
-    "risk_share": 0.00176,
-    "marginal_sharpe_per_pp": 0.005449
+    "sharpe_contribution": 0.002143,
+    "return_share": 0.002409,
+    "risk_share": 0.001778,
+    "marginal_sharpe_per_pp": 0.005668
    },
    {
     "ticker": "NNE",
-    "weight": 0.000981,
+    "weight": 0.000991,
     "excess_return_annual": 0.600032,
-    "sharpe_contribution": 0.001961,
-    "return_share": 0.00219,
-    "risk_share": 0.000947,
-    "marginal_sharpe_per_pp": 0.011353
+    "sharpe_contribution": 0.001992,
+    "return_share": 0.002239,
+    "risk_share": 0.000949,
+    "marginal_sharpe_per_pp": 0.01159
+   },
+   {
+    "ticker": "HOOD",
+    "weight": 0.001211,
+    "excess_return_annual": 0.394676,
+    "sharpe_contribution": 0.001601,
+    "return_share": 0.0018,
+    "risk_share": 0.001629,
+    "marginal_sharpe_per_pp": 0.001258
    },
    {
     "ticker": "SMR",
-    "weight": 0.001416,
+    "weight": 0.001431,
     "excess_return_annual": 0.30482,
-    "sharpe_contribution": 0.001439,
-    "return_share": 0.001607,
-    "risk_share": 0.001615,
-    "marginal_sharpe_per_pp": -5.1e-05
+    "sharpe_contribution": 0.001462,
+    "return_share": 0.001643,
+    "risk_share": 0.001619,
+    "marginal_sharpe_per_pp": 0.00015
    },
    {
     "ticker": "BULL",
-    "weight": 0.000981,
+    "weight": 0.000991,
     "excess_return_annual": 0.404423,
-    "sharpe_contribution": 0.001322,
-    "return_share": 0.001476,
-    "risk_share": 0.000282,
-    "marginal_sharpe_per_pp": 0.010899
+    "sharpe_contribution": 0.001343,
+    "return_share": 0.001509,
+    "risk_share": 0.000289,
+    "marginal_sharpe_per_pp": 0.010959
    },
    {
     "ticker": "ORLY",
-    "weight": 0.002615,
+    "weight": 0.002641,
     "excess_return_annual": 0.147041,
-    "sharpe_contribution": 0.001281,
-    "return_share": 0.001431,
-    "risk_share": 0.000291,
-    "marginal_sharpe_per_pp": 0.003904
+    "sharpe_contribution": 0.001302,
+    "return_share": 0.001463,
+    "risk_share": 0.000297,
+    "marginal_sharpe_per_pp": 0.003927
    },
    {
     "ticker": "SCHA",
-    "weight": 0.006973,
+    "weight": 0.007044,
     "excess_return_annual": 0.050071,
-    "sharpe_contribution": 0.001164,
-    "return_share": 0.0013,
-    "risk_share": 0.003864,
-    "marginal_sharpe_per_pp": -0.003293
+    "sharpe_contribution": 0.001182,
+    "return_share": 0.001329,
+    "risk_share": 0.003915,
+    "marginal_sharpe_per_pp": -0.003266
    },
    {
     "ticker": "LUNR",
-    "weight": 0.000327,
+    "weight": 0.00033,
     "excess_return_annual": 0.970488,
-    "sharpe_contribution": 0.001057,
-    "return_share": 0.001181,
-    "risk_share": 0.000288,
-    "marginal_sharpe_per_pp": 0.024449
+    "sharpe_contribution": 0.001074,
+    "return_share": 0.001207,
+    "risk_share": 0.000285,
+    "marginal_sharpe_per_pp": 0.024841
    },
    {
     "ticker": "HIMS",
-    "weight": 0.000545,
+    "weight": 0.00055,
     "excess_return_annual": 0.569634,
-    "sharpe_contribution": 0.001034,
-    "return_share": 0.001155,
-    "risk_share": 0.000673,
-    "marginal_sharpe_per_pp": 0.007931
+    "sharpe_contribution": 0.001051,
+    "return_share": 0.001181,
+    "risk_share": 0.000679,
+    "marginal_sharpe_per_pp": 0.00811
    },
    {
     "ticker": "MSTR",
-    "weight": 0.000545,
+    "weight": 0.00055,
     "excess_return_annual": 0.515687,
-    "sharpe_contribution": 0.000936,
-    "return_share": 0.001046,
-    "risk_share": 0.000878,
-    "marginal_sharpe_per_pp": 0.002759
+    "sharpe_contribution": 0.000951,
+    "return_share": 0.001069,
+    "risk_share": 0.000889,
+    "marginal_sharpe_per_pp": 0.002906
    },
    {
     "ticker": "RDW",
-    "weight": 0.000654,
+    "weight": 0.00066,
     "excess_return_annual": 0.339433,
-    "sharpe_contribution": 0.000739,
-    "return_share": 0.000826,
-    "risk_share": 0.001028,
-    "marginal_sharpe_per_pp": -0.00277
+    "sharpe_contribution": 0.000751,
+    "return_share": 0.000844,
+    "risk_share": 0.001027,
+    "marginal_sharpe_per_pp": -0.002459
    },
    {
     "ticker": "DE",
-    "weight": 0.001525,
+    "weight": 0.001541,
     "excess_return_annual": 0.143871,
-    "sharpe_contribution": 0.000731,
-    "return_share": 0.000817,
-    "risk_share": 0.000447,
-    "marginal_sharpe_per_pp": 0.002169
+    "sharpe_contribution": 0.000743,
+    "return_share": 0.000835,
+    "risk_share": 0.000452,
+    "marginal_sharpe_per_pp": 0.002213
    },
    {
     "ticker": "SERV",
-    "weight": 0.000763,
+    "weight": 0.00077,
     "excess_return_annual": 0.281864,
-    "sharpe_contribution": 0.000716,
-    "return_share": 0.0008,
-    "risk_share": 0.000702,
-    "marginal_sharpe_per_pp": 0.001158
+    "sharpe_contribution": 0.000728,
+    "return_share": 0.000818,
+    "risk_share": 0.000706,
+    "marginal_sharpe_per_pp": 0.001294
    },
    {
     "ticker": "OKLO",
-    "weight": 0.000327,
+    "weight": 0.00033,
     "excess_return_annual": 0.559198,
-    "sharpe_contribution": 0.000609,
-    "return_share": 0.00068,
-    "risk_share": 0.000321,
-    "marginal_sharpe_per_pp": 0.009838
+    "sharpe_contribution": 0.000619,
+    "return_share": 0.000696,
+    "risk_share": 0.000322,
+    "marginal_sharpe_per_pp": 0.010074
    },
    {
     "ticker": "TE",
-    "weight": 0.000981,
+    "weight": 0.000991,
     "excess_return_annual": 0.177485,
-    "sharpe_contribution": 0.00058,
-    "return_share": 0.000648,
-    "risk_share": 0.001351,
-    "marginal_sharpe_per_pp": -0.006419
+    "sharpe_contribution": 0.000589,
+    "return_share": 0.000662,
+    "risk_share": 0.00136,
+    "marginal_sharpe_per_pp": -0.006264
    },
    {
     "ticker": "LTRX",
-    "weight": 0.00109,
+    "weight": 0.001101,
     "excess_return_annual": 0.125539,
-    "sharpe_contribution": 0.000456,
-    "return_share": 0.000509,
-    "risk_share": 0.001037,
-    "marginal_sharpe_per_pp": -0.004333
+    "sharpe_contribution": 0.000463,
+    "return_share": 0.000521,
+    "risk_share": 0.001045,
+    "marginal_sharpe_per_pp": -0.004236
    },
    {
     "ticker": "IWM",
-    "weight": 0.002942,
+    "weight": 0.002972,
     "excess_return_annual": 0.043763,
-    "sharpe_contribution": 0.000429,
-    "return_share": 0.000479,
-    "risk_share": 0.001643,
-    "marginal_sharpe_per_pp": -0.003543
+    "sharpe_contribution": 0.000436,
+    "return_share": 0.00049,
+    "risk_share": 0.001665,
+    "marginal_sharpe_per_pp": -0.003516
    },
    {
     "ticker": "ACHR",
-    "weight": 0.000436,
+    "weight": 0.00044,
     "excess_return_annual": 0.267081,
-    "sharpe_contribution": 0.000388,
-    "return_share": 0.000433,
-    "risk_share": 0.000596,
-    "marginal_sharpe_per_pp": -0.003348
+    "sharpe_contribution": 0.000394,
+    "return_share": 0.000443,
+    "risk_share": 0.000599,
+    "marginal_sharpe_per_pp": -0.003156
    },
    {
     "ticker": "ISRG",
-    "weight": 0.001416,
+    "weight": 0.001431,
     "excess_return_annual": 0.07043,
-    "sharpe_contribution": 0.000332,
-    "return_share": 0.000371,
-    "risk_share": 0.00084,
-    "marginal_sharpe_per_pp": -0.002965
+    "sharpe_contribution": 0.000338,
+    "return_share": 0.00038,
+    "risk_share": 0.000855,
+    "marginal_sharpe_per_pp": -0.002955
    },
    {
     "ticker": "GME",
-    "weight": 0.000109,
+    "weight": 0.00011,
     "excess_return_annual": 0.237856,
-    "sharpe_contribution": 8.6e-05,
-    "return_share": 9.6e-05,
-    "risk_share": 9.4e-05,
-    "marginal_sharpe_per_pp": 0.000183
+    "sharpe_contribution": 8.8e-05,
+    "return_share": 9.9e-05,
+    "risk_share": 9.5e-05,
+    "marginal_sharpe_per_pp": 0.00028
    },
    {
     "ticker": "NCLH",
-    "weight": 0.000763,
+    "weight": 0.00077,
     "excess_return_annual": 0.030955,
-    "sharpe_contribution": 7.9e-05,
-    "return_share": 8.8e-05,
-    "risk_share": 0.000729,
-    "marginal_sharpe_per_pp": -0.007528
+    "sharpe_contribution": 8e-05,
+    "return_share": 9e-05,
+    "risk_share": 0.000739,
+    "marginal_sharpe_per_pp": -0.007501
    },
    {
     "ticker": "AMC",
@@ -3700,75 +3700,75 @@
     "sharpe_contribution": -0.0,
     "return_share": -0.0,
     "risk_share": 0.0,
-    "marginal_sharpe_per_pp": -0.024809
+    "marginal_sharpe_per_pp": -0.024863
    },
    {
     "ticker": "SRFM",
-    "weight": 0.000109,
+    "weight": 0.00011,
     "excess_return_annual": -0.059347,
     "sharpe_contribution": -2.2e-05,
-    "return_share": -2.4e-05,
+    "return_share": -2.5e-05,
     "risk_share": 8.5e-05,
-    "marginal_sharpe_per_pp": -0.008938
+    "marginal_sharpe_per_pp": -0.008851
    },
    {
     "ticker": "QS",
-    "weight": 0.000436,
+    "weight": 0.00044,
     "excess_return_annual": -0.04594,
-    "sharpe_contribution": -6.7e-05,
-    "return_share": -7.5e-05,
-    "risk_share": 0.000609,
-    "marginal_sharpe_per_pp": -0.014032
+    "sharpe_contribution": -6.8e-05,
+    "return_share": -7.6e-05,
+    "risk_share": 0.000613,
+    "marginal_sharpe_per_pp": -0.013931
    },
    {
     "ticker": "BAER",
-    "weight": 0.000218,
+    "weight": 0.00022,
     "excess_return_annual": -0.197432,
-    "sharpe_contribution": -0.000143,
-    "return_share": -0.00016,
+    "sharpe_contribution": -0.000146,
+    "return_share": -0.000164,
     "risk_share": 6e-05,
-    "marginal_sharpe_per_pp": -0.009029
+    "marginal_sharpe_per_pp": -0.009042
    },
    {
     "ticker": "DIS",
-    "weight": 0.000654,
+    "weight": 0.00066,
     "excess_return_annual": -0.07182,
-    "sharpe_contribution": -0.000156,
-    "return_share": -0.000175,
-    "risk_share": 0.000315,
-    "marginal_sharpe_per_pp": -0.006704
+    "sharpe_contribution": -0.000159,
+    "return_share": -0.000179,
+    "risk_share": 0.000319,
+    "marginal_sharpe_per_pp": -0.006709
    },
    {
     "ticker": "FLY",
-    "weight": 0.000436,
+    "weight": 0.00044,
     "excess_return_annual": -0.123419,
-    "sharpe_contribution": -0.000179,
-    "return_share": -0.0002,
-    "risk_share": 0.000196,
-    "marginal_sharpe_per_pp": -0.00813
+    "sharpe_contribution": -0.000182,
+    "return_share": -0.000205,
+    "risk_share": 0.000193,
+    "marginal_sharpe_per_pp": -0.008039
    },
    {
     "ticker": "NKLR",
-    "weight": 0.000545,
+    "weight": 0.00055,
     "excess_return_annual": -0.264707,
-    "sharpe_contribution": -0.000481,
-    "return_share": -0.000537,
+    "sharpe_contribution": -0.000488,
+    "return_share": -0.000549,
     "risk_share": 0.000191,
-    "marginal_sharpe_per_pp": -0.011956
+    "marginal_sharpe_per_pp": -0.011964
    },
    {
     "ticker": "VELO",
-    "weight": 0.002833,
+    "weight": 0.002862,
     "excess_return_annual": -0.10691,
-    "sharpe_contribution": -0.001009,
-    "return_share": -0.001127,
-    "risk_share": 0.00417,
-    "marginal_sharpe_per_pp": -0.01674
+    "sharpe_contribution": -0.001025,
+    "return_share": -0.001153,
+    "risk_share": 0.004173,
+    "marginal_sharpe_per_pp": -0.016555
    }
   ]
  },
  "shocks": {
-  "market_minus_10pct": -15.06,
+  "market_minus_10pct": -14.99,
   "method": "beta-implied, first order only"
  }
 }
